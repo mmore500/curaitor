@@ -9,6 +9,13 @@ Schmidt OxRSE 2024 Project
 
 -   Free software: MIT license
 
+## Contribution Guidelines
+
+1. Open pull request.
+2. Ensure tests, styling, and linting pass in CI.
+3. Request code review.
+4. Merge.
+
 
 ## Credits
 
