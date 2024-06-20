@@ -4,11 +4,27 @@
 #
 #    pip-compile requirements-dev.in
 #
+black==23.12.1
+    # via -r requirements-dev.in
+click==8.1.7
+    # via black
 iniconfig==2.0.0
     # via pytest
+isort==5.13.2
+    # via -r requirements-dev.in
+mypy-extensions==1.0.0
+    # via black
 packaging==24.1
-    # via pytest
+    # via
+    #   black
+    #   pytest
+pathspec==0.12.1
+    # via black
+platformdirs==4.2.2
+    # via black
 pluggy==1.5.0
     # via pytest
 pytest==8.2.2
+    # via -r requirements-dev.in
+ruff==0.4.9
     # via -r requirements-dev.in

@@ -1,1 +1,4 @@
+black==23.*
+isort
 pytest
+ruff
