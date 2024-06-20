@@ -49,6 +49,10 @@ comm==0.2.2
     # via
     #   ipykernel
     #   ipywidgets
+contourpy==1.2.1
+    # via matplotlib
+cycler==0.12.1
+    # via matplotlib
 debugpy==1.8.1
     # via ipykernel
 decorator==5.1.1
@@ -65,6 +69,8 @@ executing==2.0.1
     # via stack-data
 fastjsonschema==2.20.0
     # via nbformat
+fonttools==4.53.0
+    # via matplotlib
 fqdn==1.5.1
     # via jsonschema
 h11==0.14.0
@@ -166,10 +172,16 @@ jupyterlab-server==2.27.2
     #   notebook
 jupyterlab-widgets==3.0.11
     # via ipywidgets
+kiwisolver==1.4.5
+    # via matplotlib
 markupsafe==2.1.5
     # via
     #   jinja2
     #   nbconvert
+matplotlib==3.9.0
+    # via
+    #   -r requirements-dev.in
+    #   seaborn
 matplotlib-inline==0.1.7
     # via
     #   ipykernel
@@ -200,7 +212,10 @@ notebook-shim==0.2.4
 numpy==2.0.0
     # via
     #   -r requirements-dev.in
+    #   contourpy
+    #   matplotlib
     #   pandas
+    #   seaborn
 overrides==7.7.0
     # via jupyter-server
 packaging==24.1
@@ -210,13 +225,16 @@ packaging==24.1
     #   jupyter-server
     #   jupyterlab
     #   jupyterlab-server
+    #   matplotlib
     #   nbconvert
     #   pytest
     #   qtconsole
     #   qtpy
     #   sphinx
 pandas==2.2.2
-    # via -r requirements-dev.in
+    # via
+    #   -r requirements-dev.in
+    #   seaborn
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
@@ -225,6 +243,8 @@ pathspec==0.12.1
     # via black
 pexpect==4.9.0
     # via ipython
+pillow==10.3.0
+    # via matplotlib
 platformdirs==4.2.2
     # via
     #   black
@@ -254,6 +274,8 @@ pygments==2.18.0
     #   nbconvert
     #   qtconsole
     #   sphinx
+pyparsing==3.1.2
+    # via matplotlib
 pytest==8.2.2
     # via
     #   -r requirements-dev.in
@@ -264,6 +286,7 @@ python-dateutil==2.9.0.post0
     # via
     #   arrow
     #   jupyter-client
+    #   matplotlib
     #   pandas
 python-json-logger==2.0.7
     # via jupyter-events
@@ -304,6 +327,8 @@ rpds-py==0.18.1
     #   jsonschema
     #   referencing
 ruff==0.4.9
+    # via -r requirements-dev.in
+seaborn==0.13.2
     # via -r requirements-dev.in
 send2trash==1.8.3
     # via jupyter-server
