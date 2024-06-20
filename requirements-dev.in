@@ -2,5 +2,6 @@ black[jupyter]==23.*
 isort
 jupyter
 pytest
+pytest-xdist
 sphinx_rtd_theme
 ruff

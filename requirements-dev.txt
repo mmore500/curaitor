@@ -59,6 +59,8 @@ docutils==0.20.1
     # via
     #   sphinx
     #   sphinx-rtd-theme
+execnet==2.1.1
+    # via pytest-xdist
 executing==2.0.1
     # via stack-data
 fastjsonschema==2.20.0
@@ -247,6 +249,10 @@ pygments==2.18.0
     #   qtconsole
     #   sphinx
 pytest==8.2.2
+    # via
+    #   -r requirements-dev.in
+    #   pytest-xdist
+pytest-xdist==3.6.1
     # via -r requirements-dev.in
 python-dateutil==2.9.0.post0
     # via
