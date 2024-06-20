@@ -1,0 +1,255 @@
+name: CI
+on:
+  push:
+    branches: [ master, dev, cut-cookie ]
+  pull_request:
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 0 * * 0'
+jobs:
+
+  docker-build:
+    name: Docker Build
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0 # fetch all history for all branches and tags
+      - name: Push to GitHub Container Registry
+        uses: docker/build-push-action@v1
+        with:
+          push: true
+          tags: "GITHUB_ACTION_${{ github.run_number }}"
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          repository: mmore500/llms-for-data-extraction
+          registry: ghcr.io
+          add_git_labels: true
+
+  docker-teximage-build:
+    name: Docker Tex Image Build
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0 # fetch all history for all branches and tags
+      - name: Build and Push to GitHub Container Registry
+        uses: docker/build-push-action@v1
+        with:
+          push: true
+          tags: "GITHUB_ACTION_${{ github.run_number }}_TEXIMAGE"
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          repository: mmore500/llms-for-data-extraction
+          registry: ghcr.io
+          path: ./tex/
+          add_git_labels: true
+
+  tidy:
+    name: Tidy
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-build
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      # github actions requires root to access mounted volumes
+      options: --user root
+    steps:
+      - run: |
+          cd /opt/llms-for-data-extraction
+          ./tidy/test_tidy.sh
+
+  py-unit:
+    name: Pylib Unit Tests
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-build
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      # github actions requires root to access mounted volumes
+      options: --user root --cap-add=SYS_ADMIN
+    steps:
+      - run: /opt/llms-for-data-extraction/pylib/test/run_tests.sh
+
+  cpp-unit:
+    name: C++ Unit Tests
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-build
+    strategy:
+      matrix:
+        cxx: [clang++, g++]
+        mode: [ "", opt]
+      fail-fast: false
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      # github actions requires root to access mounted volumes
+      options: --user root --cap-add=SYS_ADMIN
+      env:
+        DISH_MPICXX: mpicxx.openmpi
+        OMPI_CXX: clang++
+    steps:
+      - run: |
+          set -x
+          make ${{matrix.mode}} -C "/opt/llms-for-data-extraction/cpp/tests/"
+
+  cpp-coverage:
+    name: Coverage
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-build
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      # github actions requires root to access mounted volumes
+      options: --user root --cap-add=SYS_ADMIN
+      env:
+        CXX: clang++
+    steps:
+      - run: "make coverage -C /opt/llms-for-data-extraction/cpp/tests/"
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          fail_ci_if_error: true
+          verbose: true
+          directory: /opt/llms-for-data-extraction/cpp
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-build
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      # github actions requires root to access mounted volumes
+      options: --user root
+    steps:
+      - run: make html -C /opt/llms-for-data-extraction/docs
+
+  cpp-source:
+    name: Source
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-build
+    strategy:
+      matrix:
+        cxx: [clang++, g++]
+        mode: [ "", opt]
+      fail-fast: false
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      options: --user user --cap-add=SYS_ADMIN
+      env:
+        DISH_MPICXX: mpicxx.openmpi
+        OMPI_CXX: ${{ matrix.cxx }}
+    steps:
+      # undo github actions override of HOME to "/home/github/"
+      - run: |
+          export HOME="/home/user/"
+          set -x
+          make test -C /opt/llms-for-data-extraction/
+
+  binder:
+    name: Notebooks
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-build
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      # github actions requires root to access mounted volumes
+      options: --user root
+    steps:
+      # Adapted from https://askubuntu.com/a/524368
+      - run: cd /opt/llms-for-data-extraction/binder && ./execute_notebooks.sh
+      # adapted from https://unix.stackexchange.com/a/545630
+      - run: find -type f -name "*.pdf" -exec bash -c 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -dQUIET -sOutputFile="new.pdf" "{}"; rm "{}"; mv "new.pdf" "{}";' {} \;
+      - run: git init
+      - uses: fregante/setup-git-user@v1
+      - run: git commit --allow-empty -m "Initial commit"
+      - run: cp -r /opt/llms-for-data-extraction/ deploy/
+      - uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: binder # The branch the action should deploy to.
+          folder: deploy # The folder the action should deploy.
+
+  latex:
+    name: Latex Build
+    runs-on: ubuntu-20.04
+    needs:
+      - docker-teximage-build
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}_TEXIMAGE
+      # github actions requires root to access mounted volumes
+      options: --user root
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - run: make -C /opt/llms-for-data-extraction/tex
+      - name: Upload output as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: manuscript
+          path: /opt/llms-for-data-extraction/tex/llms-for-data-extraction-draft.pdf
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/cut-cookie'
+    needs:
+      - binder
+      - cpp-coverage
+      - cpp-source
+      - cpp-unit
+      - docs
+      - latex
+      - py-unit
+      - tidy
+    container:
+      image: ghcr.io/mmore500/llms-for-data-extraction:GITHUB_ACTION_${{ github.run_number }}
+      # github actions requires root to access mounted volumes
+      options: --user root
+    steps:
+      - run: git init
+      - uses: fregante/setup-git-user@v1
+      - run: git commit --allow-empty -m "Initial commit"
+      - run: make web -C /opt/llms-for-data-extraction/
+      - run: make badges -C /opt/llms-for-data-extraction/
+      - run: cp -r /opt/llms-for-data-extraction/cpp/web/ deploy/
+      - uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: deploy # The folder the action should deploy.
+          clean: true # Automatically remove deleted files from the deploy branch
+
+  deploy-container:
+    name: Deploy Container to ghcr.io
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/cut-cookie'
+    needs:
+      - binder
+      - cpp-coverage
+      - cpp-source
+      - cpp-unit
+      - docs
+      - latex
+      - py-unit
+      - tidy
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0 # fetch all history for all branches and tags
+      - name: Push to GitHub Container Registry
+        uses: docker/build-push-action@v1
+        with:
+          push: true
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          repository: mmore500/llms-for-data-extraction
+          registry: ghcr.io
+          tag_with_ref: true
+          tag_with_sha: true
+          add_git_labels: true

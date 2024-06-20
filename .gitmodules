@@ -1,0 +1,3 @@
+[submodule "cpp/third-party/dishtiny"]
+	path = cpp/third-party/dishtiny
+	url = https://github.com/mmore500/dishtiny.git
