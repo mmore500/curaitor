@@ -35,7 +35,7 @@ jobs:
       - run: |
           python3 -m pip install pip --upgrade
           python3 -m pip install -r requirements-dev.txt
-      - run: python3 -m pytest -n auto test
+      - run: ./test.sh
 
   binder:
     runs-on: ubuntu-latest
