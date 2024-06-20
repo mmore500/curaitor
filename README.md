@@ -12,10 +12,15 @@ Schmidt OxRSE 2024 Project
 ## Contribution Guidelines
 
 1. Open pull request.
-2. Ensure tests, styling, and linting pass in CI.
-3. Request code review.
-4. Merge.
-
+2. Ensure tests, styling, and linting pass locally.
+   ```bash
+   ./test.sh
+   ./style.sh
+   ./lint.sh
+   ``` 
+3. Ensure tests, styling, and linting pass in CI.
+4. Request code review.
+5. Merge.
 
 ## Credits
 
