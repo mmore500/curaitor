@@ -44,7 +44,9 @@ cffi==1.16.0
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
-    # via black
+    # via
+    #   black
+    #   keyname
 comm==0.2.2
     # via
     #   ipykernel
@@ -56,9 +58,13 @@ cycler==0.12.1
 debugpy==1.8.1
     # via ipykernel
 decorator==5.1.1
-    # via ipython
+    # via
+    #   ipython
+    #   retry
 defusedxml==0.7.1
     # via nbconvert
+distutils-strtobool==0.1.0
+    # via teeplot
 docutils==0.20.1
     # via
     #   sphinx
@@ -87,6 +93,8 @@ idna==3.7
     #   requests
 imagesize==1.4.1
     # via sphinx
+importlib-metadata==7.1.0
+    # via watermark
 iniconfig==2.0.0
     # via pytest
 ipykernel==6.29.4
@@ -101,6 +109,7 @@ ipython==8.25.0
     #   ipykernel
     #   ipywidgets
     #   jupyter-console
+    #   watermark
 ipywidgets==8.1.3
     # via jupyter
 isoduration==20.11.0
@@ -172,6 +181,8 @@ jupyterlab-server==2.27.2
     #   notebook
 jupyterlab-widgets==3.0.11
     # via ipywidgets
+keyname==0.6.0
+    # via teeplot
 kiwisolver==1.4.5
     # via matplotlib
 markupsafe==2.1.5
@@ -182,12 +193,15 @@ matplotlib==3.9.0
     # via
     #   -r requirements-dev.in
     #   seaborn
+    #   teeplot
 matplotlib-inline==0.1.7
     # via
     #   ipykernel
     #   ipython
 mistune==3.0.2
     # via nbconvert
+more-itertools==10.3.0
+    # via keyname
 mypy-extensions==1.0.0
     # via black
 nbclient==0.10.0
@@ -265,6 +279,8 @@ ptyprocess==0.7.0
     #   terminado
 pure-eval==0.2.2
     # via stack-data
+py==1.11.0
+    # via retry
 pycparser==2.22
     # via cffi
 pygments==2.18.0
@@ -290,6 +306,8 @@ python-dateutil==2.9.0.post0
     #   pandas
 python-json-logger==2.0.7
     # via jupyter-events
+python-slugify==8.0.4
+    # via teeplot
 pytz==2024.1
     # via pandas
 pyyaml==6.0.1
@@ -314,6 +332,8 @@ requests==2.32.3
     # via
     #   jupyterlab-server
     #   sphinx
+retry==0.9.2
+    # via keyname
 rfc3339-validator==0.1.4
     # via
     #   jsonschema
@@ -368,10 +388,14 @@ sphinxcontrib-serializinghtml==1.1.10
     # via sphinx
 stack-data==0.6.3
     # via ipython
+teeplot==1.0.1
+    # via -r requirements-dev.in
 terminado==0.18.1
     # via
     #   jupyter-server
     #   jupyter-server-terminals
+text-unidecode==1.3
+    # via python-slugify
 tinycss2==1.3.0
     # via nbconvert
 tokenize-rt==5.2.0
@@ -403,12 +427,16 @@ traitlets==5.14.3
     #   qtconsole
 types-python-dateutil==2.9.0.20240316
     # via arrow
+typing-extensions==4.12.2
+    # via teeplot
 tzdata==2024.1
     # via pandas
 uri-template==1.3.0
     # via jsonschema
 urllib3==2.2.2
     # via requests
+watermark==2.4.3
+    # via -r requirements-dev.in
 wcwidth==0.2.13
     # via prompt-toolkit
 webcolors==24.6.0
@@ -421,6 +449,8 @@ websocket-client==1.8.0
     # via jupyter-server
 widgetsnbextension==4.0.11
     # via ipywidgets
+zipp==3.19.2
+    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools

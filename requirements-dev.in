@@ -8,4 +8,6 @@ pytest
 pytest-xdist
 seaborn
 sphinx_rtd_theme
+teeplot
+watermark
 ruff
