@@ -2,7 +2,7 @@
 
 import unittest
 
-from pylib.example import example
+from curaitor.example import example
 
 
 class TestExample(unittest.TestCase):
