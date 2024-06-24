@@ -10,11 +10,12 @@ This script processes existing cleaned text files and gets the number of tokens,
 Embeddings, text and page information are then saved to .npy files.
 """
 
+import os
+
+import numpy as np
+from openai import OpenAI
 import pandas as pd
 import tiktoken
-from openai import OpenAI
-import os
-import numpy as np
 from tqdm import tqdm
 
 tqdm.pandas()

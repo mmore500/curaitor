@@ -1,7 +1,7 @@
-from pypdf import PdfWriter, PdfReader, PaperSize, Transformation, PageObject
-from pypdf.generic import RectangleObject
-
 import os
+
+from pypdf import PageObject, PaperSize, PdfReader, PdfWriter, Transformation
+from pypdf.generic import RectangleObject
 from tqdm import tqdm
 
 
