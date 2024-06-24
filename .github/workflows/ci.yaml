@@ -58,5 +58,4 @@ jobs:
       - run: cp -r binder/ deploy/
       - uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
-          branch: binder # The branch the action should deploy to.
-          folder: deploy # The folder the action should deploy.
+          branch: binder # The branch the action should deploy
