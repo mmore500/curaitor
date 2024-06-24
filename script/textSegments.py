@@ -10,6 +10,7 @@ This script processes existing cleaned text files and gets the number of tokens,
 Embeddings, text and page information are then saved to .npy files.
 """
 
+from datetime import datetime
 import os
 
 import numpy as np
@@ -19,7 +20,6 @@ import tiktoken
 from tqdm import tqdm
 
 tqdm.pandas()
-from datetime import datetime
 
 
 def process_files(txt_directory, output_text_directory, key_file_path):

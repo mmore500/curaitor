@@ -206,7 +206,5 @@ if on_rtd:  # rtd doesn't run Makefile, so we have to copy assets ourself
         shell=True,
     )
 else:  # only import and set the theme if we're building docs locally
-    import sphinx_rtd_theme
-
     html_theme = "sphinx_rtd_theme"
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
