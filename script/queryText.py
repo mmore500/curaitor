@@ -43,6 +43,7 @@ texts, embeddings = load_texts_and_embeddings(
     "2024-05-28 15-17-47texts.npy", "2024-05-28 15-17-47embeddings.npy"
 )
 
+
 # Assume you have a function to generate or fetch your query embedding
 def get_query_embedding(query_text):
     # This should call an embedding API or use a locally hosted model

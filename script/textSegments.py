@@ -104,7 +104,6 @@ def add_embedding(df, client):
 
 
 def save_embeddings_to_npy(df, filename):
-
     # Extract embeddings into a numpy array and save to a binary file
     if "embedding" in df.columns:
         embeddings = np.vstack(
@@ -139,9 +138,10 @@ def save_embeddings_to_npy(df, filename):
     print("Data saved successfully.")
 
 
-# List of PDF file names
-txt_directory = "articles/review/output/textOutput"
-output_text_directory = "text_output"
-# Configure OpenAI API key
-key_file_path = "api_key"
-process_files(txt_directory, output_text_directory, key_file_path)
+# # List of PDF file names
+# # txt_directory = 'articles/review/output/textOutput'
+# txt_directory = 'articles/output/textOutput'
+# output_text_directory = 'text_output'
+# # Configure OpenAI API key
+# key_file_path = 'api_key'
+# process_files(txt_directory, output_text_directory, key_file_path)

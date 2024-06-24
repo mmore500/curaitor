@@ -6,7 +6,6 @@ from tqdm import tqdm
 
 
 def scaleCropPDFMargins(inputPDFPath, outputDirectory):
-
     # Construct output path
     outputFilename = (
         os.path.splitext(os.path.basename(inputPDFPath))[0] + "_cropped.pdf"
@@ -24,7 +23,6 @@ def scaleCropPDFMargins(inputPDFPath, outputDirectory):
         print("document has %s pages." % numPages)
 
         for page in input1.pages:
-
             # Retrieve page height, width
             pageWidth, pageHeight = float(page.mediabox[2]), float(
                 page.mediabox[3]
@@ -87,7 +85,6 @@ def scaleCropPDFMargins(inputPDFPath, outputDirectory):
 
 # Function to calculate center of a page
 def calculate_center(page):
-
     width = page.mediabox.upper_right[0] - page.mediabox.lower_left[0]
     height = page.mediabox.upper_right[1] - page.mediabox.lower_left[1]
     center_x = page.mediabox.lower_left[0] + width / 2
@@ -113,16 +110,16 @@ def cropAllPdfs(pdfsDirectory, outputDirectory, totalFiles):
             pbar.update(1)
 
 
-# Directory containing PDFs to process
-pdfsDirectory = "articles/review"
-totalFiles = len(os.listdir(pdfsDirectory))
+# # Directory containing PDFs to process
+# pdfsDirectory = 'articles'
+# totalFiles = len(os.listdir(pdfsDirectory))
 
-# Output directory for cleaned text files
-outputDirectory = os.path.join(pdfsDirectory, "output")
+# # Output directory for cleaned text files
+# outputDirectory = os.path.join(pdfsDirectory, 'output')
 
-# Crop all PDFs in the directory
-cropAllPdfs(pdfsDirectory, outputDirectory, totalFiles)
+# # Crop all PDFs in the directory
+# cropAllPdfs(pdfsDirectory, outputDirectory, totalFiles)
 
-# Test single PDF
-# pdfPath= "review/1-s2.0-S0143416016300094-main.pdf"
-# cropPDFMargins(pdfPath, outputDirectory)
+# # Test single PDF
+# # pdfPath= "review/1-s2.0-S0143416016300094-main.pdf"
+# # cropPDFMargins(pdfPath, outputDirectory)

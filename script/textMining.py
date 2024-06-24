@@ -11,10 +11,8 @@ This script allows for text mining of pdfs and storage as .txt file
 
 import os
 import re
-import tabula
 import pandas as pd
 from io import StringIO
-from pdfminer.high_level import extract_text
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfdocument import PDFDocument
@@ -125,25 +123,22 @@ def read_pdf(pdf_path):
     return text
 
 
-def extract_tables_from_pdf(pdf_path):
-    table_pattern = r"(?i)(?:table\.?)\s*\d+[\s\S]{0,100}?(?:\n.+){0,2}"
-    tabledfs = tabula.read_pdf(pdf_path, pages="all", multiple_tables=True)
-    valid_tables = []
+# def extract_tables_from_pdf(pdf_path):
+#     table_pattern = r"(?i)(?:table\.?)\s*\d+[\s\S]{0,100}?(?:\n.+){0,2}"
+#     tabledfs = tabula.read_pdf(pdf_path, pages ='all', multiple_tables=True)
+#     valid_tables = []
 
-    # Filter tables using the defined pattern
-    for table in tabledfs:
-        if any(
-            re.search(table_pattern, col, re.IGNORECASE)
-            for col in table.columns
-        ) or re.search(table_pattern, table.to_string()):
-            try:
-                # Convert all columns of the table to numeric types, handle errors
-                table = table.apply(pd.to_numeric, errors="coerce")
-                valid_tables.append(table)
-            except Exception as e:
-                print(f"Error processing table: {e}")
+#     # Filter tables using the defined pattern
+#     for table in tabledfs:
+#         if any(re.search(table_pattern,col, re.IGNORECASE) for col in table.columns) or re.search(table_pattern, table.to_string()):
+#             try:
+#                 # Convert all columns of the table to numeric types, handle errors
+#                 table = table.apply(pd.to_numeric, errors='coerce')
+#                 valid_tables.append(table)
+#             except Exception as e:
+#                 print(f"Error processing table: {e}")
 
-    return valid_tables
+#     return valid_tables
 
 
 def write_cleaned_text(cleaned_text, output_path):
@@ -241,15 +236,15 @@ def process_text_files(directory):
             print(f"{filename} has been cleaned.")
 
 
-# Directory containing your text files
-text_files_directory = "articles/experimental/output/textOutput"
+# # Directory containing your text files
+# text_files_directory = 'articles/experimental/output/textOutput'
 
-# Directory containing PDFs to process
-pdfs_directory = "articles/experimental/output"
+# # Directory containing PDFs to process
+# pdfs_directory = 'articles/experimental/output'
 
-# Output directory for cleaned text files
-output_directory = os.path.join(pdfs_directory, "textOutput")
+# # Output directory for cleaned text files
+# output_directory = os.path.join(pdfs_directory, 'textOutput')
 
-# Process all PDFs in the directory
-process_all_pdfs(pdfs_directory, output_directory)
-process_text_files(text_files_directory)
+# # Process all PDFs in the directory
+# process_all_pdfs(pdfs_directory, output_directory)
+# process_text_files(text_files_directory)
