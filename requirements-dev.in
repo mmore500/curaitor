@@ -1,9 +1,8 @@
+# instrumentation
 black[jupyter]==23.*
 isort
 jupyter
 matplotlib
-numpy
-pandas
 pytest
 pytest-xdist
 seaborn
@@ -11,3 +10,13 @@ sphinx_rtd_theme
 teeplot
 watermark
 ruff
+
+# dependencies
+numpy
+openai
+pandas
+pdfminer
+pypdf
+tabula
+tiktoken
+tqdm
