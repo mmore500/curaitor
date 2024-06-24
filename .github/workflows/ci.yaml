@@ -48,6 +48,8 @@ jobs:
           python3 -m pip install -r requirements-dev.txt
       # Adapted from https://askubuntu.com/a/524368
       - run: ./binder/execute_notebooks.sh
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       # adapted from https://unix.stackexchange.com/a/545630
       - run: find -type f -name "*.pdf" -exec bash -c 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -dQUIET -sOutputFile="new.pdf" "{}"; rm "{}"; mv "new.pdf" "{}";' {} \;
       - run: git init
