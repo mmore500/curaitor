@@ -13,7 +13,6 @@ from io import StringIO
 import os
 import re
 
-import pandas as pd
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfdocument import PDFDocument
@@ -158,7 +157,6 @@ def process_pdf(input_pdf_path, output_directory):
         + "_output_text.txt"
     )
     output_path = os.path.join(output_directory, output_filename)
-    output_tablePath = f"{output_path}_tables.txt"
 
     # Clean the text
     cleaned_text = clean_pdf_text(text)
