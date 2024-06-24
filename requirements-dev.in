@@ -12,7 +12,7 @@ watermark
 ruff
 
 # dependencies
-numpy
+numpy<2
 openai
 pandas
 pdfminer
