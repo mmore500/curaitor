@@ -16,7 +16,8 @@ jobs:
           python3 -m pip install pip --upgrade
           python3 -m pip install -r requirements-dev.txt
       - run: ./validate.py
-      - uses: actions/download-artifact@v2
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: output.txt
           path: output.txt
