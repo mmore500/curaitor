@@ -2,8 +2,8 @@
 # LLMs for Data Extraction
 
 
-[![GitHub Actions Status](https://github.com/mmore500/llms-for-data-extraction/actions/workflows/CI/badge.svg)](https://github.com/mmore500/llms-for-data-extraction/actions/workflows/ci/)
-[![GitHub stars](https://img.shields.io/github/stars/mmore500/llms-for-data-extraction.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/mmore500/llms-for-data-extraction)
+[![GitHub Actions Status](https://github.com/mmore500/curaitor/actions/workflows/CI/badge.svg)](https://github.com/mmore500/curaitor/actions/workflows/ci/)
+[![GitHub stars](https://img.shields.io/github/stars/mmore500/curaitor.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/mmore500/curaitor)
 
 Schmidt OxRSE 2024 Project
 
