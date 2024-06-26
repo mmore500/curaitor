@@ -27,3 +27,5 @@ package-lock.json
 node_modules/
 .ipynb_checkpoints/
 coverage_include/
+
+output.txt
