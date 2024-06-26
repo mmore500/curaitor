@@ -18,6 +18,11 @@ source env/bin/activate
 python3 -m pip install -r curaitor/requirements-dev.txt
 ```
 
+For conda environment for linux
+```
+conda env create -f environemt.yml
+```
+
 ## Contribution Guidelines
 
 1. Open pull request.
