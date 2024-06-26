@@ -16,6 +16,8 @@ jobs:
           python3 -m pip install pip --upgrade
           python3 -m pip install -r requirements-dev.txt
       - run: ./validate.py
+        env:
+          OSF_TOKEN: ${{ secrets.OSF_TOKEN }}
       - run: ls -a
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
