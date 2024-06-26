@@ -20,3 +20,4 @@ pypdf
 tabula
 tiktoken
 tqdm
+osfclient
