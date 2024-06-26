@@ -18,7 +18,7 @@ source env/bin/activate
 python3 -m pip install -r curaitor/requirements-dev.txt
 ```
 
-For conda environment for linux
+For conda environment (linux):
 ```
 conda env create -f curaitor_linux_env.yml
 ```
