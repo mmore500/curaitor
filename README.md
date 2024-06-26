@@ -18,6 +18,10 @@ source env/bin/activate
 python3 -m pip install -r curaitor/requirements-dev.txt
 ```
 
+We recommend using Python 3.11.
+If you have Python 3.11 installed, but it is not your default Python version you can use "`python3.11`" instead of "`python3`" above. 
+General guidance on managing multiple Python versions can be found [here](https://realpython.com/intro-to-pyenv/).
+
 ## Contribution Guidelines
 
 1. Open pull request.
