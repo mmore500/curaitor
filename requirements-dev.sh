@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 -m piptools compile requirements-dev.in
+python3.11 -m piptools compile requirements-dev.in --verbose
