@@ -20,7 +20,7 @@ python3 -m pip install -r curaitor/requirements-dev.txt
 
 For conda environment for linux
 ```
-conda env create -f environemt.yml
+conda env create -f curaitor_linux_env.yml
 ```
 
 ## Contribution Guidelines
