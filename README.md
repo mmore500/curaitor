@@ -9,6 +9,15 @@ Schmidt OxRSE 2024 Project
 
 -   Free software: MIT license
 
+## Set Up Development Environment
+
+```bash
+git clone https://github.com/mmore500/curaitor.git
+python3 -m venv env
+source env/bin/activate
+python3 -m pip install -r curaitor/requirements-dev.txt
+```
+
 ## Contribution Guidelines
 
 1. Open pull request.
