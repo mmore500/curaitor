@@ -29,3 +29,5 @@ node_modules/
 coverage_include/
 
 output.txt
+
+script/osfstorage
