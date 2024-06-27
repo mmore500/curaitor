@@ -6,9 +6,14 @@ from tqdm import tqdm
 
 def scaleCropPDFMargins(uploaded_file, outputDirectory):
     # Construct output path
-    outputFilename = os.path.splitext(uploaded_file.name)[0] + "_cropped.pdf"
-    outputPath = os.path.join(outputDirectory, outputFilename)
-    print(uploaded_file.type)
+    if hasattr(uploaded_file, 'name'):
+        outputFilename = os.path.splitext(uploaded_file.name)[0] + "_cropped.pdf"
+        # print(f'Output filename: {outputFilename}')
+        outputPath = os.path.join(outputDirectory, outputFilename)
+        print(uploaded_file.name)
+    else:
+        raise AttributeError("The uploaded_file object does not have a 'name' attribute.")
+    # outputFilename = os.path.splitext(uploaded_file.name)[0] + "_cropped.pdf"
 
     input1 = PdfReader(uploaded_file)
     output = PdfWriter()
