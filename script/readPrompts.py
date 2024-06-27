@@ -28,7 +28,7 @@ def choose_prompt(prompts):
                 # print(f"Description: {prompts[choice]}")
                 return prompts[choice]
             else:
-                print(f"Please enter a valid choice.")
+                print("Please enter a valid choice.")
         except ValueError:
             print("Invalid input. Please enter a choice.")
 

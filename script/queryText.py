@@ -1,21 +1,14 @@
 import csv
 import glob
 
-from langchain.chains import ConversationalRetrievalChain
-from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
-from langchain.memory import ChatMessageHistory, ConversationBufferMemory
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.chat_models import ChatOllama
 from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 import numpy as np
 from openai import OpenAI
-import transformers
 from transformers import (
     AutoModel,
-    AutoModelForCausalLM,
     AutoTokenizer,
     pipeline,
 )
@@ -25,7 +18,6 @@ llama3_local = ""
 import os
 
 # llm = ''
-from script.readPrompts import choose_prompt, read_prompts
 
 # Path to your YAML file
 root_dir = os.path.dirname(os.path.dirname(__file__))

@@ -13,25 +13,15 @@ Embeddings, text and page information are then saved to .npy files.
 from datetime import datetime
 import os
 
-import PyPDF2
-from langchain.chains import ConversationalRetrievalChain
-from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
-from langchain.memory import ChatMessageHistory, ConversationBufferMemory
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.chat_models import ChatOllama
 from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.vectorstores import Chroma
 import numpy as np
 from openai import OpenAI
 import pandas as pd
 import tiktoken
 from tqdm import tqdm
-import transformers
 from transformers import (
     AutoModel,
-    AutoModelForCausalLM,
     AutoTokenizer,
-    pipeline,
 )
 
 tqdm.pandas()
