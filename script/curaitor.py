@@ -1,15 +1,18 @@
 import os
-import streamlit as st
+
 from cropPage import cropAllPdfs
+from queryText import query_llm
+import streamlit as st
 from textMining import process_pdf, process_text_files
 from textSegments import process_files
-from queryText import query_llm
 
 # Streamlit app
 st.title("PDF Query Interface")
 
 # File uploader
-uploaded_files = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
+uploaded_files = st.file_uploader(
+    "Upload PDF files", type="pdf", accept_multiple_files=True
+)
 
 # Display uploaded files
 if uploaded_files:
@@ -18,8 +21,8 @@ if uploaded_files:
         st.write(uploaded_file.name)
 
     # Directory for the output
-    outputDirectory = 'output'
-    text_output_directory = os.path.join(outputDirectory, 'text_files')
+    outputDirectory = "output"
+    text_output_directory = os.path.join(outputDirectory, "text_files")
 
     # Ensure the output directory exists
     os.makedirs(outputDirectory, exist_ok=True)
@@ -27,10 +30,9 @@ if uploaded_files:
 
     # Total number of files uploaded
     totalFiles = len(uploaded_files)
-    
+
     # Button to process PDFs
     if st.button("Process PDFs"):
-
         if not os.path.exists(outputDirectory):
             os.makedirs(outputDirectory)
 
@@ -38,10 +40,10 @@ if uploaded_files:
 
         for uploaded_file in uploaded_files:
             file_path = os.path.join(outputDirectory, uploaded_file.name)
-            with open(file_path, 'wb') as f:
+            with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
             process_pdf(file_path, text_output_directory)
-        
+
         st.success("PDFs processed successfully.")
         st.write(f"Processed {totalFiles} PDFs.")
         # process_all_pdfs(uploaded_files, outputDirectory)
@@ -50,10 +52,18 @@ if uploaded_files:
         st.write("Text files have been cleaned.")
 
         # Process cleaned text files to get embeddings and tokens
-        key_file_path = ''  # Replace with the actual path to your OpenAI key file
-        llm_type = 'Ollama'  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
-        process_files(text_output_directory, outputDirectory, key_file_path, llm_type)
-        st.write("Text files have been processed to get embeddings and tokens.")
+        key_file_path = (
+            ""  # Replace with the actual path to your OpenAI key file
+        )
+        llm_type = (
+            "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
+        )
+        process_files(
+            text_output_directory, outputDirectory, key_file_path, llm_type
+        )
+        st.write(
+            "Text files have been processed to get embeddings and tokens."
+        )
 
 # Text input for question
 question = st.text_area("Ask a question based on the uploaded PDFs:")
@@ -70,9 +80,11 @@ if st.button("Ask"):
         st.write(prompt)
 
         # Query the LLM
-        llm_type = 'Ollama'  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
+        llm_type = (
+            "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
+        )
         response = query_llm(question, prompt, llm_type)
-  
+
         st.write("Response:")
         st.write(response)
     else:

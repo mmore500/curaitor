@@ -1,30 +1,34 @@
-import numpy as np
-from openai import OpenAI
-from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
-import transformers
-from transformers import pipeline
-from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
+import csv
 import glob
 
-from langchain_community.embeddings import OllamaEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
-from langchain_community.chat_models import ChatOllama
+from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
 from langchain.memory import ChatMessageHistory, ConversationBufferMemory
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.chat_models import ChatOllama
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-
-import csv
+import numpy as np
+from openai import OpenAI
+import transformers
+from transformers import (
+    AutoModel,
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    pipeline,
+)
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
-llama3_local = ''
+llama3_local = ""
 # llm = ''from script.readPrompts import read_prompts, choose_prompt
 import os
 
 # Path to your YAML file
 root_dir = os.path.dirname(os.path.dirname(__file__))
-prompt_path = f'{root_dir}/prompts.yml'
+prompt_path = f"{root_dir}/prompts.yml"
+
 
 def cosine_similarity(v1, v2):
     """Calculate cosine similarity between two vectors."""
@@ -33,12 +37,14 @@ def cosine_similarity(v1, v2):
     norm_v2 = np.linalg.norm(v2)
     return dot_product / (norm_v1 * norm_v2)
 
+
 def find_most_relevant_text(embeddings, query_embedding):
     """Find the text with the highest cosine similarity to the query."""
     similarities = [
         cosine_similarity(query_embedding, emb) for emb in embeddings
     ]
     return np.argmax(similarities)
+
 
 # Assuming 'texts' and 'embeddings' are loaded from files or a database
 def load_texts_and_embeddings(text_filename, embedding_filename):
@@ -48,16 +54,19 @@ def load_texts_and_embeddings(text_filename, embedding_filename):
     embeddings = np.load(embedding_filename)  # Load embeddings
     return texts, embeddings
 
+
 def read_key(key_file_path):
     with open(key_file_path, "r") as file:
         key = file.read()
     return key
+
 
 # Configure OpenAI API key
 # if llm.startswith("GPT"):
 # key_file_path = "api_key"
 # key = read_key(key_file_path)
 # client = OpenAI(api_key=key)
+
 
 # Assume you have a function to generate or fetch your query embedding
 def get_query_embedding(query_text, llm):
@@ -71,17 +80,23 @@ def get_query_embedding(query_text, llm):
             input=query_text, model="text-embedding-3-large"
         )
         return response.data[0].embedding
-    
+
     elif llm.startswith("HF"):
         full_model = AutoModel.from_pretrained(llama3_local)
         tokenizer = AutoTokenizer.from_pretrained(llama3_local)
         response = tokenizer(query_text, return_tensors="pt")["input_ids"]
-        return full_model(response)["last_hidden_state"].mean(axis=[0, 1]).detach().numpy()
-    
+        return (
+            full_model(response)["last_hidden_state"]
+            .mean(axis=[0, 1])
+            .detach()
+            .numpy()
+        )
+
     elif llm.startswith("Ollama"):
         embeddings = OllamaEmbeddings(model="nomic-embed-text")
         embed = embeddings.embed_documents([query_text])
         return embed
+
 
 # # Example query text: Define the query text about cellular involvement in muscle repair and regeneration
 # query_text = (
@@ -100,17 +115,16 @@ def get_query_embedding(query_text, llm):
 #     f"Context: {relevant_text}"
 # )
 
+
 def query_llm(query_text, prompt, llm):
     # Load data
     text = glob.glob("*texts.npy")[0]
     embed = glob.glob("*embeddings.npy")[0]
-    texts, embeddings = load_texts_and_embeddings(
-    text, embed
-    )
+    texts, embeddings = load_texts_and_embeddings(text, embed)
 
     # Get the embedding for the query to identify relevant texts
     query_embedding = get_query_embedding(query_text, llm)
-    
+
     # Determine the index of the most relevant text from the embeddings
     most_relevant_index = find_most_relevant_text(embeddings, query_embedding)
     relevant_text = texts[most_relevant_index][0]
@@ -121,18 +135,20 @@ def query_llm(query_text, prompt, llm):
         key_file_path = "api_key"
         key = read_key(key_file_path)
         client = OpenAI(api_key=key)
-        
+
         # Generate a response from GPT-4 based on the formulated prompt
         response = client.chat.completions.create(
             model="gpt-4", messages=[{"role": "system", "content": prompt_}]
         )
         response_text = response.choices[0].message.content
-    
+
     elif llm.startswith("HF"):
-        chatbot = pipeline('text-generation', model=llama3_local)
-        response = chatbot(prompt_, max_length=4000, do_sample=True, temperature=0.1)
-        response_text = response[0]['generated_text']
-    
+        chatbot = pipeline("text-generation", model=llama3_local)
+        response = chatbot(
+            prompt_, max_length=4000, do_sample=True, temperature=0.1
+        )
+        response_text = response[0]["generated_text"]
+
     elif llm.startswith("Ollama"):
         chatbot = ChatOllama(model="llama3", temperature=0)
         chat_prompt = ChatPromptTemplate.from_template(prompt_)
@@ -156,12 +172,20 @@ def query_llm(query_text, prompt, llm):
     if table_text:
         table_lines = table_text.strip().split("\n")
         if len(table_lines) > 1:  # Ensure there are header and data lines
-            headers = table_lines[0].split("|")[1:-1]  # Extract headers, ignoring first and last empty strings
+            headers = table_lines[0].split("|")[
+                1:-1
+            ]  # Extract headers, ignoring first and last empty strings
             headers = [header.strip() for header in headers]  # Clean headers
             for row in table_lines[2:]:  # Skip the header and divider lines
-                columns = row.split("|")[1:-1]  # Split by '|' and remove the first and last empty strings
-                columns = [column.strip() for column in columns]  # Clean column values
-                row_data = dict(zip(headers, columns))  # Create a dictionary for the row
+                columns = row.split("|")[
+                    1:-1
+                ]  # Split by '|' and remove the first and last empty strings
+                columns = [
+                    column.strip() for column in columns
+                ]  # Clean column values
+                row_data = dict(
+                    zip(headers, columns)
+                )  # Create a dictionary for the row
                 data.append(row_data)
         else:
             print("Table extraction failed: Not enough lines in table text.")
@@ -171,7 +195,7 @@ def query_llm(query_text, prompt, llm):
     # Write the data to a CSV file if data is not empty
     if data:
         csv_file_path = "output_table.csv"
-        with open(csv_file_path, mode='w', newline='') as file:
+        with open(csv_file_path, mode="w", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=data[0].keys())
             writer.writeheader()
             writer.writerows(data)

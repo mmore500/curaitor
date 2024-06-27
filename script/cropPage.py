@@ -1,6 +1,8 @@
 import os
+
 from pypdf import PageObject, PaperSize, PdfReader, PdfWriter, Transformation
 from tqdm import tqdm
+
 
 def scaleCropPDFMargins(uploaded_file, outputDirectory):
     # Construct output path
@@ -18,13 +20,20 @@ def scaleCropPDFMargins(uploaded_file, outputDirectory):
 
     for page in input1.pages:
         # Retrieve page height, width
-        pageWidth, pageHeight = float(page.mediabox[2]), float(page.mediabox[3])
+        pageWidth, pageHeight = float(page.mediabox[2]), float(
+            page.mediabox[3]
+        )
 
         # Use page height, width to calculate scale factor for A4
-        scaleFactorWidth, scaleFactorHeight = A4_w / pageWidth, A4_h / pageHeight
+        scaleFactorWidth, scaleFactorHeight = (
+            A4_w / pageWidth,
+            A4_h / pageHeight,
+        )
 
         # Apply scale factor
-        transformScale = Transformation().scale(scaleFactorWidth, scaleFactorHeight)
+        transformScale = Transformation().scale(
+            scaleFactorWidth, scaleFactorHeight
+        )
         page.add_transformation(transformScale)
 
         # prepare A4 blank page
@@ -63,6 +72,7 @@ def scaleCropPDFMargins(uploaded_file, outputDirectory):
     with open(outputPath, "wb") as pdfFileOut:
         output.write(pdfFileOut)
 
+
 # Function to calculate center of a page
 def calculate_center(page):
     width = page.mediabox.upper_right[0] - page.mediabox.lower_left[0]
@@ -70,6 +80,7 @@ def calculate_center(page):
     center_x = page.mediabox.lower_left[0] + width / 2
     center_y = page.mediabox.lower_left[1] + height / 2
     return (center_x, center_y)
+
 
 def cropAllPdfs(uploaded_files, outputDirectory, totalFiles):
     # Ensure the output directory exists, create it if not
