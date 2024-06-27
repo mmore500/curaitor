@@ -89,8 +89,8 @@ jobs:
       - name: Pull models
         shell: bash
         run: |
-          ollama pull llama3
-          ollama pull nomic-embed-text
+          ollama pull llama3 || :
+          ollama pull nomic-embed-text || :
       - run: |
           python3 -m pip install pip --upgrade
           python3 -m pip install -r requirements-dev.txt
