@@ -64,6 +64,9 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           curl -fsSL https://ollama.com/install.sh | sudo -E sh
+      - name: Install winget
+        if: matrix.os == 'windows-latest'
+        uses: Cyberboss/install-winget@v1
       - name: Install Ollama, Windows
         if: matrix.os == 'windows-latest'
         run: |
