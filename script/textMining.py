@@ -176,19 +176,19 @@ def process_pdf(input_pdf_path, output_directory):
     print(f"Cleaned text has been written to file: {output_path}")
 
 
-def process_all_pdfs(pdfs_directory, output_directory):
+def process_all_pdfs(uploaded_files, output_directory):
     # Ensure the output directory exists, create it if not
     if not os.path.exists(output_directory):
         os.makedirs(output_directory, exist_ok=True)
 
     # List all PDF files in the directory
-    pdf_files = [f for f in os.listdir(pdfs_directory) if f.endswith(".pdf")]
+    # pdf_files = [f for f in os.listdir(pdfs_directory) if f.endswith(".pdf")]
 
     # Iterate through PDF files in the directory
-    for filename in tqdm(pdf_files, desc="Mining PDFs"):
+    for filename in tqdm(uploaded_files, desc="Mining PDFs"):
         print(filename)
-        input_pdf_path = os.path.join(pdfs_directory, filename)
-        process_pdf(input_pdf_path, output_directory)
+        # input_pdf_path = os.path.join(pdfs_directory, filename)
+        process_pdf(filename, output_directory)
 
 
 def clean_text_file(file_path):
