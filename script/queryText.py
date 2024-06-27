@@ -19,7 +19,12 @@ import csv
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
 llama3_local = ''
-# llm = ''
+# llm = ''from script.readPrompts import read_prompts, choose_prompt
+import os
+
+# Path to your YAML file
+root_dir = os.path.dirname(os.path.dirname(__file__))
+prompt_path = f'{root_dir}/prompts.yml'
 
 def cosine_similarity(v1, v2):
     """Calculate cosine similarity between two vectors."""
