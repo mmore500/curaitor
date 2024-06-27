@@ -2,7 +2,7 @@
 # LLMs for Data Extraction
 
 
-[![GitHub Actions Status](https://github.com/mmore500/curaitor/actions/workflows/CI/badge.svg)](https://github.com/mmore500/curaitor/actions/workflows/ci/)
+[![GitHub Actions Status](https://github.com/mmore500/curaitor/actions/workflows/ci.yaml/badge.svg)](https://github.com/mmore500/curaitor/actions/workflows/ci/)
 [![GitHub stars](https://img.shields.io/github/stars/mmore500/curaitor.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/mmore500/curaitor)
 
 Schmidt OxRSE 2024 Project
@@ -22,6 +22,19 @@ For conda environment (linux):
 ```
 conda env create -f curaitor_linux_env.yml
 ```
+
+## Set Up Ollama (for using open-source LLMs such as Llama 3)
+
+1. **Download Ollama:** 
+   i. For Windows: <https://ollama.com/download/windows>
+   ii. For Linux: <https://ollama.com/download/linux>
+   iii. For Windows: <https://ollama.com/download/mac>
+
+   Then follow the corresponding instructions for installation on each platform.
+
+2. **Download open-source LLM and text embedding model compatible with Ollama:** 
+   i. Type `ollama pull llama3` (for Llama 3 8b model) on terminal
+   ii. Type `ollama pull nomic-embed-text` (for nomic text embeddings) on terminal
 
 ## Contribution Guidelines
 
