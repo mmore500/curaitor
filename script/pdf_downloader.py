@@ -1,7 +1,7 @@
 import subprocess
 
 # Define the output folder
-output_folder = "/workspaces/curaitor/script/"
+output_folder = os.path.dirname(__file__)
 project_id = (
     "4udrf"  # Replace with your actual project ID; need to set the token
 )
