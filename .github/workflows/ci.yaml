@@ -82,7 +82,7 @@ jobs:
             ollama pull llama3 &
             ollama pull nomic-embed-text &
 
-            # Run the background, there is no way to daemonise at the momentl
+            # Run the background, there is no way to daemonise at the moment
             ollama serve &
 
             # A short pause is required before the HTTP port is opened
