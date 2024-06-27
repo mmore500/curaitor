@@ -1,11 +1,14 @@
+import os
+
 import numpy as np
 from openai import OpenAI
-from script.readPrompts import read_prompts, choose_prompt
-import os
+
+from script.readPrompts import choose_prompt, read_prompts
 
 # Path to your YAML file
 root_dir = os.path.dirname(os.path.dirname(__file__))
-prompt_path = f'{root_dir}/prompts.yml'
+prompt_path = f"{root_dir}/prompts.yml"
+
 
 def cosine_similarity(v1, v2):
     """Calculate cosine similarity between two vectors."""
