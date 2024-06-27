@@ -114,10 +114,6 @@ jobs:
 
             # This endpoint blocks until ready
             time curl -i http://localhost:11434
-      - name: Pull models
-        run: |
-          ollama pull llama3
-          ollama pull nomic-embed-text
       - run: |
           sudo apt-get update -y
           sudo apt-get install -y ghostscript
