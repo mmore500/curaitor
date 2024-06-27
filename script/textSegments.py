@@ -19,10 +19,7 @@ from openai import OpenAI
 import pandas as pd
 import tiktoken
 from tqdm import tqdm
-from transformers import (
-    AutoModel,
-    AutoTokenizer,
-)
+from transformers import AutoModel, AutoTokenizer
 
 tqdm.pandas()
 
