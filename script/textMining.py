@@ -143,7 +143,7 @@ def read_pdf(pdf_path):
 
 def write_cleaned_text(cleaned_text, output_path):
     # Write the cleaned text to an output file
-    with open(output_path, "w") as file:
+    with open(output_path, "w", encoding="utf-8") as file:
         file.write(cleaned_text)
 
 
