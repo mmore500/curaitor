@@ -19,16 +19,34 @@ import pandas as pd
 import tiktoken
 from tqdm import tqdm
 
+from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
+import transformers
+from transformers import pipeline
+from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
+
+import PyPDF2
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import Chroma
+from langchain.chains import ConversationalRetrievalChain
+from langchain_community.chat_models import ChatOllama
+from langchain.memory import ChatMessageHistory, ConversationBufferMemory
+
 tqdm.pandas()
 
+# llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
+llama3_local = ''
 
-def process_files(txt_directory, output_text_directory, key_file_path):
+def process_files(txt_directory, output_text_directory, key_file_path, llm):
     # Ensure the output directory for the text and embeddings exists
     if not os.path.exists(output_text_directory):
         os.makedirs(output_text_directory)
-
-    # Configure OpenAI API client
-    client = OpenAI(api_key=read_key(key_file_path))
+    
+    client = None  # Initialize client to None
+    # if llm == "GPT*":
+    if llm.startswith("GPT"):
+        # Configure OpenAI API client
+        client = OpenAI(api_key=read_key(key_file_path))
 
     all_data = []  # Store data for all files
     file_list = [f for f in os.listdir(txt_directory) if f.endswith(".txt")]
@@ -40,13 +58,21 @@ def process_files(txt_directory, output_text_directory, key_file_path):
     # Convert collected data into a DataFrame
     df = pd.DataFrame(all_data)
     print("Adding embeddings...")
-    df_with_embeddings = add_embedding(df, client)
+    # if client is not None:  # Check if client is not None before using it
+    df_with_embeddings = add_embedding(df, client, llm)
     print("Saving data...")
     current_datetime = str(datetime.now().strftime("%Y-%m-%d %H-%M-%S"))
     embeddings_file_name = current_datetime + "embeddings.npy"
     save_embeddings_to_npy(df_with_embeddings, embeddings_file_name)
     # Save processed DataFrame to CSV
 
+    # else:  # Check if client is not None before using it
+    #     df_with_embeddings = add_embedding(df, client, llm)
+    #     print("Saving data...")
+    #     current_datetime = str(datetime.now().strftime("%Y-%m-%d %H-%M-%S"))
+    #     embeddings_file_name = current_datetime + "embeddings.npy"
+    #     save_embeddings_to_npy(df_with_embeddings, embeddings_file_name)
+    #     # Save processed DataFrame to CSV
 
 def get_txt_tokens(file_path):
     data = []
@@ -73,12 +99,10 @@ def get_txt_tokens(file_path):
             )
     return data
 
-
 def count_tokens(text):
     encoding = tiktoken.get_encoding("cl100k_base")
     num_tokens = len(encoding.encode(text))
     return num_tokens
-
 
 # Retrieve OpenAI Key
 def read_key(key_file_path):
@@ -86,23 +110,66 @@ def read_key(key_file_path):
         key = file.read()
     return key
 
+def add_embedding(df, client, llm):
+    if 'embedding' in df.columns:
+        print('The dataframe already has embeddings. Please double check.')
+        return df
+    
+    # if llm == "GPT*":
+    elif llm.startswith("GPT"):
+        # Define a function to get embeddings
+        def get_embedding_openai(text):
+            try:
+                response = client.embeddings.create(
+                    input=text, model="text-embedding-3-large"
+                )
+                return response.data[0].embedding
+            except Exception as e:
+                print("Failed to retrieve embedding:", e)
+                return None
+            
+        # Apply the function to the 'content' column
+        df["embedding"] = df["content"].progress_apply(get_embedding_openai)
+        # return df
+    
+    # elif llm == "HF*":
+    elif llm.startswith("HF"):
+        """Adds an 'embedding' column to a dataframe using Llama2/3"""
+        full_model = AutoModel.from_pretrained(llama3_local)
+        tokenizer = AutoTokenizer.from_pretrained(llama3_local)
 
-def add_embedding(df, client):
-    # Define a function to get embeddings
-    def get_embedding(text):
-        try:
-            response = client.embeddings.create(
-                input=text, model="text-embedding-3-large"
-            )
-            return response.data[0].embedding
-        except Exception as e:
-            print("Failed to retrieve embedding:", e)
-            return None
+        # if 'embedding' in df.columns:
+        #     print('The dataframe already has embeddings. Please double check.')
+        #     return df
 
-    # Apply the function to the 'content' column
-    df["embedding"] = df["content"].progress_apply(get_embedding)
+        embed_msgs = []
+        for _, row in df.iterrows():
+            context = row['content']
+            seq_id = tokenizer(context, return_tensors='pt')["input_ids"]
+            embedding = full_model(seq_id)["last_hidden_state"].mean(axis=[0,1]).detach().numpy()
+            #inputs = tokenizer(context, return_tensors="pt")
+            #outputs = model(**inputs)
+            #context_emb = outputs.last_hidden_state[:, -1, :].detach().numpy()
+            #embed_msgs.append(context_emb)
+            embed_msgs.append(embedding)
+
+        df = df.copy()
+        df.loc[:, 'embedding'] = embed_msgs
+        # return df
+    
+    # elif llm == "Ollama*":
+    elif llm.startswith("Ollama"):
+        embeddings = OllamaEmbeddings(model="nomic-embed-text")
+        embed_msgs = []
+        for _, row in df.iterrows():
+            context = row["content"]
+            embedding = embeddings.embed_documents([context])
+            embed_msgs.append(embedding)
+            # embeddings.embed_documents(["Hello, how are you?", "I am fine, thank you."])
+        df = df.copy()
+        df.loc[:, "embedding"] = embed_msgs
+    
     return df
-
 
 def save_embeddings_to_npy(df, filename):
     # Extract embeddings into a numpy array and save to a binary file
