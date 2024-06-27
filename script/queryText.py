@@ -1,5 +1,6 @@
 import csv
 import glob
+import os
 
 from langchain_community.chat_models import ChatOllama
 from langchain_community.embeddings import OllamaEmbeddings
@@ -15,7 +16,6 @@ from transformers import (
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
 llama3_local = ""
-import os
 
 # llm = ''
 
