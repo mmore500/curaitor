@@ -1,3 +1,4 @@
+
 import csv
 import glob
 import os
@@ -20,6 +21,7 @@ from transformers import (
     AutoTokenizer,
     pipeline,
 )
+from script.readPrompts import choose_prompt, read_prompts
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
 llama3_local = ""
