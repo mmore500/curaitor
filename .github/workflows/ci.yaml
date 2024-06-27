@@ -67,8 +67,7 @@ jobs:
       - name: Install Ollama, Windows
         if: matrix.os == 'windows-latest'
         run: |
-          choco upgrade chocolatey
-          choco install ollama --pre
+          winget install --id=Ollama.Ollama  -e
       - name: Install Ollama, MacOS
         if: matrix.os == 'macos-latest'
         run: |
