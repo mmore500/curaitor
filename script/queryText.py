@@ -1,6 +1,11 @@
 import numpy as np
 from openai import OpenAI
+from script.readPrompts import read_prompts, choose_prompt
+import os
 
+# Path to your YAML file
+root_dir = os.path.dirname(os.path.dirname(__file__))
+prompt_path = f'{root_dir}/prompts.yml'
 
 def cosine_similarity(v1, v2):
     """Calculate cosine similarity between two vectors."""
@@ -68,14 +73,17 @@ most_relevant_index = find_most_relevant_text(embeddings, query_embedding)
 relevant_text = texts[most_relevant_index]
 
 # Create a detailed prompt for GPT-4 using the relevant text, specifying a tabular response format
-prompt = (
-    "Using the context provided below, elaborate on the roles played by different cell types as if you were creating rules for an agent-based model "
-    "and factors in muscle repair and regeneration. Structure your response in a table with three columns: "
-    "1) Embedding numbers, 2) Source text name, and 3) Detailed roles and interactions of cell types like "
-    "satellite cells, fibroblasts, macrophages, neutrophils, cytokines, and growth factors. Provide multiple entries "
-    "for each cell type or cytokine or growth factor mentioned, focusing on their specific effects during the cell cycle phases and their interactions during the process of muscle repair.\n\n"
-    f"Context: {relevant_text}"
-)
+# prompt = (
+#     "Using the context provided below, elaborate on the roles played by different cell types as if you were creating rules for an agent-based model "
+#     "and factors in muscle repair and regeneration. Structure your response in a table with three columns: "
+#     "1) Embedding numbers, 2) Source text name, and 3) Detailed roles and interactions of cell types like "
+#     "satellite cells, fibroblasts, macrophages, neutrophils, cytokines, and growth factors. Provide multiple entries "
+#     "for each cell type or cytokine or growth factor mentioned, focusing on their specific effects during the cell cycle phases and their interactions during the process of muscle repair.\n\n"
+#     f"Context: {relevant_text}"
+# )
+
+
+prompt = choose_prompt(prompts=read_prompts(prompt_path))
 
 # Generate a response from GPT-4 based on the formulated prompt
 response = client.chat.completions.create(
