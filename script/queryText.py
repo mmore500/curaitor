@@ -123,7 +123,6 @@ def query_llm(query_text, prompt, llm):
     prompt_ = prompt + f"Context: {relevant_text}"
 
     if llm.startswith("GPT"):
-
         key_file_path = "api_key"
         key = read_key(key_file_path)
         client = OpenAI(api_key=key)
