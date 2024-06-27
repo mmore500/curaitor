@@ -18,14 +18,11 @@ source env/bin/activate
 python3 -m pip install -r curaitor/requirements-dev.txt
 ```
 
-<<<<<<< HEAD
 For conda environment (linux):
 ```
 conda env create -f curaitor_linux_env.yml
 ```
 
-=======
->>>>>>> master
 ## Set Up Ollama (for using open-source LLMs such as Llama 3)
 
 1. **Download Ollama:** 
