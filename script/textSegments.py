@@ -13,35 +13,38 @@ Embeddings, text and page information are then saved to .npy files.
 from datetime import datetime
 import os
 
+import PyPDF2
+from langchain.chains import ConversationalRetrievalChain
+from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
+from langchain.memory import ChatMessageHistory, ConversationBufferMemory
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.chat_models import ChatOllama
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import Chroma
 import numpy as np
 from openai import OpenAI
 import pandas as pd
 import tiktoken
 from tqdm import tqdm
-
-from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 import transformers
-from transformers import pipeline
-from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
-
-import PyPDF2
-from langchain_community.embeddings import OllamaEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
-from langchain.chains import ConversationalRetrievalChain
-from langchain_community.chat_models import ChatOllama
-from langchain.memory import ChatMessageHistory, ConversationBufferMemory
+from transformers import (
+    AutoModel,
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    pipeline,
+)
 
 tqdm.pandas()
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
-llama3_local = ''
+llama3_local = ""
+
 
 def process_files(txt_directory, output_text_directory, key_file_path, llm):
     # Ensure the output directory for the text and embeddings exists
     if not os.path.exists(output_text_directory):
         os.makedirs(output_text_directory)
-    
+
     client = None  # Initialize client to None
     # if llm == "GPT*":
     if llm.startswith("GPT"):
@@ -74,6 +77,7 @@ def process_files(txt_directory, output_text_directory, key_file_path, llm):
     #     save_embeddings_to_npy(df_with_embeddings, embeddings_file_name)
     #     # Save processed DataFrame to CSV
 
+
 def get_txt_tokens(file_path):
     data = []
     with open(file_path, "r", encoding="utf-8") as txt_content:
@@ -99,10 +103,12 @@ def get_txt_tokens(file_path):
             )
     return data
 
+
 def count_tokens(text):
     encoding = tiktoken.get_encoding("cl100k_base")
     num_tokens = len(encoding.encode(text))
     return num_tokens
+
 
 # Retrieve OpenAI Key
 def read_key(key_file_path):
@@ -110,11 +116,12 @@ def read_key(key_file_path):
         key = file.read()
     return key
 
+
 def add_embedding(df, client, llm):
-    if 'embedding' in df.columns:
-        print('The dataframe already has embeddings. Please double check.')
+    if "embedding" in df.columns:
+        print("The dataframe already has embeddings. Please double check.")
         return df
-    
+
     # if llm == "GPT*":
     elif llm.startswith("GPT"):
         # Define a function to get embeddings
@@ -127,11 +134,11 @@ def add_embedding(df, client, llm):
             except Exception as e:
                 print("Failed to retrieve embedding:", e)
                 return None
-            
+
         # Apply the function to the 'content' column
         df["embedding"] = df["content"].progress_apply(get_embedding_openai)
         # return df
-    
+
     # elif llm == "HF*":
     elif llm.startswith("HF"):
         """Adds an 'embedding' column to a dataframe using Llama2/3"""
@@ -144,19 +151,24 @@ def add_embedding(df, client, llm):
 
         embed_msgs = []
         for _, row in df.iterrows():
-            context = row['content']
-            seq_id = tokenizer(context, return_tensors='pt')["input_ids"]
-            embedding = full_model(seq_id)["last_hidden_state"].mean(axis=[0,1]).detach().numpy()
-            #inputs = tokenizer(context, return_tensors="pt")
-            #outputs = model(**inputs)
-            #context_emb = outputs.last_hidden_state[:, -1, :].detach().numpy()
-            #embed_msgs.append(context_emb)
+            context = row["content"]
+            seq_id = tokenizer(context, return_tensors="pt")["input_ids"]
+            embedding = (
+                full_model(seq_id)["last_hidden_state"]
+                .mean(axis=[0, 1])
+                .detach()
+                .numpy()
+            )
+            # inputs = tokenizer(context, return_tensors="pt")
+            # outputs = model(**inputs)
+            # context_emb = outputs.last_hidden_state[:, -1, :].detach().numpy()
+            # embed_msgs.append(context_emb)
             embed_msgs.append(embedding)
 
         df = df.copy()
-        df.loc[:, 'embedding'] = embed_msgs
+        df.loc[:, "embedding"] = embed_msgs
         # return df
-    
+
     # elif llm == "Ollama*":
     elif llm.startswith("Ollama"):
         embeddings = OllamaEmbeddings(model="nomic-embed-text")
@@ -168,8 +180,9 @@ def add_embedding(df, client, llm):
             # embeddings.embed_documents(["Hello, how are you?", "I am fine, thank you."])
         df = df.copy()
         df.loc[:, "embedding"] = embed_msgs
-    
+
     return df
+
 
 def save_embeddings_to_npy(df, filename):
     # Extract embeddings into a numpy array and save to a binary file
