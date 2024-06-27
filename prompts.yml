@@ -1,7 +1,9 @@
 pv: |
+    # query:
     You will be provided with excerpts from research papers relating to photovoltaics. Your primary objective is to accurately extract data from the excerpt.
     Each dataset must include the following parameters: Absorber Layer, Power Conversion Efficiency (PCE), Open-circuit Voltage (Voc), Short-circuit Current (Jsc), and Fill Factor (FF).
-
+    
+    # prompt:
     Read the provided excerpt from a research paper and extract the relevant and correct values in the following JSON format:
     Format:
 
