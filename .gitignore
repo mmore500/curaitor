@@ -5,6 +5,7 @@
 *.js.mem
 *.map
 *.mp4
+*.npy
 *.o
 *.out
 *.pyc
@@ -27,3 +28,7 @@ package-lock.json
 node_modules/
 .ipynb_checkpoints/
 coverage_include/
+
+output.txt
+
+script/osfstorage

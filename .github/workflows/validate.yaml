@@ -1,0 +1,26 @@
+name: Validate
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+jobs:
+
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - run: |
+          python3 -m pip install pip --upgrade
+          python3 -m pip install -r requirements-dev.txt
+      - run: ./validate.py
+        env:
+          OSF_TOKEN: ${{ secrets.OSF_TOKEN }}
+      - run: ls -a
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: output.txt
+          path: output.txt
