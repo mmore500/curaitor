@@ -5,6 +5,7 @@ class TestUtilsTest(unittest.TestCase):
 
     
     def test_compare_text_to_pdf(self):
+        # test with readable pdf
         input_text = "Instead of requiring humans to manually derive rules and build models from analyzing large amounts"
         pdf_path = "test/dummy_pdf/dummy1.pdf"
         expected_result = True
@@ -13,9 +14,10 @@ class TestUtilsTest(unittest.TestCase):
 
         self.assertEqual(result, expected_result)
 
-    def test_compare_text_to_pdf(self):
+    def test_compare_text_to_pdf2(self):
+        # test with non-readable pdf
         input_text = "Instead of requiring humans to manually derive rules and build models from analyzing large amounts"
-        pdf_path = "test/dummy_pdf/dummy2.pdf"
+        pdf_path = "test/dummy_pdf/dummy2_no_readable.pdf"
         expected_result = False
 
         result = compare_text_to_pdf(input_text, pdf_path)
