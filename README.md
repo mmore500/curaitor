@@ -2,7 +2,11 @@
 # LLMs for Data Extraction
 
 
+<<<<<<< HEAD
 [![GitHub Actions Status](https://github.com/mmore500/curaitor/actions/workflows/CI/badge.svg)](https://github.com/mmore500/curaitor/actions/workflows/ci/)
+=======
+[![GitHub Actions Status](https://github.com/mmore500/curaitor/actions/workflows/ci.yaml/badge.svg)](https://github.com/mmore500/curaitor/actions/workflows/ci/)
+>>>>>>> 7a6b5f05df1ff6480df8327975c6d7e00e338150
 [![GitHub stars](https://img.shields.io/github/stars/mmore500/curaitor.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/mmore500/curaitor)
 
 Schmidt OxRSE 2024 Project
@@ -18,6 +22,22 @@ source env/bin/activate
 python3 -m pip install -r curaitor/requirements-dev.txt
 ```
 
+<<<<<<< HEAD
+=======
+## Set Up Ollama (for using open-source LLMs such as Llama 3)
+
+1. **Download Ollama:** 
+   i. For Windows: https://ollama.com/download/windows
+   ii. For Windows: https://ollama.com/download/linux
+   iii. For Windows: https://ollama.com/download/mac
+
+   Then follow the corresponding instructions for installation on each platform.
+
+2. **Download open-source LLM and text embedding model compatible with Ollama:** 
+   i. Type `ollama pull llama3` (for Llama 3 8b model) on terminal
+   ii. Type `ollama pull nomic-embed-text` (for nomic text embeddings) on terminal
+
+>>>>>>> 7a6b5f05df1ff6480df8327975c6d7e00e338150
 ## Contribution Guidelines
 
 1. Open pull request.

@@ -1,7 +1,7 @@
-# import os
+import os
 import streamlit as st
 from cropPage import cropAllPdfs
-from textMining import process_all_pdfs, process_text_files
+from textMining import process_pdf, process_text_files
 import textSegments
 # import queryText
 
@@ -19,15 +19,35 @@ if uploaded_files:
 
     # Directory for the output
     outputDirectory = 'output'
-    
+    text_output_directory = os.path.join(outputDirectory, 'text_files')
+
+    # Ensure the output directory exists
+    os.makedirs(outputDirectory, exist_ok=True)
+    os.makedirs(text_output_directory, exist_ok=True)
+
     # Total number of files uploaded
     totalFiles = len(uploaded_files)
     
     # Button to process PDFs
     if st.button("Process PDFs"):
+
+        if not os.path.exists(outputDirectory):
+            os.makedirs(outputDirectory)
+
         cropAllPdfs(uploaded_files, outputDirectory, totalFiles)
-        process_all_pdfs(uploaded_files, outputDirectory)
-        # process_text_files(text_files_directory)
+
+        for uploaded_file in uploaded_files:
+            file_path = os.path.join(outputDirectory, uploaded_file.name)
+            with open(file_path, 'wb') as f:
+                f.write(uploaded_file.getbuffer())
+            process_pdf(file_path, outputDirectory)
+        
+        st.success("PDFs processed successfully.")
+        st.write(f"Processed {totalFiles} PDFs.")
+        # process_all_pdfs(uploaded_files, outputDirectory)
+        # Process text files
+        process_text_files(text_output_directory)
+        st.write("Text files have been cleaned.")
 
 
 # Text input for question
