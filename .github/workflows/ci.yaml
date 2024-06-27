@@ -70,7 +70,7 @@ jobs:
       - name: Install Ollama, Windows
         if: matrix.os == 'windows-latest'
         run: |
-          winget install --id=Ollama.Ollama  -e
+          winget install --id=Ollama.Ollama -e --accept-package-agreements --accept-source-agreements
       - name: Install Ollama, MacOS
         if: matrix.os == 'macos-latest'
         run: |
