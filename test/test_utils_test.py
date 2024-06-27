@@ -13,5 +13,14 @@ class TestUtilsTest(unittest.TestCase):
 
         self.assertEqual(result, expected_result)
 
+    def test_compare_text_to_pdf(self):
+        input_text = "Instead of requiring humans to manually derive rules and build models from analyzing large amounts"
+        pdf_path = "test/dummy_pdf/dummy2.pdf"
+        expected_result = False
+
+        result = compare_text_to_pdf(input_text, pdf_path)
+
+        self.assertEqual(result, expected_result)
+
 if __name__ == '__main__':
     unittest.main()
