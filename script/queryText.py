@@ -8,11 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 import numpy as np
 from openai import OpenAI
-from transformers import (
-    AutoModel,
-    AutoTokenizer,
-    pipeline,
-)
+from transformers import AutoModel, AutoTokenizer, pipeline
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
 llama3_local = ""
@@ -65,6 +61,7 @@ def read_key(key_file_path):
 text = glob.glob("*texts.npy")[0]
 embed = glob.glob("*embeddings.npy")[0]
 texts, embeddings = load_texts_and_embeddings(text, embed)
+
 
 # Assume you have a function to generate or fetch your query embedding
 def get_query_embedding(query_text, llm):
