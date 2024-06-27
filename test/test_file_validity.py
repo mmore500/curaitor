@@ -8,8 +8,6 @@ def real_pdf_environment(tmp_path):
     output_dir = tmp_path / "output"
     output_dir.mkdir()
 
-    
-
     invalid_pdf_path = "test/PDFFiles/invalid_file.pdf"
     valid_pdf_path = "test/PDFFiles/valid_file.pdf"
 
