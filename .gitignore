@@ -5,6 +5,7 @@
 *.js.mem
 *.map
 *.mp4
+*.npy
 *.o
 *.out
 *.pyc

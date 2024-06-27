@@ -1,7 +1,8 @@
 import subprocess
+import os
 
 # Define the output folder
-output_folder = "../pdfs"
+output_folder = os.path.dirname(__file__)
 project_id = (
     "4udrf"  # Replace with your actual project ID; need to set the token
 )
