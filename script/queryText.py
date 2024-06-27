@@ -14,12 +14,6 @@ from transformers import AutoModel, AutoTokenizer, pipeline
 llama3_local = ""
 
 # llm = ''
-import os
-
-import numpy as np
-from openai import OpenAI
-
-from script.readPrompts import choose_prompt, read_prompts
 
 # Path to your YAML file
 root_dir = os.path.dirname(os.path.dirname(__file__))
