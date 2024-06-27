@@ -2,8 +2,8 @@ import os
 import streamlit as st
 from cropPage import cropAllPdfs
 from textMining import process_pdf, process_text_files
-import textSegments
-# import queryText
+from textSegments import process_files
+from queryText import query_llm
 
 # Streamlit app
 st.title("PDF Query Interface")
@@ -40,7 +40,7 @@ if uploaded_files:
             file_path = os.path.join(outputDirectory, uploaded_file.name)
             with open(file_path, 'wb') as f:
                 f.write(uploaded_file.getbuffer())
-            process_pdf(file_path, outputDirectory)
+            process_pdf(file_path, text_output_directory)
         
         st.success("PDFs processed successfully.")
         st.write(f"Processed {totalFiles} PDFs.")
@@ -49,6 +49,11 @@ if uploaded_files:
         process_text_files(text_output_directory)
         st.write("Text files have been cleaned.")
 
+        # Process cleaned text files to get embeddings and tokens
+        key_file_path = ''  # Replace with the actual path to your OpenAI key file
+        llm_type = 'Ollama'  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
+        process_files(text_output_directory, outputDirectory, key_file_path, llm_type)
+        st.write("Text files have been processed to get embeddings and tokens.")
 
 # Text input for question
 question = st.text_area("Ask a question based on the uploaded PDFs:")
@@ -63,8 +68,13 @@ if st.button("Ask"):
         st.write(question)
         st.write("Prompt:")
         st.write(prompt)
-        # Placeholder for the response (this would be replaced with your OpenAI code)
-        st.write("Response will be displayed here.")
+
+        # Query the LLM
+        llm_type = 'Ollama'  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
+        response = query_llm(question, prompt, llm_type)
+  
+        st.write("Response:")
+        st.write(response)
     else:
         st.write("Please enter both a question and a prompt.")
 else:

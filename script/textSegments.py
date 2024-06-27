@@ -24,7 +24,7 @@ import transformers
 from transformers import pipeline
 from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
 
-import PyPDF2
+# import PyPDF2
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
