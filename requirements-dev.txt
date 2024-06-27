@@ -489,37 +489,5 @@ widgetsnbextension==4.0.11
 zipp==3.19.2
     # via importlib-metadata
 
-## me 
-SQLAlchemy==2.0.31
-aiohttp==3.9.5 
-aiosignal==1.3.1 
-async-timeout==4.0.3 
-frozenlist==1.4.1 
-jsonpatch==1.33 
-langchain==0.2.6 
-langchain-core==0.2.10 
-langchain-text-splitters==0.2.2 
-langsmith==0.1.82 
-multidict==6.0.5 
-orjson==3.10.5 
-tenacity==8.4.2 
-yarl==1.9.4
-
-dataclasses-json==0.6.7 
-langchain_community==0.2.6 
-marshmallow==3.21.3 
-typing-inspect==0.9.0
-
-filelock==3.15.4 
-fsspec==2024.6.0 
-huggingface-hub==0.23.4 
-safetensors==0.4.3 
-tokenizers==0.19.1 
-transformers==4.41.2
-
-mpmath==1.3.0 
-networkx==3.3 
-sympy==1.12.1 
-torch==2.3.1
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
