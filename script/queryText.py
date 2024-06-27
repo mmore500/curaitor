@@ -1,21 +1,22 @@
 import csv
 import glob
+import os
 
-from langchain.chains import ConversationalRetrievalChain
-from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
-from langchain.memory import ChatMessageHistory, ConversationBufferMemory
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+# from langchain.chains import ConversationalRetrievalChain
+# from langchain.embeddings import HuggingFaceEmbeddings, LlamaCppEmbeddings
+# from langchain.memory import ChatMessageHistory, ConversationBufferMemory
+# from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.chat_models import ChatOllama
 from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.vectorstores import Chroma
+# from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 import numpy as np
 from openai import OpenAI
-import transformers
+# import transformers
 from transformers import (
     AutoModel,
-    AutoModelForCausalLM,
+    # AutoModelForCausalLM,
     AutoTokenizer,
     pipeline,
 )
@@ -23,7 +24,6 @@ from transformers import (
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
 llama3_local = ""
 # llm = ''from script.readPrompts import read_prompts, choose_prompt
-import os
 
 # Path to your YAML file
 root_dir = os.path.dirname(os.path.dirname(__file__))

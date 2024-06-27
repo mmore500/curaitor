@@ -8,7 +8,7 @@ def scaleCropPDFMargins(uploaded_file, outputDirectory):
     # Construct output path
     outputFilename = os.path.splitext(uploaded_file.name)[0] + "_cropped.pdf"
     outputPath = os.path.join(outputDirectory, outputFilename)
-    print(uploaded_file.name)
+    print(uploaded_file.type)
 
     input1 = PdfReader(uploaded_file)
     output = PdfWriter()
