@@ -11,7 +11,6 @@ def real_pdf_environment(tmp_path):
     invalid_pdf_path = "test/PDFFiles/invalid_file.pdf"
     valid_pdf_path = "test/PDFFiles/valid_file.pdf"
 
-
     # Provide paths to the test functions
     return {
         "invalid_pdf": str(invalid_pdf_path),
