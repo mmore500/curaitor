@@ -39,7 +39,7 @@ def test_real_invalid_pdf_handling(real_pdf_environment):
     output_directory = real_pdf_environment["output_dir"]
 
     # Expecting an exception due to invalid PDF
-    with pytest.raises(Exception) as excinfo:
+    with pytest.raises(Exception):
         scaleCropPDFMargins(invalid_pdf, output_directory)
 
     # # Assert to check specific error message
