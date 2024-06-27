@@ -76,9 +76,13 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install --cask ollama
-      - name: Start serving
+      - name: Start serving ollama
         run: |
-            # Run the background, there is no way to daemonise at the moment
+            # Pull models
+            ollama pull llama3
+            ollama pull nomic-embed-text
+
+            # Run the background, there is no way to daemonise at the momentl
             ollama serve &
 
             # A short pause is required before the HTTP port is opened
@@ -86,11 +90,6 @@ jobs:
 
             # This endpoint blocks until ready
             curl -i http://localhost:11434
-      - name: Pull models
-        shell: bash
-        run: |
-          ollama pull llama3 || :
-          ollama pull nomic-embed-text || :
       - run: |
           python3 -m pip install pip --upgrade
           python3 -m pip install -r requirements-dev.txt
