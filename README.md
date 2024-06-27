@@ -21,9 +21,9 @@ python3 -m pip install -r curaitor/requirements-dev.txt
 ## Set Up Ollama (for using open-source LLMs such as Llama 3)
 
 1. **Download Ollama:** 
-   i. For Windows: https://ollama.com/download/windows
-   ii. For Windows: https://ollama.com/download/linux
-   iii. For Windows: https://ollama.com/download/mac
+   i. For Windows: <https://ollama.com/download/windows>
+   ii. For Linux: <https://ollama.com/download/linux>
+   iii. For Windows: <https://ollama.com/download/mac>
 
    Then follow the corresponding instructions for installation on each platform.
 
