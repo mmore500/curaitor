@@ -78,10 +78,6 @@ jobs:
           brew install --cask ollama
       - name: Start serving ollama
         run: |
-            # Pull models
-            ollama pull llama3 &
-            ollama pull nomic-embed-text &
-
             # Run the background, there is no way to daemonise at the moment
             ollama serve &
 
