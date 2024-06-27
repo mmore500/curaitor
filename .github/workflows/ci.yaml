@@ -67,8 +67,8 @@ jobs:
       - name: Install Ollama, Windows
         if: matrix.os == 'windows-latest'
         run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-          choco install ollama
+          choco upgrade chocolatey
+          choco install ollama --pre
       - name: Install Ollama, MacOS
         if: matrix.os == 'macos-latest'
         run: |
