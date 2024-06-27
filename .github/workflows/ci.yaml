@@ -85,7 +85,7 @@ jobs:
             sleep 5
 
             # This endpoint blocks until ready
-            time curl -i http://localhost:11434
+            curl -i http://localhost:11434
       - name: Pull models
         run: |
           ollama pull llama3
