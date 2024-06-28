@@ -33,7 +33,7 @@ echem: |
     You will be provided with excerpts from research papers relating to electrochemistry. Your primary objective is to accurately extract experimental conditions for reaction with molecule containing chlorine as a reactant.
     Each dataset must include the following parameters: Catalyst, Solvent, Reagent, Anode detail, Anode, Cathode detail, Cathode, Div./Undiv. cell, Electrolyte detail, Electrolyte, Mode, Potential, Potential (V vs sce), Current (mA), Current density (mA/cm2), Charge consumption (F/mol), Text from paper (mech).
 
-    Read the provided excerpt from a research paper and extract the relevant and correct values in the following csv format:
+    Your primary objective is to accurately extract experimental conditions for reaction with molecule containing chlorine as a reactant. Read the provided excerpt from a research paper and extract the relevant and correct values in the following format:
     Format:
 
             "Catalyst": "<Catalyst Name>",
