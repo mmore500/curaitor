@@ -27,7 +27,7 @@ We recommend using Python 3.11.
 If you have Python 3.11 installed, but it is not your default Python version you can use "`python3.11`" instead of "`python3`" above. 
 General guidance on managing multiple Python versions can be found [here](https://realpython.com/intro-to-pyenv/).
 
-### Download OpenScience PDFs (OSF) with your username, token and project ID:**
+## Download OpenScience PDFs (OSF) with your username, token and project ID (to avoid uploading PDFs on GitHub):
 
    i. username is usually the email during registration.
 
