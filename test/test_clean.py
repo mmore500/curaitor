@@ -1,11 +1,12 @@
-import unittest
-from unittest.mock import patch, mock_open, MagicMock
 from io import StringIO
+import unittest
+from unittest.mock import MagicMock, mock_open, patch
+
 from script.textMining import (
     clean_pdf_text,
+    process_pdf,
     read_pdf,
     write_cleaned_text,
-    process_pdf,
 )
 
 
