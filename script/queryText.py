@@ -106,7 +106,6 @@ def get_query_embedding(query_text, llm):
 # )
 
 
-
 def query_llm(query_text, prompt, llm):
     # Load data
     text = glob.glob("*texts.npy")[0]
@@ -126,7 +125,6 @@ def query_llm(query_text, prompt, llm):
         key_file_path = "api_key"
         key = read_key(key_file_path)
         client = OpenAI(api_key=key)
-
 
         # Generate a response from GPT-4 based on the formulated prompt
         response = client.chat.completions.create(

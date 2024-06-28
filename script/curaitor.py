@@ -16,9 +16,12 @@ uploaded_files = st.file_uploader(
 
 # Display uploaded files
 if uploaded_files:
-    st.write("Uploaded PDF files:")
-    for uploaded_file in uploaded_files:
-        st.write(uploaded_file.name)
+    # st.write("Uploaded PDF files:")
+    uploaded_file_names = [
+        uploaded_file.name for uploaded_file in uploaded_files
+    ]
+    # for uploaded_file in uploaded_file_names:
+    # st.write(uploaded_file)
 
     # Directory for the output
     outputDirectory = "output"
@@ -36,12 +39,16 @@ if uploaded_files:
         if not os.path.exists(outputDirectory):
             os.makedirs(outputDirectory)
 
-        cropAllPdfs(uploaded_files, outputDirectory, totalFiles)
-
         for uploaded_file in uploaded_files:
             file_path = os.path.join(outputDirectory, uploaded_file.name)
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
+            process_pdf(file_path, text_output_directory)
+
+        cropAllPdfs(uploaded_file_names, outputDirectory, totalFiles)
+
+        for uploaded_file in uploaded_files:
+            file_path = os.path.join(outputDirectory, uploaded_file.name)
             process_pdf(file_path, text_output_directory)
 
         st.success("PDFs processed successfully.")
