@@ -141,7 +141,8 @@ def query_llm(query_text, prompt, llm):
         print("Llama3 Response:", response[0]["generated_text"])
 
     elif llm.startswith("Ollama"):
-        chatbot = ChatOllama(model="llama3", temperature=0.1)
+        # if llm == "Ollama-llama3":
+        chatbot = ChatOllama(model="llama3", temperature=0.0)
         chat_prompt = ChatPromptTemplate.from_template(prompt_)
         chain = chat_prompt | chatbot | StrOutputParser()
         full_output = chain.invoke({"Context": {relevant_text}})
