@@ -1,5 +1,8 @@
-Solvent 1,Solvent 2,Solvent 3,Solvent 4,Salt 1,Salt 2,Salt 3,Additive compound 1,Additive compound 2,Salt 1 concentration (molarity),Salt 2 concentration (molarity),Solvent ratios (v:v),Current density,Capacity,Cycling efficiency,Embedding number
-Propylene carbonate,,,,LiAsF6,,,,,1 M,,,5 mA/cm2,1.1 C/,85% (Aurbach method),20
-Methyl acetate,,,,LiAsF6,,,,,1 M,,,5 mA/cm2,1.1 C/,78% (average),20
-Tetrahydrofuran,,,,LiAsF6,,,,,1 M,,,5 mA/cm2,1.1 C/,65% (Aurbach method),20
-2-Methyltetrahydrofuran,,,,LiAsF6,,,,,1 M,,,5 mA/cm2,1.1 C/,98% (average),20
+Embedding numbers,Source text name,Detailed roles and interactions of cell types
+1,Amadio et al. (1992),"Satellite cells: Quiescent in normal conditions, activated upon injury to proliferate and differentiate into myoblasts. Interact with fibroblasts to produce ECM proteins for muscle regeneration."
+2,Amadio et al. (1992),Fibroblasts: Produce ECM proteins such as collagen and fibronectin to support muscle regeneration. Interact with satellite cells to facilitate their activation and differentiation.
+3,Best et al. (1994),"Macrophages: Phagocytose damaged muscle tissue and debris, promoting clearance and regeneration. Produce cytokines that stimulate the immune response and modulate inflammation."
+4,Butler et al. (1984),"Neutrophils: Initially respond to injury by phagocytosing bacteria and other foreign substances, but can also contribute to tissue damage through release of reactive oxygen species."
+5,Crowninshield et al. (1976),"Cytokines (e.g., TNF-α, IL-1β): Released by activated immune cells, such as macrophages and neutrophils, to modulate the immune response and promote inflammation. Can also stimulate fibroblast activation and ECM production."
+6,Durelli et al. (1958),"Growth factors (e.g., PDGF, FGF): Released by activated immune cells and platelets to stimulate fibroblast proliferation and migration, promoting ECM production and tissue repair."
+7,Fischer (1932),"Myoblasts: Differentiated from satellite cells, these cells proliferate and fuse to form new muscle fibers. Interact with ECM proteins produced by fibroblasts to support muscle regeneration."
