@@ -185,7 +185,7 @@ def query_llm(query_text, prompt, key_file_path, llm):
 
     # Write the data to a CSV file if data is not empty
     if data:
-        csv_file_path = "output_table.csv"
+        csv_file_path = "output_table_{}.csv".format(str(llm))
         with open(csv_file_path, mode="w", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=data[0].keys())
             writer.writeheader()
