@@ -28,9 +28,9 @@ conda env create -f curaitor_linux_env.yml
    i. username is usually the email during registration.
 
    ii. token could be generated from your profile in the OSF and could be passed as environmental variables using
-   `export torken='YOUR TOKEN STRING'`. 
+   `export OSF_TOKEN='YOUR TOKEN STRING'`. 
 
-   iii. project ID is basically a short string, you could refer to the [OSFClient](https://osfclient.readthedocs.io/en/latest/cli-usage.html) documentations. 
+   iii. project ID is the 5-character alphanumeric key after your project's url, e.g., `osf.io/4zmdh`, (see the [OSFClient](https://osfclient.readthedocs.io/en/latest/cli-usage.html) documentation). 
 
 We recommend using Python 3.11.
 If you have Python 3.11 installed, but it is not your default Python version you can use "`python3.11`" instead of "`python3`" above. 
