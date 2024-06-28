@@ -57,11 +57,6 @@ def read_key(key_file_path):
 # key = read_key(key_file_path)
 # client = OpenAI(api_key=key)
 
-# Load data
-text = glob.glob("*texts.npy")[0]
-embed = glob.glob("*embeddings.npy")[0]
-texts, embeddings = load_texts_and_embeddings(text, embed)
-
 
 # Assume you have a function to generate or fetch your query embedding
 def get_query_embedding(query_text, llm):
@@ -112,6 +107,11 @@ def get_query_embedding(query_text, llm):
 
 
 def query_llm(query_text, prompt, llm):
+    # Load data
+    text = glob.glob("*texts.npy")[0]
+    embed = glob.glob("*embeddings.npy")[0]
+    texts, embeddings = load_texts_and_embeddings(text, embed)
+
     # Get the embedding for the query to identify relevant texts
     query_embedding = get_query_embedding(query_text, llm)
 
@@ -141,7 +141,8 @@ def query_llm(query_text, prompt, llm):
         print("Llama3 Response:", response[0]["generated_text"])
 
     elif llm.startswith("Ollama"):
-        chatbot = ChatOllama(model="llama3")
+        # if llm == "Ollama-llama3":
+        chatbot = ChatOllama(model="llama3", temperature=0.0)
         chat_prompt = ChatPromptTemplate.from_template(prompt_)
         chain = chat_prompt | chatbot | StrOutputParser()
         full_output = chain.invoke({"Context": {relevant_text}})
