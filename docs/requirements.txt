@@ -1,8 +1,8 @@
 sphinx>=5.0
-exhale==0.2.3
+exhale
 sphinx-rtd-theme
 coverxygen==1.5.0
-breathe==4.19.2
+breathe
 myst-parser==0.12.9
 sphinxemoji==0.1.8
 pillow==5.4.1
