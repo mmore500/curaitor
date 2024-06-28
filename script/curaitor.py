@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from cropPage import cropAllPdfs
 from queryText import query_llm
@@ -7,11 +8,21 @@ from textMining import process_pdf, process_text_files
 from textSegments import process_files
 
 # Streamlit app
-st.title("PDF Query Interface")
+st.title("curAItor Query Interface")
 
 # File uploader
 uploaded_files = st.file_uploader(
     "Upload PDF files", type="pdf", accept_multiple_files=True
+)
+
+# Directory for the output
+outputDirectory = "output"
+text_output_directory = os.path.join(outputDirectory, "text_files")
+
+# Dropdown for model selection
+llm_type = st.selectbox(
+    "Select the model type:",
+    ("GPT-4", "Ollama-Llama3")
 )
 
 # Display uploaded files
@@ -22,10 +33,6 @@ if uploaded_files:
     ]
     # for uploaded_file in uploaded_file_names:
     # st.write(uploaded_file)
-
-    # Directory for the output
-    outputDirectory = "output"
-    text_output_directory = os.path.join(outputDirectory, "text_files")
 
     # Ensure the output directory exists
     os.makedirs(outputDirectory, exist_ok=True)
@@ -62,9 +69,9 @@ if uploaded_files:
         key_file_path = (
             ""  # Replace with the actual path to your OpenAI key file
         )
-        llm_type = (
-            "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
-        )
+        # llm_type = (
+        #     "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
+        # )
         process_files(
             text_output_directory, outputDirectory, key_file_path, llm_type
         )
@@ -87,9 +94,9 @@ if st.button("Ask"):
         st.write(prompt)
 
         # Query the LLM
-        llm_type = (
-            "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
-        )
+        # llm_type = (
+        #     "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
+        # )
         response = query_llm(question, prompt, llm_type)
 
         st.write("Response:")
@@ -98,3 +105,22 @@ if st.button("Ask"):
         st.write("Please enter both a question and a prompt.")
 else:
     st.write("Upload PDF files and enter a question and a prompt to proceed.")
+
+# Button to delete .npy files
+if st.button("Delete .npy files"):
+    npy_files_deleted = 0
+    embedding_directory = './'
+    for root, dirs, files in os.walk(embedding_directory):
+        for file in files:
+            if file.endswith(".npy"):
+                os.remove(os.path.join(root, file))
+                npy_files_deleted += 1
+    st.success(f"Deleted {npy_files_deleted} .npy files.")
+
+# Button to delete output folder
+if st.button("Delete output folder"):
+    if os.path.exists(outputDirectory):
+        shutil.rmtree(outputDirectory)
+        st.success("Output folder deleted successfully.")
+    else:
+        st.warning("Output folder does not exist.")
