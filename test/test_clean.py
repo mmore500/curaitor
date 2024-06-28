@@ -67,7 +67,6 @@ class TestPDFTextMining(unittest.TestCase):
             mock_write.assert_called_once_with(
                 "Cleaned text", "output_directory/input_output_text.txt"
             )
-            # mocked_file.assert_called_once_with("output_directory/input_output_text.txt", "w")
 
 
 if __name__ == "__main__":
