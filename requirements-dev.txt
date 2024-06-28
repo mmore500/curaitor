@@ -509,6 +509,7 @@ sqlalchemy==2.0.31
     #   langchain-community
 stack-data==0.6.3
     # via ipython
+streamlit==1.36.0
 tabula==1.0.5
     # via -r requirements-dev.in
 teeplot==1.0.1

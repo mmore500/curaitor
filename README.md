@@ -49,6 +49,27 @@ General guidance on managing multiple Python versions can be found [here](https:
    i. Type `ollama pull llama3` (for Llama 3 8b model) on terminal
    ii. Type `ollama pull nomic-embed-text` (for nomic text embeddings) on terminal
 
+## How to Run the Streamlit User Interface
+
+To launch the Streamlit user interface for this project, follow these steps:
+
+1. **Ensure you have Streamlit installed.** You can install it using pip if you haven't already:
+
+    ```sh
+    pip install streamlit
+    ```
+
+2. **Run the Streamlit application** by executing the following command in your terminal:
+
+    ```sh
+    streamlit run script/curaitor.py
+    ```
+
+This will start the Streamlit server and open the user interface in your default web browser.
+
+![Streamlit UI Screenshot](curaitor.png)
+
+
 ## Contribution Guidelines
 
 1. Open pull request.
