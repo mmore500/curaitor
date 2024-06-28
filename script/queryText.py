@@ -12,6 +12,7 @@ from transformers import AutoModel, AutoTokenizer, pipeline
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
 llama3_local = ""
+# key_file_path = "../../API_KEY"
 
 # llm = ''
 
@@ -46,6 +47,7 @@ def load_texts_and_embeddings(text_filename, embedding_filename):
 
 
 def read_key(key_file_path):
+    # key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
     with open(key_file_path, "r") as file:
         key = file.read()
     return key
@@ -59,15 +61,16 @@ def read_key(key_file_path):
 
 
 # Assume you have a function to generate or fetch your query embedding
-def get_query_embedding(query_text, llm):
+def get_query_embedding(query_text, key_file_path, llm):
     if llm.startswith("GPT"):
-        key_file_path = "api_key"
+        # key_file_path = ""
         key = read_key(key_file_path)
         client = OpenAI(api_key=key)
 
         # This should call an embedding API or use a locally hosted model
         response = client.embeddings.create(
-            input=query_text, model="text-embedding-3-large"
+            # input=query_text, model="text-embedding-3-large"
+            input=query_text, model="text-embedding-ada-002"
         )
         return response.data[0].embedding
 
@@ -106,14 +109,14 @@ def get_query_embedding(query_text, llm):
 # )
 
 
-def query_llm(query_text, prompt, llm):
+def query_llm(query_text, prompt, key_file_path, llm):
     # Load data
     text = glob.glob("*texts.npy")[0]
     embed = glob.glob("*embeddings.npy")[0]
     texts, embeddings = load_texts_and_embeddings(text, embed)
 
     # Get the embedding for the query to identify relevant texts
-    query_embedding = get_query_embedding(query_text, llm)
+    query_embedding = get_query_embedding(query_text, key_file_path, llm)
 
     # Determine the index of the most relevant text from the embeddings
     most_relevant_index = find_most_relevant_text(embeddings, query_embedding)
@@ -122,13 +125,14 @@ def query_llm(query_text, prompt, llm):
     prompt_ = prompt + f"Context: {relevant_text}"
 
     if llm.startswith("GPT"):
-        key_file_path = "api_key"
+        # key_file_path = "../../API_KEY"
         key = read_key(key_file_path)
         client = OpenAI(api_key=key)
 
         # Generate a response from GPT-4 based on the formulated prompt
         response = client.chat.completions.create(
-            model="gpt-4", messages=[{"role": "system", "content": prompt_}]
+            # model="gpt-4", messages=[{"role": "system", "content": prompt_}]
+            model="gpt-3.5-turbo-0125", messages=[{"role": "system", "content": prompt_}]
         )
         response_text = response.choices[0].message.content
 
@@ -151,9 +155,9 @@ def query_llm(query_text, prompt, llm):
     print("Response Text:", response_text)
 
     # Extract only the table part
-    table_start = full_output.find("| ")
-    table_end = full_output.rfind("|") + 1
-    table_text = full_output[table_start:table_end]
+    table_start = response_text.find("| ")
+    table_end = response_text.rfind("|") + 1
+    table_text = response_text[table_start:table_end]
 
     # Convert the table text to a list of dictionaries
     data = []
@@ -182,7 +186,7 @@ def query_llm(query_text, prompt, llm):
 
     # Write the data to a CSV file if data is not empty
     if data:
-        csv_file_path = "output_table.csv"
+        csv_file_path = "output_table_{}.csv".format(str(llm))
         with open(csv_file_path, mode="w", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=data[0].keys())
             writer.writeheader()

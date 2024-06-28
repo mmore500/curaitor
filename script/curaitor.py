@@ -20,9 +20,11 @@ outputDirectory = "output"
 text_output_directory = os.path.join(outputDirectory, "text_files")
 
 # Dropdown for model selection
-llm_type = st.selectbox(
-    "Select the model type:",
-    ("GPT-4", "Ollama-Llama3")
+llm_type = st.selectbox("Select the model type:", ("GPT-3.5", "Ollama-Llama3"))
+
+# Process cleaned text files to get embeddings and tokens
+key_file_path = (
+    "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"  # Replace with the actual path to your OpenAI key file
 )
 
 # Display uploaded files
@@ -65,10 +67,10 @@ if uploaded_files:
         process_text_files(text_output_directory)
         st.write("Text files have been cleaned.")
 
-        # Process cleaned text files to get embeddings and tokens
-        key_file_path = (
-            ""  # Replace with the actual path to your OpenAI key file
-        )
+        # # Process cleaned text files to get embeddings and tokens
+        # key_file_path = (
+        #     "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"  # Replace with the actual path to your OpenAI key file
+        # )
         # llm_type = (
         #     "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
         # )
@@ -97,25 +99,26 @@ if st.button("Ask"):
         # llm_type = (
         #     "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
         # )
-        response = query_llm(question, prompt, llm_type)
+
+        response = query_llm(question, prompt, key_file_path, llm_type)
 
         st.write("Response:")
         st.write(response)
     else:
         st.write("Please enter both a question and a prompt.")
-else:
-    st.write("Upload PDF files and enter a question and a prompt to proceed.")
+# else:
+# st.write("Upload PDF files and enter a question and a prompt to proceed.")
 
-# Button to delete .npy files
-if st.button("Delete .npy files"):
+# Button to delete embedding files
+if st.button("Delete embedding files"):
     npy_files_deleted = 0
-    embedding_directory = './'
+    embedding_directory = "./"
     for root, dirs, files in os.walk(embedding_directory):
         for file in files:
             if file.endswith(".npy"):
                 os.remove(os.path.join(root, file))
                 npy_files_deleted += 1
-    st.success(f"Deleted {npy_files_deleted} .npy files.")
+    st.success(f"Deleted {npy_files_deleted} embedding files.")
 
 # Button to delete output folder
 if st.button("Delete output folder"):

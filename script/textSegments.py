@@ -25,7 +25,14 @@ tqdm.pandas()
 
 # llama3_local = '/eagle/fallwkshp23/riteshk/Meta-Llama-3-8B-Instruct'
 llama3_local = ""
+# key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
 
+# Retrieve OpenAI Key
+def read_key(key_file_path):
+    # key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
+    with open(key_file_path, "r") as file:
+        key = file.read()
+    return key
 
 def process_files(txt_directory, output_text_directory, key_file_path, llm):
     # Ensure the output directory for the text and embeddings exists
@@ -97,13 +104,6 @@ def count_tokens(text):
     return num_tokens
 
 
-# Retrieve OpenAI Key
-def read_key(key_file_path):
-    with open(key_file_path, "r") as file:
-        key = file.read()
-    return key
-
-
 def add_embedding(df, client, llm):
     if "embedding" in df.columns:
         print("The dataframe already has embeddings. Please double check.")
@@ -115,7 +115,8 @@ def add_embedding(df, client, llm):
         def get_embedding_openai(text):
             try:
                 response = client.embeddings.create(
-                    input=text, model="text-embedding-3-large"
+                    # input=text, model="text-embedding-3-large"
+                    input=text, model="text-embedding-ada-002"
                 )
                 return response.data[0].embedding
             except Exception as e:
