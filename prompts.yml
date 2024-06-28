@@ -4,7 +4,7 @@ pv: |
     Each dataset must include the following parameters: Absorber Layer, Power Conversion Efficiency (PCE), Open-circuit Voltage (Voc), Short-circuit Current (Jsc), and Fill Factor (FF).
     
     # prompt:
-    Read the provided excerpt from a research paper and extract the relevant and correct values in the following JSON format:
+    Read the provided excerpt from a research paper and extract the relevant and correct values in the f table format:
     Format:
 
             "Absorber Layer": "<Chemical Composition or Material Name>",
@@ -14,7 +14,6 @@ pv: |
             "FF": "<Value in %> %"
 
     For missing values, enter "N/A".
-    The output should only contain JSON objects separated by a newline character.
 
     Follow the given format STRICTLY.
     Fill in complete sets only and omit incomplete data
