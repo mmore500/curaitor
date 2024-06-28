@@ -20,10 +20,7 @@ outputDirectory = "output"
 text_output_directory = os.path.join(outputDirectory, "text_files")
 
 # Dropdown for model selection
-llm_type = st.selectbox(
-    "Select the model type:",
-    ("GPT-4", "Ollama-Llama3")
-)
+llm_type = st.selectbox("Select the model type:", ("GPT-4", "Ollama-Llama3"))
 
 # Display uploaded files
 if uploaded_files:
@@ -104,12 +101,12 @@ if st.button("Ask"):
     else:
         st.write("Please enter both a question and a prompt.")
 # else:
-    # st.write("Upload PDF files and enter a question and a prompt to proceed.")
+# st.write("Upload PDF files and enter a question and a prompt to proceed.")
 
 # Button to delete embedding files
 if st.button("Delete embedding files"):
     npy_files_deleted = 0
-    embedding_directory = './'
+    embedding_directory = "./"
     for root, dirs, files in os.walk(embedding_directory):
         for file in files:
             if file.endswith(".npy"):
