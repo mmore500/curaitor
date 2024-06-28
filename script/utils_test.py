@@ -1,6 +1,6 @@
 from .textMining import clean_pdf_text, read_pdf
 
-# from textMining import clean_pdf_text, read_pdf
+# from textMining import *
 
 
 def compare_text_to_pdf(input_text, pdf_path):
@@ -30,7 +30,7 @@ def compare_text_to_pdf(input_text, pdf_path):
 
 
 # run the function using dummy pdf
-# input_text = "Instead of requiring humans to manually derive rules and build models from analyzing large amounts"
-# pdf_path = "test/dummy_pdf/dummy1.pdf"
-# result = compare_text_to_pdf(input_text, pdf_path)
-# print(result)
+input_text = "Instead of requiring humans to manually derive rules and build models from analyzing large amounts"
+pdf_path = "test/dummy_pdf/dummy1.pdf"
+result = compare_text_to_pdf(input_text, pdf_path)
+print(result)
