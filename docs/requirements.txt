@@ -1,6 +1,6 @@
-sphinx==6.2.1
+sphinx
 exhale==0.2.3
-sphinx-rtd-theme==1.2.2
+sphinx-rtd-theme
 coverxygen==1.5.0
 breathe==4.19.2
 myst-parser==0.12.9
