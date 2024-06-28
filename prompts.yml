@@ -1,25 +1,10 @@
 pv: |
-    # query:
-    You will be provided with excerpts from research papers relating to photovoltaics. Your primary objective is to accurately extract data from the excerpt.
-    Each dataset must include the following parameters: Absorber Layer, Power Conversion Efficiency (PCE), Open-circuit Voltage (Voc), Short-circuit Current (Jsc), and Fill Factor (FF).
+# query:
+Assuming you are an expert on photovoltaics, extract excerpts from relevant research papers. Each excerpt must include the following parameters: Absorber Layer (Chemical Composition or Material Name), Power Conversion Efficiency (PCE), Open-circuit Voltage (Voc), Short-circuit Current (Jsc), and Fill Factor (FF).
     
-    # prompt:
-    Read the provided excerpt from a research paper and extract the relevant and correct values in the f table format:
-    Format:
-
-            "Absorber Layer": "<Chemical Composition or Material Name>",
-            "PCE": "<Value in %> %",
-            "Voc": "<Value in V> V",
-            "Isc": "<Value in mA/cm2> mA/cm2",
-            "FF": "<Value in %> %"
-
-    For missing values, enter "N/A".
-
-    Follow the given format STRICTLY.
-    Fill in complete sets only and omit incomplete data
-    Do not include incomplete sets of data.
-    
-    Paper exerpt: ```{paper_exerpt}```
+# prompt:
+Read the provided excerpt and accurately extract the relevant and correct values as a table with following columns: 1) Absorber Layer (Chemical Composition or Material Name), 2) PCE (Value in %),
+3) Voc (Value in V), 4) Jsc (Value in mA/cm2), and 5) FF (Value in %). For missing values, enter "N/A". Follow the given format STRICTLY. Fill in complete sets only and omit incomplete data.
 
 bio: |
     Using the context provided below, elaborate on the roles played by different cell types as if you were creating rules for an agent-based model, and factors in muscle repair and regeneration. Structure your response in a table with three columns:

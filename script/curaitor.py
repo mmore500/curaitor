@@ -20,7 +20,12 @@ outputDirectory = "output"
 text_output_directory = os.path.join(outputDirectory, "text_files")
 
 # Dropdown for model selection
-llm_type = st.selectbox("Select the model type:", ("GPT-4", "Ollama-Llama3"))
+llm_type = st.selectbox("Select the model type:", ("GPT-3.5", "Ollama-Llama3"))
+
+# Process cleaned text files to get embeddings and tokens
+key_file_path = (
+    "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"  # Replace with the actual path to your OpenAI key file
+)
 
 # Display uploaded files
 if uploaded_files:
@@ -62,10 +67,10 @@ if uploaded_files:
         process_text_files(text_output_directory)
         st.write("Text files have been cleaned.")
 
-        # Process cleaned text files to get embeddings and tokens
-        key_file_path = (
-            ""  # Replace with the actual path to your OpenAI key file
-        )
+        # # Process cleaned text files to get embeddings and tokens
+        # key_file_path = (
+        #     "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"  # Replace with the actual path to your OpenAI key file
+        # )
         # llm_type = (
         #     "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
         # )
@@ -94,7 +99,8 @@ if st.button("Ask"):
         # llm_type = (
         #     "Ollama"  # Specify the LLM type (e.g., 'GPT', 'HF', 'Ollama')
         # )
-        response = query_llm(question, prompt, llm_type)
+
+        response = query_llm(question, prompt, key_file_path, llm_type)
 
         st.write("Response:")
         st.write(response)

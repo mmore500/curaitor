@@ -1,0 +1,408 @@
+Contents lists available at ScienceDirect 
+Ceramics International 
+A facile, time-saving fabrication method of high purity CsPbBr3 films for 
+efficient solar cells 
+Guoshuai Zhang a,b, Xiaobing Cao a,**, Jinquan Wei c,***, Jinpeng Li b,* 
+100044, China 
+c State Key Lab of New Ceramics and Fine Processing, Education Ministry Key Laboratory for Advanced Materials Processing Technology, School of Materials Science and 
+A R T I C L E  I N F O    
+Handling Editor: P. Vincenzini  
+Keywords: 
+Two-step method 
+Solution process 
+CsPbBr3 perovskite 
+Solar cells 
+A B S T R A C T    
+All-brominated cesium lead bromide (CsPbBr3) perovskite solar cells (PSCs) have drawn growing attention owing 
+to unprecedented stability in the family of perovskites. It usually employs a two-step method to prepare CsPbBr3 
+films owing to the low solubility of CsBr in the common solvents. The researchers have to provide enough Cs 
+source through increasing the reaction time or repeat times of CsBr deposition so as to obtain the target CsPbBr3 
+films. The long preparation period and tedious process increase the time and economic cost, which may limit the 
+practical application of CsPbBr3  solar cells. Herein, a facile method is proposed to prepare CsPbBr3  films, in 
+which appropriate CsBr is pre-introduced into PbBr2  solutions in the first step, and CsBr/2-methoxyethanol 
+solution (~35 mg mL(cid:0) 1) is used as solution conversion medium in the second step. Benefitting from the pre- 
+introduction of CsBr in the first step, a single phase of CsPbBr3 films with full coverage can be conversed for 
+only once CsBr supplementation. After integrating the CsPbBr3 films into a solar cell, it delivers a power con-
+version efficiency (PCE) of 7.48% basing on the configuration of FTO/TiO2/CsPbBr3/Carbon. This work largely 
+shortens the preparation time of CsPbBr3 films, which may provide a practical way for the large-scale production 
+of 
+All-inorganic perovskite CsPbBr3  attracts more attentions in opto-
+electronic devices such as solar cells, photodetectors and light-emitting 
+devices, due to its superior optoelectronic properties and high stability 
+in air conditions. The highly compatible with the carbon electrode in 
+ambient  condition  makes  CsPbBr3  as  a  reasonable  candidate  to  full 
+solution-processed  solar  cell  fabrication  [1–4].  The  big  challenge  to 
+CsPbBr3  films  for  solar  cells  is  to  fabricate  pure  and  smooth  thick 
+perovskite layer due to the poor solubility of CsBr in traditional organic 
+solvents. The common way is so-called two-step method, in which PbBr2 
+films were firstly prepared, and then exposed to CsBr methanol solution 
+for an optimized time, usually at least 10 min, to obtain desired CsPbBr3 
+films [1–8]. However, the reaction time is so sensitive that either too 
+short or too long reaction time could generate byproducts like CsPb2
+and Cs4PbBr6, which limits the photovoltaic performance and lead to 
+other side effects [9–11]. 
+To exclude the byproducts, Duan et al. [12] proposed a multi-steps 
+solution processed technique to prepare high purity CsPbBr3 films. In 
+this method, a drop of CsBr/methanol was spin-coated onto the PbBr2 
+films, followed by annealing at 250  ◦C for 5 min, then repeated this 
+process for several cycles. According to their report, the components, 
+crystal structure, and morphology of the as-prepared perovskite films 
+are strongly dependent on the preparation cycles. Especially, it needs at 
+least four cycles which cost no less than 20 min to obtain pure CsPbBr3 
+films  in  their method. Obviously, it  is  a  time-consuming method  to 
+prepare pure phase CsPbBr3  films. Meanwhile, the methanol used to 
+dissolve CsBr could decompose CsPbBr3  during the treatment, which 
+may resulting in poor morphology and more defects in the final products 
+[13]. In order to eliminate methanol as the solvent, Feng et al. replaced 
+* Corresponding author. 
+** Corresponding author. 
+*** Corresponding author. 
+E-mail addresses: caoxb14@tsinghua.org.cn (X. Cao), jqwei@tsinghua.edu.cn (J. Wei), jinpengli@bjtu.edu.cn (J. Li).  
+Received 26 January 2023; Received in revised form 18 March 2023; Accepted 28 March 2023   
+CeramicsInternational49(2023)21479–21484Availableonline31March20230272-8842/©2023ElsevierLtdandTechnaGroupS.r.l.Allrightsreserved.
+G. Zhang et al.                                                                                                                                                                                                                                  
+Scheme 
+6.54%, but they still need to use multi-steps solution processed method 
+[15]. Evidently, the poor solubility of CsBr in common solvents lead to 
+complicated fabrication processes and long crystallization period. 
+By reviewing the previous report, these processes usually separate 
+PbBr2 solution with CsBr solution. Whether separating certain amount of 
+CsBr into both poor and favourable solvents could reduce the prepara-
+tion time needs to be further investigated. In this work, appropriate CsBr 
+is introduced into PbBr2/DMSO solution in the first step to prepare Pb- 
+rich phase of Cs–Pb–Br films. Then, high quality CsPbBr3 films are ob-
+tained by spin-coating a CsBr/2-methoxyethanol (~35 mg mL(cid:0) 1) onto 
+the Cs–Pb–Br films for only once. As a consequence, a hole transport 
+layer (HTL) free CsPbBr3 perovskite solar cell by using carbon act as the 
+electrode shows a PCE of 7.48%, and possesses excellent stability in the 
+air atmosphere. This work provides a facile and cost-effective approach 
+to prepare CsPbBr3 films, making it a promising application for CsPbBr3 
+based devices. 
+Device fabrication: Fluorine-doped tin oxide (FTO) glass substrates 
+were cleaned by sonication in deionized water, 2-propanol, ethanol, and 
+deionized water successively. The deposition of electron transport layer 
+of TiO2 films are achieved according to our previous work [16]. 
+The perovskite films  were fabricated by a  two-steps spin-coating 
+technology, as shown in Scheme 1. In the first step, the matrices were 
+prepared  from  PbBr2/DMSO  solution  (~2.0  M)  with  addition  of 
+different molar ratios of CsBr to form perovskite precursor solutions. 
+Before the deposition of perovskite films, all precursor solutions were 
+filtered using 0.45 μm pore size filter and immediately used. Then, the 
+different solutions were spin-coated onto pre-heated substrates 80 ◦C at 
+Fig. 1. The photograph of solutions with different molar ration between PbBr2 
+and CsBr in DMSO. (a)2:0; (b) 2:0.5; (c) 2:1; (d) 2:1.
+the methanol with 2-methoxyethanol for preparing CsBr solution [9]. 
+They can obtain single phase CsPbBr3 film in a few minutes. However, 
+the morphology of this film is too poor to use in solar cell devices. Sooner 
+after, they proposed a binary solvent system of 2-methoxyethanol/iso-
+propanol to prepare CsBr solution (~15 mg mL(cid:0) 1), and then simulta-
+neously optimized the morphology and phase of the target CsPbBr3 film 
+by dipping the PbBr2 into the CsBr/(2-methoxyethanol + isopropanol) 
+solution for 40 min, and a power conversion efficiency (PCE) of 7.29% 
+was achieved basing on FTO/TiO2/CsPbBr3/Carbon architecture [14]. 
+Recently, Chen et al. also employed 2-methoxyethanol solvent for dis-
+solving CsBr to yield high-quality 
+Fig. 2. (a) XRD curves of the films prepared from different solutions. Surface SEM images of the films prepared from different solution in the first step. (b) 2:0; (c) 
+2:0.5; (d) 2:
+CeramicsInternational49(2023)21479–2148421480
+G. Zhang et al.                                                                                                                                                                                                                                  
+electrode was deposited by using screen printing of carbon paste with 
+drying at 100 ◦C for 10 min. 
+Characterization:  The  phase  and  morphology  of  PbBr2  and 
+Cs–Pb–Br films were measured by X-ray diffraction (PANalytical X’Pert3 
+Powder)  and  field-emission  scanning  electron  microscopy  (NovaTM 
+NanoSEM 430), respectively. The UV-Vis spectrophotometer (Shimazu 
+UV-2550) was employed to get the absorption spectra of the PbBr2 and 
+Cs–Pb–Br  films.  A  photoluminescence  spectrometer  (Edinburgh  In-
+struments, LP 980) was utilized to obtain the photoluminescence (PL) 
+spectra. The photovoltaic performance of solar cells was recorded using 
+a Keithley 2400 under AM 1.5G simulated solar illumination. The inci-
+dent photo-to-current collection efficiency spectrum (IPCE) of solar cells 
+were performed an integrated system from Enlitech (QE-R3011). 
+We first investigated the solubility of CsBr in PbBr2/DMSO solution. 
+As shown in Fig. 1, it is still a clear solution even the concentration of 
+CsBr increases from 0 M to 1.0 M in the mixtures (Fig. 1a–c). However, 
+the mixture becomes turbid when the concentration of CsBr increases to 
+1.5 M (Fig. 1d). In light of the dissolution state, we employ the solutions 
+composed of different molar ratios between PbBr2 and CsBr from 2:0, 
+2:0.5 and 2:1 to prepare the Cs–Pb–Br matrices in the first step for un-
+derstanding the phase composition. 
+The  as-prepared  samples  are  examined  by  the  X-ray  diffraction 
+(XRD).  Fig.  2a  shows  the  XRD  patterns  of  the  films  prepared  from 
+Fig. 3. (a) The SEM image of EDX result of the Cs–Pb–Br film prepared from the 
+solution of 2:1; The mapping of the film elements, (b) Cs; (c) Pb; (d) Br. 
+a speed of 3000 rpm for 30 s, followed by an anneal treatment at 100 ◦C 
+for 5 min in a N2-filled glovebox. In the second step, 90 μL CsBr/2- 
+methoxyethanol solution (~35 mg mL(cid:0) 1) (see Fig. S1) was dropped 
+on the matrices and stay it for 60 s, then the substrates were spin-coated 
+at 2000 rpm for 30 s in ambient air atmosphere. The matrices are further 
+annealed at 250 ◦C for 5 min to form Cs–Pb–Br films. Finally, the carbon 
+Fig. 4. (a) The normalized XRD curves of the Cs–Pb–Br films prepared from different solutions; Surface SEM images of Cs–Pb–Br films from different solutions; (b) 
+2:0; (c) 2:0.5; (d) 2:1. (e) (Ahv)2-hv curve obtained from the UV absorption spectrum, and (f) the steady PL spectrum of the Cs–Pb–Br films film prepared from the 
+solution of 2:
+CeramicsInternational49(2023)21479–2148421481
+G. Zhang et al.                                                                                                                                                                                                                                  
+Fig. 5. (a) The device configuration of solar cells; (b) J-V curves of the best PSCs prepared from different solutions; (c) the steady output of best solar cells by 
+applying a voltage at the maximum output point. (d) IPCE spectrum; (e) the J-V curves having highest Voc; (f) the distribution of PCE from a series of solar cells. 
+Table 1 
+The  photovoltaic  performance  of  best  solar  cells  prepared  from  different 
+solutions.  
+Solution 
+2：0 
+2：0.5 
+2：1 
+Jsc(mA cm(cid:0) 2) 
+1.70 
+4.02 
+7.15 
+Voc(V) 
+1.13 
+1.27 
+1.41 
+FF(%) 
+51.84 
+73.05 
+74.07 
+PCE(%) 
+0.99 
+3.73 
+7.48  
+different solutions. The film prepared from the solution of 2:0 are pure 
+PbBr2, which is confirmed by the characteristic peak at 18.5◦ corre-
+sponding to the (020) crystal plane [17]. In addition to having PbBr2 in 
+the film when 0.5 M CsBr is introduced into the solution, the obvious 
+diffraction peaks can be indexed at 15.2◦, 21.6◦, 30.7◦, 34.3◦ and 44.1◦
+correspond to the (100), (110), (200), (210) and (220) planes of the 
+11.7◦, 23.4◦，29.4◦ and 47.9◦ correspond to the (002), (210), (213) and 
+(420) planes of the CsPb2Br5 respectively [18], indicating the coexis-
+tence of CsPb2Br5, CsPbBr3 and PbBr2 in the Cs–Pb–Br films. When the 
+concentration increased to 1.0 M, the CsPbBr3 component increases in 
+accompanied with the decreases of PbBr2 and CsPb2Br5. We also study 
+the surface morphology evolution by using scanning electron micro-
+scopy (SEM). Fig. 2b shows a SEM image of film prepared by pure PbBr2 
+solution. The film exhibits an extremely smooth morphology with dense 
+and compact structure, which is not beneficial for the permeation of 
+CsBr solution in further step treatment. When including CsBr into the 
+solution, the as-prepared films become much rougher with many pores 
+and cracks on the surface (Fig. 2c and d). These rough morphologies 
+have significant impacts on the permeation of CsBr/2-methoxyethanol 
+solution in the second step treatment [19,20]. As shown in the insets 
+of Fig. 2, the colours of the films evolves from transparent (Fig. 2b inset) 
+to light yellow (Fig. 2d inset) when the films prepared from the solution 
+CeramicsInternational49(2023)21479–2148421482
+G. Zhang et al.                                                                                                                                                                                                                                  
+color. In contrast, matrix prepared from the solution of 2:1 exhibits fully 
+covered morphology, this feature is further confirmed in large scale SEM 
+image of this film (Fig. S5). The photograph of the CsPbBr3 film also 
+exhibits uniform yellow color, demonstrating a uniform feature in a 
+large scale. The UV–vis absorption spectrum of the Cs–Pb–Br film pre-
+pared from the solution of 2:1 shows an onset at ~530 nm (Fig. S6). 
+Fig. 4e shows the Tauc plot of the film prepared from the solution of 2:1. 
+The optical bandgap (Eg) is fitted to be ~2.3 eV, which is consistent with 
+previous reports [10,25,26]. The characteristic bandgap of CsPbBr3 can 
+also be demonstrated by the steady PL spectrum (Fig. 4f), which shows 
+an emission peak at ~536 nm, corresponding to an optical bandgap of 
+~2.3 eV. These results demonstrate that our method is an effective way 
+to prepare high-purity CsPbBr3  films through pre-introducing appro-
+priate CsBr into PbBr2 solution. 
+To examine the film performance in a full solution-processed device 
+structure, we construct an HTL-free solar cell with a configuration of 
+FTO/TiO2/CsPbBr3/Carbon.  Fig.  5a  presents  a  cross-sectional  SEM 
+image of a solar cell sample, in which the CsPbBr3 films are prepared 
+from the solution of 2:1. It clearly indicates that the CsPbBr3 grains are 
+large enough to occupy the whole thickness of ~600 nm in active layer 
+with dense arrangement. Fig. 5b shows the light J-V curves of the best 
+PSCs prepared from different solutions. The PSC prepared from the so-
+lution of 2:1 has a power conversion efficiency (PCE) of 7.48%, with a 
+short circuit current density (Jsc) of 7.16 mA cm(cid:0) 2, a fill factor (FF) of 
+74.07%, and an open-circuit voltage Voc of 1.41 V. Whereas the best 
+PSCs fabricated from the solution of 2:0 and 2:0.5 exhibit very low PCE 
+of 0.99% and 3.73%, respectively. Other photovoltaic parameters from 
+different PSCs are summarized in Table 1. This performance comparison 
+shows the importance of enhancing the purity and coverage of CsPbBr3 
+phase in active layer of solar cell. Fig. 5c is the steady-state output near 
+the maximum power point of the best PSC of the 2:1 device. A steady 
+photocurrent density of 5.65 mA cm(cid:0) 2 and a steady PCE of 6.44% were 
+obtained at a bias voltage 1.14 V. It is noted that the steady PCE is 
+slightly lower than the value extracted from J-V curve under the reverse 
+scan. The deviation might come from the hysteresis behavior which is 
+usually observed in common PSC devices [11,27–30] (Fig. S7). The IPCE 
+spectrum of the optimized solar cell is recorded and shown in Fig. 5d. 
+The  device  shows  strong  light  absorption  ability  in  the  range  of 
+300–~525 nm. The Jsc  integrated from the IPCE spectra is 6.46 mA 
+cm(cid:0) 2, which is a little lower than that obtained from the J-V curve. This 
+discrepancy might be related to the nonlinear properties of perovskite 
+films [31]. It should be noted that a high Voc of 1.5 V is achieved in a 
+patch of PSCs prepared from the solution of 2:1. This value is one of the 
+highest Voc for the CsPbBr3 solar cells based on unmodified configura-
+tion FTO/TiO2/CsPbBr3/Carbon [32]. Fig. 5f summarizes the distribu-
+tion of PCE collected from a series of PSCs. The average PCE is 5.86% of 
+all samples demonstrating that our two-steps method is a reliable way to 
+prepare efficient CsPbBr3 solar cells. 
+The air stability of solar cells is also investigated. Fig. 6 shows the 
+normalized photovoltaic parameters of an unencapsulated PSC under 
+the open-air condition (T ~30 ◦C RH ~45%). The result shows that the 
+photovoltaic parameters, including Voc, Jsc, FF and PCE, are still stable 
+over 50 days. The best-performance PSC still shows a PCE of 6.81%, Voc 
+of 1.41 V, Jsc  of 7.21 mA cm(cid:0) 2, and FF of 67% when it is stored in 
+ambient condition for 90 days (see Fig. S8). The superior stability of 
+CsPbBr3  solar cells makes it become a competitive candidate to the 
+commercialization of PSCs. 
+In summary, we fabricate high-quality CsPbBr3 films by using a facile 
+two-step spin-coating method, in which CsBr is introduced into PbBr2 
+solution in the first step. The pre-incorporated CsBr in PbBr2 solution can 
+shorten the fabrication period and simplify the preparation process in 
+comparison with the traditional dipping and multi-step solution pro-
+cessing  methods.  The  
+Fig. 6. The evolution of normalized parameters of solar cell at air atmosphere 
+with temperature of ~30 ◦C and relative humidity of ~45%. 
+of 2:1, which is close to the intrinsic yellow of the CsPbBr3 films. The 
+UV/Vis absorption spectra of the films (see Fig. S2) also confirm the 
+existence of CsPbBr3 in the films, which is evidenced by an absorbance 
+onset  near  530  nm,  corresponding  to  the  bandgap  of  ~2.32  eV  for 
+CsPbBr3 [21]. 
+In order to learn the elements distribution in the films, we perform 
+the  energy-dispersive  X-ray  spectroscopy  (EDX)  experiments  on  the 
+films prepared from the solution of 2:1 (Fig. S3). Besides the element 
+from the substrates (Ti and O), Cs, Pb and Br element are also detected in 
+the films, showing the existence of Cs in the films. These results strongly 
+demonstrate that the element of Cs and Br are successfully introduced 
+into the films. Fig. 3b–d are the elemental mapping of Cs, Pb and Br in 
+the films, showing a uniform distribution of those elements in the films. 
+Combined with the elemental ratio of EDX data (see Table S1), it is found 
+that Cs:Pb:Br is close to 1:2:5 coincided with elemental ratio of the 
+precursor solution of 2:1. Those results demonstrate that it is an effective 
+way to supply the Cs source by introducing CsBr into the PbBr2 solution 
+in our first step treatment. 
+Fig. 4a is the normalized XRD curves of the Cs–Pb–Br films prepared 
+from different solutions after reacting with CsBr/2-methoxyethanol so-
+lution,  followed  by  an  annealing  treatment.  Some  PbBr2  are  still 
+remained in the Cs–Pb–Br films prepared from the solution of 2:0. There 
+are very weak diffraction peaks of CsPbBr3 in the XRD pattern (blue line 
+in Fig. 4a), indicating a tiny amount of CsPbBr3 exists in the films due to 
+Cs element deficiency. The phase of CsPbBr3 begins to dominate in the 
+Cs–Pb–Br films when 0.5 M CsBr is introduced into the PbBr2 solution in 
+the first step, but still exists PbBr2-riched CsPb2Br5 phase in the film (red 
+line in Fig. 4a). Therefore, it is necessary to supply Cs source so as to 
+obtain single phase CsPbBr3 films. As expected, it produces pure CsPbBr3 
+films when 1.0 M CsBr is added to the PbBr2  solution (dark line in 
+Fig. 4a). By checking with EDX analysis (see Fig. S4 and Table S2), it is 
+found that Cs, Pb and Br are uniform distributed and the ratio is close to 
+1:1:3. Those results demonstrate that it is an effective way to get pure 
+phase CsPbBr3. Fig. 4b to d show the morphology and related photos 
+(inset figures) of the Cs–Pb–Br films after second step treatment. For the 
+Cs–Pb–Br films prepared from the solution of 2:0, there are some small 
+grains on the surface, which is different from the PbBr2 films prepared in 
+the first step (Fig. 2b). These small grains may be CsPbBr3 grains, which 
+is evidenced by the yellow dots on the films. There are apparent cracks 
+in the Cs–Pb–Br films fabricated from the solution of 2:0.5 (Fig. 4c), 
+which is consistent with the morphology of the mother matrix in the first 
+step (Fig. 2c). The cracks in the Cs–Pb–Br films can act as the current- 
+shunting pathways, leading to a serious current leakage and recombi-
+nation loss [22–24]. Meanwhile, the film exhibits nonuniform yellow 
+CeramicsInternational49(2023)21479–2148421483
+G. Zhang et al.                                                                                                                                                                                                                                  
+devices with a configuration of FTO/TiO2/CsPbBr3/Carbon. The opti-
+mized samples can achieve a power conversion efficiency of 7.48%, with 
+high stability in air conditions. These results demonstrate the efficient 
+and time-saving method for preparation of CsPbBr3 films in this work 
+has a promising application in various optoelectronic devices. 
+Declaration of competing interest 
+[23] W. Zhu, Z. Zhang, W. Chai, D. Chen, H. Xi, J. Chang, J. Zhang, C. Zhang, Y. Hao, 
+[24] Y. Zhao, K. Zhu, Organic–inorganic hybrid lead halide perovskites for 
+[29] O. Almora, I. Zarazua, E.M. Marza, I.M. Sero, J. Bisquert, G.G. Belmonte, 
+[19] T. Liu, Q. Hu, J. Wu, K. Chen, L. Zhao, F. Liu, C. Wang, H. Lu, S. Jia, T. Russell, 
+[20] X. Han, X. Wang, J. Feng, H. Huang, Z. Zhu, T. Yu, Z. Li, Z. Zou, Carrier mobility 
+[13] P. Teng, X. Han, J. Li, Y. Xu, L. Kang, Y. Wang, Y. Yang, T. Yu, Elegant face-down 
+liquid-space-restricted deposition of CsPbBr3 films for efficient carbon-based all- 
+Inorganic planar perovskite solar cells, ACS Appl. Mater. Interfaces 10 (2018) 
+[14] Q. Meng, J. Feng, H. Huang, X. Han, Z. Zhu, T. Yu, Z. Li, Z. Zou, Simultaneous 
+optimization of phase and morphology of CsPbBr3 films via controllable Ostwald 
+ripening by ethylene glycol monomethylether/isopropanol bi-solvent engineering, 
+[15] J. Chen, W. Qiu, C. Huang, L. Wu, C. Liu, Q. Tian, Z. Peng, J. Chen, A novel solvent 
+for multistep solution-processed planar CsPbBr3 perovskite solar cells using In2S3 
+10.1002/ente.202200054. 
+[16] X. Cao, G. Zhang, L. Jiang, Y. Cai, Y. Gao, W. Yang, X. He, Q. Zeng, G. Xing, Y. Jia, 
+J.Q. Wei, Water, a green solvent for fabrication of high quality CsPbBr3 films for 
+org/10.1021/acsami.9b20376. 
+[17] E. Belarbi, M. Vall´es-Pelarda, B.C. Hame, R.S. Sanchez, E.M. Barea, H.M. Meherzi, 
+I.M. Ser´o, Transformation of PbI2, PbBr2 and PbCl2 salts into MAPbBr3 perovskite 
+by halide exchange as an effective method for recombination reduction, Phys. 
+01192J. 
+[18] J. Liu, L. Zhu, S. Xiang, Y. Wei, M. Xie, H. Liu, W. Li, H. Chen, Growing high-quality 
+CsPbBr3 by using porous CsPb2Br5 as an intermediate: a promising light absorber in 
+carbon-based perovskite solar cells, Sustain. Energy Fuels 3 (2019) 184–194, 
+R. Zhu, Q. Gong, Mesoporous PbI2 scaffold for high-performance planar 
+heterojunction perovskite solar cells, Adv. Energy Mater. 6 (2016), 1501890, 
+enhancement in (121)-oriented CsPbBr3 perovskite films induced by the 
+microstructure tailoring of PbBr2 precursor films, ACS Appl. Electron. Mater. 3 
+[21] X. Liu, X. Tan, Z. Liu, H. Ye, B. Sun, T. Shi, Z. Tang, G. Liao, Boosting the efficiency 
+of carbon-based planar CsPbBr3 perovskite solar cells by a modified multistep spin- 
+coating technique and interface engineering, Nano Energy 56 (2019) 184–195, 
+[22] J. Seo, J.H. Noh, S.I. Seok, Rational strategies for efficient perovskite solar cells, 
+5b00444. 
+Benign pinholes in CsPbIBr2 absorber film enable efficient carbon-based, all- 
+inorganic perovskite solar cells, ACS Appl. Energy Mater. 2 (2019) 5254–5262, 
+optoelectronic and electronic applications, Chem. Soc. Rev. 45 (2016) 655–689, 
+[25] J. Duan, Y. Zhao, B. He, Q. Tang, Simplified perovskite solar cell with 4.1% 
+efficiency employing inorganic CsPbBr3 as light absorber, Small 14 (2018), 
+[26] J. Duan, T. Hu, Y. Zhao, B. He, Q. Tang, Carbon electrode tailored all-inorganic 
+perovskite solar cells to harvest solar and water-stream energies, Angew. Chem. 
+[27] Y. Pei, H. Guo, Z. Hu, J. Zhang, Y. Zhu, BiBr3 as an additive in CsPbBr3 for carbon- 
+based all-inorganic perovskite solar cell, J. Alloys Compd. 853 (2020), 155283, 
+[28] T. Xiang, Y. Zhang, H. Wu, J. Li, L. Yang, K. Wang, J. Xia, Z. Deng, J. Xiao, W. Li, 
+Z. Ku, F. Huang, J. Zhong, Y. Peng, Y.B. Cheng, Universal defects elimination for 
+high performance thermally evaporated CsPbBr3 perovskite solar cells, Sol. Energy 
+olmat.2019.110317. 
+Capacitive dark currents, hysteresis, and electrode polarization in lead halide 
+10.1021/acs.jpclett.5b00480. 
+[30] J. Yan, S. Hou, X. Li, J. Dong, L. Zou, M. Yang, J. Xing, H. Liu, H. Hao, Preparation 
+of highly efficient and stable CsPbBr3 perovskite solar cells based on an anti-solvent 
+10.1016/j.solmat.2021.111420. 
+[31] M. Saliba, L. Etgar, Current density mismatch in perovskite solar cells, ACS Energy 
+[32] X. Cao, G. Zhang, L. Jiang, Y. Cai, Y. Wang, X. He, Q. Zeng, J. Chen, Y. Jia, J. Wei, 
+Achieving environment-friendly production of CsPbBr3 films for efficient solar cells 
+10.1039/D1GC00106J. 
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper. 
+Acknowledgements 
+This work was financially supported by National Natural Science 
+Foundation of China (Grant No. 52202287 and 61974010) and Guang-
+dong  Basic  and  Applied  Basic  Research  Foundation  (Grant  No. 
+2020A1515111052). 
+Appendix A. Supplementary data 
+org/10.1016/j.ceramint.2023.03.279. 
+References 
+[1] J. Liang, C. Wang, Y. Wang, Z. Xu, Z. Lu, Y. Ma, H. Zhu, Y. Hu, C. Xiao, X. Yi, 
+G. Zhu, H. Lv, L. Ma, T. Chen, Z. Tie, Z. Jin, J. Liu, All-inorganic perovskite solar 
+jacs.6b10227. 
+[2] I. Poli, J. Baker, J. McGettrick, F.D. Rossi, S. Eslava, T. Watson, P.J. Cameron, 
+Screen printed carbon CsPbBr3 solar cells with high open-circuit photovoltage, 
+[3] X. Chang, W. Li, L. Zhu, H. Geng, S. Xiang, J. Liu, H. Chen, Carbon-based CsPbBr3 
+perovskite solar cells: all-ambient process and high thermal stability, ACS Appl. 
+i.6b11393. 
+[4] G. Wang, W. Dong, A. Gurung, K. Chen, F. Wu, Q. He, R. Pathak, Q. Qiao, 
+Improving photovoltaic performance of carbon-based CsPbBr3 perovskitesolar cells 
+by interfacial engineering using P3HT interlayer, J. Power Sources 432 (2019) 
+[5] M. Kulbak, D. Cahen, G. Hodes, How important is the organic part of lead halide 
+perovskite photovoltaic cells? Efficient CsPbBr3 perovskite solar cells, J. Phys. 
+[6] M. Kulbak, S. Gupta, N. Kedem, I. Levine, T. Bendikov, G. Hodes, D. Cahen, Cesium 
+enhances long-term stability of lead bromide perovskite-based solar cells, J. Phys. 
+[7] G. Wang, J. Bi, J. Chang, M. Lei, H. Zheng, Y. Yan, Bandgap tuning of a CsPbBr3 
+perovskite with synergistically improved quality via Sn2+ doping for high- 
+performance carbon-based inorganic perovskite solar cells, Inorg. Chem. Front. 9 
+[8] K.C. Tang, P. You, F. Yan, Highly stable all-Inorganic perovskite solar cells 
+10.1002/solr.201800075. 
+[9] J. Feng, X. Han, H. Huang, Q. Meng, Z. Zhu, T. Yu, Z. Li, Z. Zou, Curing the 
+fundamental issue of impurity phases in two-step solution-processed CsPbBr3 
+b.2020.01.025. 
+enabled rapid transformation of wet PbBr2(DMF) precursor films to CsPbBr3 
+10.1039/C9EE01 479A. 
+[11] J. Ryu, S. Yoon, S. Lee, D. Lee, B. Parida, H.W. Kwak, D.W. Kang, Improving 
+photovoltaic performance of CsPbBr3 perovskite solar cells by a solvent-assisted 
+ectacta.2020.137539. 
+[12] J. Duan, Y. Zhao, B. He, Q. Tang, High-purity inorganic perovskite films for solar 
+doi.org/10.1002/anie.
+[10] J. Li, Z. Zhi, X. Han, T. Yu, Y. Xu, J. Feng, Z. Li, Z. Zou, Direct molecule substitution 
+CeramicsInternational49(2023)21479–2148421484
