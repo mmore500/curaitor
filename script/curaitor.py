@@ -100,11 +100,11 @@ if st.button("Ask"):
         st.write(response)
     else:
         st.write("Please enter both a question and a prompt.")
-# else:
-# st.write("Upload PDF files and enter a question and a prompt to proceed.")
+else:
+    st.write("Upload PDF files and enter a question and a prompt to proceed.")
 
-# Button to delete embedding files
-if st.button("Delete embedding files"):
+# Button to delete .npy files
+if st.button("Delete .npy files"):
     npy_files_deleted = 0
     embedding_directory = "./"
     for root, dirs, files in os.walk(embedding_directory):
@@ -112,7 +112,7 @@ if st.button("Delete embedding files"):
             if file.endswith(".npy"):
                 os.remove(os.path.join(root, file))
                 npy_files_deleted += 1
-    st.success(f"Deleted {npy_files_deleted} embedding files.")
+    st.success(f"Deleted {npy_files_deleted} .npy files.")
 
 # Button to delete output folder
 if st.button("Delete output folder"):

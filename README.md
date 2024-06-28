@@ -28,9 +28,9 @@ conda env create -f curaitor_linux_env.yml
    i. username is usually the email during registration.
 
    ii. token could be generated from your profile in the OSF and could be passed as environmental variables using
-   `export torken='YOUR TOKEN STRING'`. 
+   `export OSF_TOKEN='YOUR TOKEN STRING'`. 
 
-   iii. project ID is basically a short string, you could refer to the [OSFClient](https://osfclient.readthedocs.io/en/latest/cli-usage.html) documentations. 
+   iii. project ID is the 5-character alphanumeric key after your project's url, e.g., `osf.io/4zmdh`, (see the [OSFClient](https://osfclient.readthedocs.io/en/latest/cli-usage.html) documentation). 
 
 We recommend using Python 3.11.
 If you have Python 3.11 installed, but it is not your default Python version you can use "`python3.11`" instead of "`python3`" above. 
@@ -49,27 +49,6 @@ General guidance on managing multiple Python versions can be found [here](https:
 2. **Download open-source LLM and text embedding model compatible with Ollama:**
    i. Type `ollama pull llama3` (for Llama 3 8b model) on terminal
    ii. Type `ollama pull nomic-embed-text` (for nomic text embeddings) on terminal
-
-## How to Run the Streamlit User Interface
-
-To launch the Streamlit user interface for this project, follow these steps:
-
-1. **Ensure you have Streamlit installed.** You can install it using pip if you haven't already:
-
-    ```sh
-    pip install streamlit
-    ```
-
-2. **Run the Streamlit application** by executing the following command in your terminal:
-
-    ```sh
-    streamlit run script/curaitor.py
-    ```
-
-This will start the Streamlit server and open the user interface in your default web browser.
-
-![Streamlit UI Screenshot](curaitor.png)
-
 
 ## Contribution Guidelines
 
