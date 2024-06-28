@@ -7,9 +7,9 @@ from tqdm import tqdm
 def scaleCropPDFMargins(uploaded_file, outputDirectory):
     # Construct output path
     outputFilename = os.path.splitext(uploaded_file)[0] + "_cropped.pdf"
-    outputPath = os.path.join(outputDirectory, outputFilename)
-    read_file = os.path.join(outputDirectory, uploaded_file)
-    input1 = PdfReader(read_file)
+    # outputPath = os.path.join(outputDirectory, outputFilename)
+    
+    input1 = PdfReader(uploaded_file)
     output = PdfWriter()
     A4_w = float(PaperSize.A4.width)
     A4_h = float(PaperSize.A4.height)
@@ -68,7 +68,7 @@ def scaleCropPDFMargins(uploaded_file, outputDirectory):
         output.add_page(page_A4)
 
     # Write output to specified path
-    with open(outputPath, "wb") as pdfFileOut:
+    with open(outputFilename, "wb") as pdfFileOut:
         output.write(pdfFileOut)
 
 
@@ -89,7 +89,8 @@ def cropAllPdfs(uploaded_files, outputDirectory, totalFiles):
         processed_count = 0
         # Iterate through uploaded PDF files
         for uploaded_file in uploaded_files:
-            scaleCropPDFMargins(uploaded_file, outputDirectory)
+            path_file = os.path.join(outputDirectory, uploaded_file)
+            scaleCropPDFMargins(path_file, outputDirectory)
             processed_count += 1
             pbar.set_description(
                 f"Processing files (Processed: {processed_count}/{totalFiles})"
