@@ -57,11 +57,6 @@ def read_key(key_file_path):
 # key = read_key(key_file_path)
 # client = OpenAI(api_key=key)
 
-# Load data
-text = glob.glob("*texts.npy")[0]
-embed = glob.glob("*embeddings.npy")[0]
-texts, embeddings = load_texts_and_embeddings(text, embed)
-
 
 # Assume you have a function to generate or fetch your query embedding
 def get_query_embedding(query_text, llm):
@@ -112,13 +107,17 @@ def get_query_embedding(query_text, llm):
 
 
 def query_llm(query_text, prompt, llm):
+    # Load data
+    text = glob.glob("*texts.npy")[0]
+    embed = glob.glob("*embeddings.npy")[0]
+    texts, embeddings = load_texts_and_embeddings(text, embed)
+
     # Get the embedding for the query to identify relevant texts
     query_embedding = get_query_embedding(query_text, llm)
 
     # Determine the index of the most relevant text from the embeddings
     most_relevant_index = find_most_relevant_text(embeddings, query_embedding)
     relevant_text = texts[most_relevant_index][0]
-    # print("Relevant Text:", relevant_text)
 
     prompt_ = prompt + f"Context: {relevant_text}"
 
@@ -131,21 +130,24 @@ def query_llm(query_text, prompt, llm):
         response = client.chat.completions.create(
             model="gpt-4", messages=[{"role": "system", "content": prompt_}]
         )
-        print("GPT-4 Response:", response.choices[0].message.content)
+        response_text = response.choices[0].message.content
 
     elif llm.startswith("HF"):
         chatbot = pipeline("text-generation", model=llama3_local)
         response = chatbot(
             prompt_, max_length=4000, do_sample=True, temperature=0.1
         )
-        print("Llama3 Response:", response[0]["generated_text"])
+        response_text = response[0]["generated_text"]
 
     elif llm.startswith("Ollama"):
-        chatbot = ChatOllama(model="llama3")
+        chatbot = ChatOllama(model="llama3", temperature=0)
         chat_prompt = ChatPromptTemplate.from_template(prompt_)
         chain = chat_prompt | chatbot | StrOutputParser()
         full_output = chain.invoke({"Context": {relevant_text}})
-        print(full_output)
+        response_text = full_output
+
+    # Debug: Print the raw response text
+    print("Response Text:", response_text)
 
     # Extract only the table part
     table_start = full_output.find("| ")
@@ -153,42 +155,39 @@ def query_llm(query_text, prompt, llm):
     table_text = full_output[table_start:table_end]
 
     # Convert the table text to a list of dictionaries
-    # rows = table_text.strip().split("\n")[1:]  # Skip the header line
-    # data = []
-    # ctr = 0
-    # for row in rows:
-    #     print(row)
-    #     # if ctr == 1:
-    #     #     continue
-    #     columns = row.split("|")[1:-1]  # Split by '|' and remove the first and last empty strings
-    #     data.append({
-    #         "Embedding Numbers": columns[0].strip(),
-    #         "Source Text Name": columns[1].strip(),
-    #         "Detailed Roles and Interactions": columns[2].strip()
-    #     })
-    #     ctr += 1
-
-    table_lines = table_text.strip().split("\n")
-    headers = table_lines[0].split("|")[
-        1:-1
-    ]  # Extract headers, ignoring first and last empty strings
     data = []
-    headers = [header.strip() for header in headers]  # Clean headers
-    for row in table_lines[2:]:  # Skip the header and divider lines
-        columns = row.split("|")[
-            1:-1
-        ]  # Split by '|' and remove the first and last empty strings
-        columns = [column.strip() for column in columns]  # Clean column values
-        row_data = dict(
-            zip(headers, columns)
-        )  # Create a dictionary for the row
-        data.append(row_data)
+    if table_text:
+        table_lines = table_text.strip().split("\n")
+        if len(table_lines) > 1:  # Ensure there are header and data lines
+            headers = table_lines[0].split("|")[
+                1:-1
+            ]  # Extract headers, ignoring first and last empty strings
+            headers = [header.strip() for header in headers]  # Clean headers
+            for row in table_lines[2:]:  # Skip the header and divider lines
+                columns = row.split("|")[
+                    1:-1
+                ]  # Split by '|' and remove the first and last empty strings
+                columns = [
+                    column.strip() for column in columns
+                ]  # Clean column values
+                row_data = dict(
+                    zip(headers, columns)
+                )  # Create a dictionary for the row
+                data.append(row_data)
+        else:
+            print("Table extraction failed: Not enough lines in table text.")
+    else:
+        print("Table extraction failed: No table found in response text.")
 
-    # Write the data to a CSV file
-    csv_file_path = "output_table.csv"
-    with open(csv_file_path, mode="w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=data[0].keys())
-        writer.writeheader()
-        writer.writerows(data)
+    # Write the data to a CSV file if data is not empty
+    if data:
+        csv_file_path = "output_table.csv"
+        with open(csv_file_path, mode="w", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=data[0].keys())
+            writer.writeheader()
+            writer.writerows(data)
+        print(f"Data saved to {csv_file_path}")
+    else:
+        print("No data to save to CSV.")
 
-    print(f"Data saved to {csv_file_path}")
+    return response_text
