@@ -1,0 +1,431 @@
+Nano Energy 38 (2017) 66–71
+Contents lists available at ScienceDirect
+Nano Energy
+Communication
+Boosting thin-ﬁlm perovskite solar cell eﬃciency through vacuum-
+deposited sub-nanometer small-molecule electron interfacial layers
+MARK
+Wei-Hung Leea, Chien-Yu Chena, Chia-Shuo Lib, Sheng-Yi Hsiaoa, Wei-Lun Tsaia, Min-
+Jie Huangc, Chien-Hong Chengc, Chih-I Wub,⁎
+, Hao-Wu Lina,⁎
+A R T I C L E I N F O
+A B S T R A C T
+In this paper, we demonstrate that the performance of perovskite solar cells can be largely boosted with sub-nm
+pyridine-containing small-molecule electron interfacial layers. These vacuum-deposited sub-nm layers between
+perovskites and electron transport layers create a permanent dipole moment that improves the interfacial
+energy level alignment and facilitates a fast electron sweep-out. With these interfacial layers, the devices exhibit
+exceptional power conversion eﬃciencies up to 18.8%, a 25% increase compared to that of the one without the
+interfacial layer.
+Keywords:
+Perovskite solar cells
+Vacuum deposition
+Electron interfacial layer
+Pyridine derivatives
+Recently, halide perovskite semiconductors have attracted a great
+amount of attention because of their unique optoelectronic properties
+and potential applications in solar and dim-light energy conversion,
+light emission, lasing, transistors, and sensors [1–11]. Compared to
+current mainstream group IV and III–V semiconductors, halide
+perovskite thin ﬁlms can be fabricated at much lower temperatures,
+which makes them suitable for low-cost and large-area production.
+Similar to aromatic organic semiconductors, semiconducting perovs-
+kite thin ﬁlms can be fabricated by either solvent-based solution
+processes or solvent-free vacuum deposition. Owing to the diﬀerent
+characteristics of deposition methods, two distinct approaches have
+been applied to solution-processed and vacuum-deposited perovskites
+to achieve high device performance. In the solution process, a complex
+perovskite composition can easily be realized by the mixture of
+perovskite precursor solutions, while in the vacuum process, without
+the issue of dissolution, eﬀortless deposition of multiple layers is
+usually achieved [12]. In vacuum-deposition organic light-emitting
+diodes, sub-nanometer to few-nanometer interfacial layers, such as
+inorganic materials, MoOx, CsF,
+and conjugated compounds,
+1,4,5,8,9,11-hexaazatriphenylene hexacarbonitrile (HAT-CN) and 8-
+hydroxyquinolinato lithium (Liq), have been widely used for the
+eﬀective injection of holes or electrons [13–16]. In this paper, we
+demonstrate that by taking the advantages of precise thickness control
+and solution-free layer-by-layer stacking, of the vacuum deposition,
+⁎ Corresponding authors.
+E-mail addresses: chihiwu@ntu.edu.tw (C.-I. Wu), hwlin@mx.nthu.edu.tw (H.-W. Lin).
+Received 28 April 2017; Received in revised form 22 May 2017; Accepted 23 May 2017
+Available online 24 May 2017
+2211-2855/ © 2017 Elsevier Ltd. All rights reserved.
+performance of perovskite solar cells can be largely boosted with sub-
+nm small-molecule electron interfacial layers (EILs). These vacuum-
+deposited sub-nm layers between perovskites and electron transport
+layers (ETLs) create a permanent dipole moment that improves the
+interfacial energy level alignment and facilitates a fast electron sweep-
+out. All perovskite solar cell performance parameters, including short-
+circuit current density (JSC), open-circuit voltage (VOC), and ﬁll factor
+(FF), can be simultaneously enhanced, resulting in a 24.5% increase in
+power conversion eﬃciency (PCE).
+2.
+The devices were prepared on cleaned indium tin oxide (ITO)
+substrates. The substrates were then loaded into a high vacuum
+chamber (base pressure < 1 × 10–6 Torr) to deposit MoO3 and
+tris[4-(5-phenylthiophen-2-yl)phenyl]amine) (TPTPA) thin ﬁlms layer
+by layer, and the perovskite ﬁlms were then fabricated by sequential
+vacuum deposition, which is reported in another paper [2]. After the
+formation of perovskite, we deposited 1,3,5-Tri[(3-pyridyl)-phen-3-yl]
+benzene (TmPyPB), 4,6-Bis(3,5-di(pyridin-4-yl)phenyl)-2-methylpyri-
+midine (B4PyMPM), and Tris(2,4,6-trimethyl-3-(pyridin-3-yl)phenyl)
+borane (3TPYMB) as EILs respectively. During the interfacial layer
+deposition, the deposition rate was maintained at 0.1 Å s−1. After that,
+C60, TmPyPB, and Ag were deposited layer by layer. The thicknesses of
+W.-H. Lee et al.
+Nano Energy 38 (2017) 66–71
+Fig. 
+the organic layers were all carefully calibrated by using spectroscopic
+ellipsometry. The devices were conﬁgured as glass substrate/ITO
+(145 nm)/MoO3 (5 nm)/TPTPA (10 nm)/CH3NH3PbI3 (370 nm) /EIL
+(0.5 nm)/C60 (90 nm)/TmPyPB (7 nm)/Ag (150 nm). The device areas
+(0.051 cm2) were deﬁned by shadow masks. The devices were encap-
+sulated using UV-cured sealant (Everwide Chemical Co.) and cover
+glasses after fabrication, and were subsequently characterized in air.
+2.
+The J–V characteristics of the devices were measured using a
+Keithley 2636B SourceMeter in the dark and under AM1.5 G simulated
+solar illumination with an intensity of 100 mW cm−2 (1 sun, calibrated
+by an NREL-traceable KG5-ﬁltered silicon reference cell). Normally,
+the scan direction travels from the positive to negative bias with a step
+size of 10 mV and a delay time between points of 300 ms. The external
+quantum eﬃciency (EQE) spectra were acquired by illuminating the
+solar cells with chopped monochromatic light with continuous-wave-
+biased white light (from a halogen lamp). The photocurrent signals
+were extracted with the lock-in technique using a Stanford Research
+System current preampliﬁer followed by an Ametek lock-in ampliﬁer.
+The intensity of the monochromatic light was calibrated with a NIST-
+traceable Ophir power meter. Transient photocurrent and transient
+photovoltage measurements were performed using the second harmo-
+nic of a Nd:YAG laser (532 nm) as an excitation source. A 100 W
+variable-intensity halogen lamp was used as the bias light. The
+transient photocurrent signals were ampliﬁed using a variable-gain
+high-speed current ampliﬁer (FEMTO, DHPCA-100), and the transient
+signals were recorded using a Tektronix oscilloscope (DPO3050).
+Averages of 256 traces were calculated to improve the signal-to-noise
+ratio. The average lifetimes were ﬁtted with bi-exponential decay
+functions.
+2.
+Atomic force microscopy (AFM) images were measured with a
+Bruker Dimension Icon® Atomic Force Microscope operating in a
+tapping mode. Photoemission measurements were conducted in two
+connected ultrahigh vacuum chambers, one for organic thermal
+deposition and the other for spectroscopic analysis with a base pressure
+of 1 × 10–9 Torr. To avoid the diﬀerence induced by processing
+conditions, the perovskite ﬁlms were prepared simultaneously and
+were then stored in a nitrogen atmosphere. The prepared perovskite
+ﬁlm was loaded into the analysis chamber as quick as possible after
+exposure to the air to prevent contamination. C60 and 3TPYMB were
+thermally deposited on the perovskite ﬁlm under a pressure of 5 × 10–
+7 Torr with a deposition rate of 0.2 Å/s using a Sycon STM-100 crystal
+thickness monitor, and the XPS and UPS spectra were acquired
+immediately after every deposition. The valance-band UV photoemis-
+sion spectra were obtained using HeI (21.2 eV) as the excitation source
+and photoemitted electrons were counted by a hemispherical analyzer
+with an overall resolution of 0.05 eV. The absolute energy scale of the
+UPS and XPS spectra is relative to the Fermi edge and the 4f core level
+of a sputter-cleaned gold substrate, respectively. To eliminate the
+analyzer eﬀect, a sample bias of −5 eV was applied when acquiring
+the secondary electron cutoﬀ spectra.
+2.
+Geometric optimizations were carried out with density functional
+theory implemented in the Gaussian 09 package. Becke's three-para-
+meter functional combined with Lee, Yang, and Parr's hybrid exchange
+correlation functional (B3LYP) with the 6–31G* basic set was utilized
+for all atoms. Harmonic vibrational frequencies were performed on the
+optimized geometries to conﬁrm energetic minima. The molecular
+W.-H. Lee et al.
+Nano Energy 38 (2017) 66–71
+Fig. 2. (a) J–V characteristics of the perovskite solar cells incorporating various EILs
+under 1 sun, AM1.5 G, of illumination (solid lines) and in the dark (dashed lines). (b)
+Photocurrent density and power conversion eﬃciency as a function of time of the
+champion solar cell with 3TPYMB EIL maintained at a bias of 0.88 V. Inset:
+Corresponding J–V characteristics with diﬀerent sweep directions.
+Table 1
+Performance of perovskite solar cells with various EILs. Each data represents the average
+from 8 ~ 12 cells. PCE for the champion cell is shown in brackets.
+VOC [V]
+JSC [mA cm–2]
+w/o
+TmPyPB
+B4PyMPM
+3TPYMB
+1.04
+1.05
+1.05
+1.06
+20.4
+21.9
+21.8
+22.4
+FF
+0.68
+0.74
+0.75
+0.76
+PCE (highest PCE) [%]
+14.3 (15.1)
+17.0 (17.7)
+17.2 (18.0)
+18.0 (18.8)
+dipole moment was evaluated at the lowest energy conformation.
+Fig. 1a displays the device structure of the solar cells used in this
+study. Vacuum-sublimable small-molecule electron transporting ma-
+terials, TmPyPB, B4PyMPM, and 3TPYMB were inserted between the
+vacuum-deposited CH3NH3PbI3 perovskite active layer and C60 ETL.
+The molecular structures of the electron interfacial materials are
+displayed in Fig. 1b. Fig. 1c displays the energy band diagram. The
+interfacial materials used all possess high-energy bandgaps with low-
+lying HOMO and high-lying LUMO levels. The low-lying HOMO levels
+may block the photogenerated holes from diﬀusing to the C60 ETLs.
+However, the high-lying LUMO levels also inhibit the electrons from
+transporting to the C60 ETLs; hence, it is possible that the tunneling
+mechanism is operational in the eﬃcient devices [17,18].
+In previous EIL studies, the interfacial layers were usually fabri-
+Fig. 3. (a) Normalized transient photocurrent and (b) normalized transient photovoltage
+results of perovskite solar cells with and without 3TPYMB EILs. The dashed lines and the
+numbers in the brackets show the ﬁtted curves and the average transient lifetimes.
+cated before the coating of the perovskite active layer [19–22]. In
+consequence, the insertion of the interfacial layer between the electron
+transporting and perovskite layer not only aﬀects the energy levels but
+also extensively alters the morphology and crystallinity of the upper
+perovskite ﬁlm [19–22]. Although many have reported very eﬃcient
+device eﬃciency improvements by the interfacial layers, it is very
+diﬃcult to separate their energetic and morphological eﬀects. In
+contrast, in this study, the EILs were vacuum-deposited after fabricat-
+ing the perovskite active layers. Therefore, the devices with various
+interfacial layers and the reference cell without an interfacial layer
+possessed identical perovskite morphologies, and thus, any perfor-
+mance improvement was due to the mechanisms other than the
+perovskite morphological controls. In contrast, the perovskite ﬁlms
+with ultrathin sub-nm EILs in this study exhibited identical morphol-
+ogy as indicated in Fig. S1, implying the eﬀects of the EILs are purely
+energetic.
+Fig. 2a displays the solar cell J–V characteristics of the devices
+without and with 0.5-nm EILs under a simulated illumination of 1 sun.
+The performance parameters are summarized in Table 1 and their EQE
+spectra are presented in Fig. S2 in the supporting information.
+Intriguingly, 3TPYMB, B4PyMPM, and TmPyPB devices exhibit clear
+improvements compared with the best reference cell without EIL. The
+common characteristic of 3TPYMB, B4PyMPM, and TmPyPB are that
+they all consist of pyridine chromophores. Notably, the device with the
+3TPYMB interfacial layer exhibited a high JSC of 22.7 mA/cm2, VOC of
+1.07 V, FF of 0.77, and PCE of 18.8%, which corresponds to 6.6%,
+2.9%, 13.5%, and 24.5% enhancements in JSC, VOC, FF, and PCE,
+respectively. The device also exhibited a high stabilized PCE of 18.7%
+and no J–V sweeping hysteresis, as shown in Fig. 2b. The B4PyMPM
+W.-H. Lee et al.
+Nano Energy 38 (2017) 66–71
+Fig. 4. UPS spectral evolution of various (a) C60 and (b) 3TPYMB/C60 thicknesses on the perovskite ﬁlm. (c) Interfacial electronic structure of perovskite/C60 and (d) perovskite/
+3TPYMB/C60. (e) Illustration of the 0.5-nm vacuum-deposited 3TPYMB molecules on the perovskite ﬁlm. The arrows represent permanent dipole moments with respect to the
+molecules.
+and TmPyPB also exhibited negligible hysteresis, as indicated in Fig. S3
+in the supporting information. The J–V characteristics of the TmPyPB,
+B4PyMPM and 3TPYMB devices of diﬀerent delay times in between the
+voltage points are shown in Fig. S4–S6. Negligible hysteresis was found
+at all sweeping speeds. The approximately 19% PCE in both the J–V
+sweeping and stabilized PCEs of the 3TPYMB cells are among the
+highest values reported in vacuum-deposited perovskite solar cells and
+are a step closer to state-of-the-art solution-processed devices (PCE
+22.1%) [23].
+To further investigate the origins of the performance improvement
+of the 3TPYMB champion cell, transient photocurrent and transient
+photovoltage measurements were performed. As shown in Fig. 3a, the
+device with the 3TPYMB interfacial layer exhibited a faster transient
+photocurrent decay (with a decay lifetime of 0.17 μs) than the device
+without the interfacial layer (decay lifetime = 0.24 μs), revealing that
+the carrier extraction eﬃciency was enhanced by the incorporation of
+W.-H. Lee et al.
+Nano Energy 38 (2017) 66–71
+the 3TPYMB interfacial layer. Fig. 3b displays the transient photo-
+voltage measurement results. The extracted average recombination
+lifetimes are 0.72 and 0.64 μs for the 3TPYMB device and the reference
+device without interfacial layer, respectively. The retarded recombina-
+tion rate indicates a slower carrier recombination rate in the 3TPYMB
+device, which also explains the improvement in VOC and FF of the
+3TPYMB device in the J–V measurement. The photocurrent density
+(Jph) vs. eﬀective voltage (VO-V, where V is the applied voltage and VO
+is the voltage at which Jph = 0) plot is shown in Fig. S7. The 3TPYMB
+device exhibited smaller slopes at both high eﬀective voltage (0.2 V <
+VO-V < 1.1 V) and lower eﬀective voltage (0.04 V < VO-V < 0.2 V)
+ranges compared with the reference cell. These results also suggest an
+improved carrier transport and the minimization of the recombination.
+With the above-mentioned measurement results, the fast electron
+sweep-out and retarded recombination natures of the 3TPYMB device
+were conﬁrmed. We suspected that these preferable characteristics
+were caused by the interfacial dipoles created by the vacuum-deposited
+sub-nm 3TPYMB layer. Hence, in-situ UV and X-ray photoemission
+spectroscopies (UPS and XPS) were utilized to investigate the energy-
+level evolution. 3TPYMB and C60 were incrementally deposited in-situ
+on the perovskite ﬁlm and XPS and UPS spectra were acquired after
+each deposition. Fig. 4a and b show the evolution of the valence band
+(left panel) and vacuum level (VL) position (right panel) of the
+perovskite/C60 and perovskite/0.5 nm 3TPYMB/C60 thin ﬁlms, respec-
+tively. The valence band maximum (VBM) (or HOMO) and work
+function (WF) were extracted by linearly extrapolating the leading
+edge of the VB and the onset of the secondary cutoﬀ to the background,
+respectively. The conduction band maximum and LUMO were deter-
+mined by considering the optical band gaps of the materials. The VBM
+(or HOMO) and WF were about 1.1 and 4.5 eV for the pristine
+perovskite ﬁlm and approximately 1.4 and 5.0 eV for the bare C60,
+respectively, in the perovskite. These values are consistent with the
+published values in the literature for the CH3NH3PbI3 perovskite and
+C60 thin ﬁlms [24]. Fig. 4c and d illustrate the interfacial electronic
+structures of the perovskite/C60 and perovskite/0.5 nm 3TPYMB/C60
+thin ﬁlms extracted from the UPS and XPS (shown in Fig. S8)
+measurements. In the perovskite/C60 sample,
+the very ﬁrst C60
+deposition leads to a 0.2 eV downward shift in VL, which is in
+accordance with the previous report and is attributed to the charge-
+transfer-induced interfacial dipole formation at the perovskite/C60
+interface [25]. Notably, by the introduction of a 0.5 nm 3TPYMB, an
+even higher 0.4 eV downward shift in VL is observed. In addition, a
+smaller 0.3 eV shift in the C60 HOMO peak is noted in the perovskite/
+0.5 nm 3TPYMB/C60 sample compared with the value of 0.4 eV in the
+perovskite/C60 sample. The results can be ascribed to a smaller band
+bending in C60 in the perovskite/0.5 nm 3TPYMB/C60 sample. By
+incorporating a 0.5-nm 3TPYMB between the perovskite and C60, a
+much stronger interfacial dipole was formed at the perovskite/C60
+interface and less band bending was observed in the C60 region. Both
+facilitate eﬀortless electron transportation from the perovskite layer
+towards the cathode.
+The strong interfacial dipoles formed by sub-nm EILs were believed
+to be related to a preferable molecular orientation upon vacuum
+deposition. The direction of permanent dipole moments with respect
+to the 3TPYMB, B4PyMPM, and TmPyPB molecules were calculated
+and are displayed in Fig. S9 in the supporting information. With the
+interfacial energy band structures and computed molecular dipole
+moments, we plotted the illustration of the 0.5-nm vacuum-deposited
+3TPYMB molecules on the perovskite underlayer, as shown in Fig. 4e.
+The 3TPYMB molecules substantially exhibited a preferable orientation
+with the permanent dipole moments pointed outwards, resulting in a
+stronger interfacial dipole of 0.4 eV pointed outwards towards the
+cathode direction. When further increasing the 3TPYMB, B4PyMPM,
+and TmPyPB layer thicknesses, the device performance gradually
+decreased, and the results are presented in Fig. S10. These results
+indicate that the preferable orientation of the vacuum deposited
+interfacial layers only occurs in the ﬁrst few angstroms of the ﬁlms,
+presumably due to the interaction of the perovskite surface and the
+deposited molecules.
+In summary, we demonstrated that by the insertion of vacuum-
+deposited sub-nm pyridine-containing EILs, the performance of per-
+ovskite solar cells can largely be increased to approximately 19% PCE, a
+25% increase compared to that of the one without the interfacial layer.
+The UPS and XPS results indicated that the eﬀect of these interfacial
+layers was the creation of a strong interfacial dipole, which was
+beneﬁcial to the photoelectron extraction towards external circuitry.
+The retarded carrier recombination and fast carrier sweep-out were
+also conﬁrmed by transient photovoltage and transient photocurrent
+measurements. Owing to the layer-by-layer deposition and underlayer-
+insensitive natures of vacuum sublimation, we envision that these
+vacuum-deposited sub-nm EILs can be universally applied to various
+kinds of vacuum-deposited as well as solution-processed perovskite
+active layers of a variety of compositions.
+Acknowledgment
+The authors would like to acknowledge the ﬁnancial support from
+the Ministry of Science and Technology of Taiwan (MOST 105–2112-
+M-007–016-MY3, MOST 105–2628-E-007–008-MY3, MOST 105–
+Appendix A. Supporting information
+[1] C.-W. Chen, H.-W. Kang, S.-Y. Hsiao, P.-F. Yang, K.-M. Chiang, H.-W. Lin, Adv.
+Mater. 26 (2014) 6647–6652.
+[2] S.-Y. Hsiao, H.-L. Lin, W.-H. Lee, W.-L. Tsai, K.-M. Chiang, W.-Y. Liao, C.-Z. Ren-
+Wu, C.-Y. Chen, H.-W. Lin, Adv. Mater. 28 (2016) 7013–7019.
+[3] C.-Y. Chen, H.-Y. Lin, K.-M. Chiang, W.-L. Tsai, Y.-C. Huang, C.-S. Tsao, H.-W. Lin,
+Adv. Mater. 29 (2017) 1605290.
+[4] J. Gong, S.B. Darling, F. You, Energy Environ. Sci. 8 (2015) 1953–1968.
+[5] N.-G. Park, Mater. Today 18 (2015) 65–
+Funct. Mater. 25 (2015) 7064–7070.
+[7] Y.-H. Kim, H. Cho, J.H. Heo, T.-S. Kim, N. Myoung, C.-L. Lee, S.H. Im, T.-W. Lee,
+Adv. Mater. 27 (2015) 1248–1254.
+[8] H. Cho, S.-H. Jeong, M.-H. Park, Y.-H. Kim, C. Wolf, C.-L. Lee, J.H. Heo,
+A. Sadhanala, N. Myoung, S. Yoo, S.H. Im, R.H. Friend, T.-W. Lee, Science 350
+(2015) 1222–1225.
+[9] T. Matsushima, S. Hwang, A.S.D. Sandanayaka, C. Qin, S. Terakawa, T. Fujihara,
+M. Yahiro, C. Adachi, Adv. Mater. 28 (2016) 10275–10281.
+[10] G. Xing, N. Mathews, S.S. Lim, N. Yantara, X. Liu, D. Sabba, M. Grätzel,
+S. Mhaisalkar, T.C. Sum, Nat. Mater. 13 (2014) 476–481.
+[11] D. Forgács, L. Gil-Escrig, D. Pérez-Del-Rey, C. Momblona, J. Werner, B. Niesen,
+C. Ballif, M. Sessolo, H.J. Bolink, Adv. Energy Mater. 7 (2016) 1602121.
+[12] D. Bi, W. Tress, M.I. Dar, P. Gao, J. Luo, C. Renevier, K. Schenk, A. Abate,
+F. Giordano, J.-P. Correa Baena, J.-D. Decoppet, S.M. Zakeeruddin,
+M.K. Nazeeruddin, M. Grätzel, A. Hagfeldt, Sci. Adv. 2 (2016) e1501170.
+[13] Y.-K. Kim, J.W. Kim, Y. Park, Appl. Phys. Lett. 94 (2009) 063305.
+[14] H.-W. Lin, W.-C. Lin, J.-H. Chang, C.-I. Wu, Org. Electron. 14 (2013) 1204–
+Res. Lett. 9 (2014) 191–197.
+[16] Y. Lee, J. Kim, S. Kwon, C.-K. Min, Y. Yi, J.W. Kim, B. Koo, M. Hong, Org. Electron.
+9 (2008) 407–412.
+[17] J. Wei, H. Li, Y. Zhao, W. Zhou, R. Fu, H. Pan, Q. Zhao, Chem. Commun. 52 (2016)
+10791–10794.
+[18] Q. Wang, Q. Dong, T. Li, A. Gruverman, J. Huang, Adv. Mater. 28 (2016)
+6734–6739.
+[19] Y. Bai, H. Chen, S. Xiao, Q. Xue, T. Zhang, Z. Zhu, Q. Li, C. Hu, Y. Yang, Z. Hu,
+F. Huang, K.S. Wong, H.-L. Yip, S. Yang, Adv. Funct. Mater. 26 (2016) 2950–2958.
+[20] S.M. Jain, Z. Qiu, L. Haggman, M. Mirmohades, M.B. Johansson, T. Edvinsson,
+G. Boschloo, Energy Environ. Sci. 9 (2016) 3770–3782.
+[21] J. Zhang, P. Wang, X. Huang, J. Xu, L. Wang, G. Yue, X. Lu, J. Liu, Z. Hu, Q. Wang,
+Y. Zhu, RSC Adv. 6 (2016) 9090–9095.
+Nano Energy 38 (2017) 66–71
+Min-Jie Huang received his BS (2004) and MS (2006)
+PhD degree was awarded in 2013 from National Taiwan
+University under the advisement of Prof. Chun-hsien Chen.
+Currently, he works as a postdoctoral researcher in the
+group of Professor Chien-Hong Cheng. His research inter-
+ests focus on the theoretical studies of novel organic
+materials for electronic and photonic applications.
+Rochester with Prof. Richard Eisenberg. After postdoctoral
+Professor Cheng served as the Director General of the
+Department of Natural Sciences, National Science Council;
+President of Chemical Society, Taiwan; and Vice President
+for Academic Aﬀairs of NTHU. In 2009, he was elected as a
+Fellow of the Royal Society of Chemistry and is currently a
+Chair Professor of NTHU. His research interests include
+transition metal-catalyzed organic reactions and organic
+materials in optoelectronics.
+Chih-I Wu is a Professor in the Graduate Institute of
+research area focuses on optical-electronic devices and
+materials and semiconductor physics, which includes or-
+ganic light emitting materials, metal-semiconductor inter-
+faces, and heterojunctions in electronic devices and optical-
+electronics.
+(NTHU) in Taiwan. He received his Ph.D. degree from
+graduate institute of photonics and optoelectronics,
+NTHU in 2009, he worked at AU Optronics Corp. for
+research and development on organic light emitting dis-
+plays. His current research interests include organic semi-
+conductors for optoelectronic and electronic devices, next-
+generation photovoltaics, display technologies and na-
+noscience.
+W.-H. Lee et al.
+[22] Q. Wu, W. Zhou, Q. Liu, P. Zhou, T. Chen, Y. Lu, Q. Qiao, S. Yang, ACS Appl. Mater.
+Inter. 8 (2016) 34464–34473.
+[23] K. Mahmood, B.S. Swain, A. Amassian, Adv. Energy Mater. 5 (2015)
+1500568–1500578.
+[24] P. Schulz, L.L. Whittaker-Brooks, B.A. MacLeod, D.C. Olson, Y.-L. Loo, A. Kahn,
+Adv. Mater. Inter. 2 (2015) 1400532–1400536.
+[25] P. Amsalem, J. Niederhausen, A. Wilke, G. Heimel, R. Schlesinger, S. Winkler,
+A. Vollmer, J.P. Rabe, N. Koch, Phys. Rev. B 87 (2013) 035440–035452.
+Wei-Hung Lee is currently a graduate student at
+Department of Materials Science
+and Engineering,
+include the transporting layers for perovksite solar cells
+and vacuum deposition technique for perovskite thin-ﬁlm
+fabrication.
+Chien-Yu Chen received his bachelor degree from
+mainly focuses on perovskite solar cells and their applica-
+tions.
+Chia-shuo Li is a PhD student at Professor Chih-I Wu's
+group in the Graduate
+Institute of Electro-Optical
+interests include perovskite solar cells and photoemission
+spectroscopy.
+Sheng-Yi Hsiao graduated with a MS degree in the
+Department of Chemical Engineering at National Chung
+Optoelectronic Materials Research Group, National Tsing
+Prof. Hao-Wu Lin. His current research interests are
+organic photovoltaics and perovskite solar cell.
+Wei-Lun Tsai is a PhD student who majors in Materials
+He is now studying the perovskite solar cells in Advanced
+Optoelectronic Materials Research Group under the super-
+vision of Prof. Hao-Wu Lin. The primary research is charge
+transporting materials utilized in perovskite solar cells.
