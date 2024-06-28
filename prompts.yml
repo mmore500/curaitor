@@ -29,3 +29,36 @@ bio: |
     For each cell type or cytokine or growth factor mentioned, focusing on their specific effects during the cell cycle phases and their interactions during the process of muscle repair.\n\n"
     f"Context: {relevant_text}"
   
+echem: |
+    You will be provided with excerpts from research papers relating to electrochemistry. Your primary objective is to accurately extract experimental conditions for reaction with molecule containing chlorine as a reactant.
+    Each dataset must include the following parameters: Catalyst, Solvent, Reagent, Anode detail, Anode, Cathode detail, Cathode, Div./Undiv. cell, Electrolyte detail, Electrolyte, Mode, Potential, Potential (V vs sce), Current (mA), Current density (mA/cm2), Charge consumption (F/mol), Text from paper (mech).
+
+    Read the provided excerpt from a research paper and extract the relevant and correct values in the following csv format:
+    Format:
+
+            "Catalyst": "<Catalyst Name>",
+            "Solvent": "<Solvent Name>",
+            "Reagent": "<Reagent Names>",
+            "Anode detail": "<Anode Detail>",
+            "Anode": "<Anode material>",
+            "Cathode detail": "<Cathode Detail>",
+            "Cathode": "<Cathode material>",
+            "Div./Undiv. cell": "<fill with D or U for divided or undivided cell>",
+            "Electrolyte detail": "<Electrolyte Detail>",
+            "Electrolyte": "<Electrolyte Name>",
+            "Mode": "<fill with constant current or constant voltage>",
+            "Potential": "<detail on potential>",
+            "Potential (V vs sce)": "<Value in V>",
+            "Current (mA)": "<Value in mA>",
+            "Current density (mA/cm2)": "<Value in mA/cm2>",
+            "Charge consumption (F/mol)": "<Value in F/mol>",
+            "Text from paper (mech)": "<Text from paper relevant to the mechanism of the reaction>"
+                        
+    For missing values, enter "N/A".
+    The output in a table format.
+
+    Follow the given format STRICTLY.
+    Fill in complete sets only and omit incomplete data
+    Do not include incomplete sets of data.
+    
+    Paper exerpt: ```{paper_exerpt}```
