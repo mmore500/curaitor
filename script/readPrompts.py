@@ -34,5 +34,5 @@ def choose_prompt(prompts):
 
 
 # Example usage
-# selected_key = choose_prompt(prompts=read_prompts(file_path))
+selected_key = choose_prompt(prompts=read_prompts(file_path))
 # print(selected_key)
