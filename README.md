@@ -41,7 +41,7 @@ General guidance on managing multiple Python versions can be found [here](https:
 1. **Download Ollama:**
    i. For Windows: <https://ollama.com/download/windows>
    ii. For Linux: <https://ollama.com/download/linux>
-   iii. For Windows: <https://ollama.com/download/mac>
+   iii. For Mac: <https://ollama.com/download/mac>
 
    Then follow the corresponding instructions for installation on each platform.
 
