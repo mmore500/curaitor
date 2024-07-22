@@ -29,12 +29,15 @@ def cosine_similarity(v1, v2):
     return dot_product / (norm_v1 * norm_v2)
 
 
-def find_most_relevant_text(embeddings, query_embedding):
+def find_most_relevant_text(embeddings, query_embedding, top_k=5):
     """Find the text with the highest cosine similarity to the query."""
     similarities = [
         cosine_similarity(query_embedding, emb) for emb in embeddings
     ]
-    return np.argmax(similarities)
+    # Get top k similarities
+    top_indices = np.argsort(similarities)[::-1][:top_k]
+    return top_indices
+    # return np.argmax(similarities)
 
 
 # Assuming 'texts' and 'embeddings' are loaded from files or a database
