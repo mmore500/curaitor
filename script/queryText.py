@@ -29,12 +29,15 @@ def cosine_similarity(v1, v2):
     return dot_product / (norm_v1 * norm_v2)
 
 
-def find_most_relevant_text(embeddings, query_embedding):
+def find_most_relevant_text(embeddings, query_embedding, top_k=5):
     """Find the text with the highest cosine similarity to the query."""
     similarities = [
         cosine_similarity(query_embedding, emb) for emb in embeddings
     ]
-    return np.argmax(similarities)
+    # Get top k similarities
+    top_indices = np.argsort(similarities)[::-1][:top_k]
+    return top_indices
+    # return np.argmax(similarities)
 
 
 # Assuming 'texts' and 'embeddings' are loaded from files or a database
@@ -70,7 +73,8 @@ def get_query_embedding(query_text, key_file_path, llm):
         # This should call an embedding API or use a locally hosted model
         response = client.embeddings.create(
             # input=query_text, model="text-embedding-3-large"
-            input=query_text, model="text-embedding-ada-002"
+            input=query_text,
+            model="text-embedding-ada-002",
         )
         return response.data[0].embedding
 
@@ -132,7 +136,8 @@ def query_llm(query_text, prompt, key_file_path, llm):
         # Generate a response from GPT-4 based on the formulated prompt
         response = client.chat.completions.create(
             # model="gpt-4", messages=[{"role": "system", "content": prompt_}]
-            model="gpt-3.5-turbo-0125", messages=[{"role": "system", "content": prompt_}]
+            model="gpt-3.5-turbo-0125",
+            messages=[{"role": "system", "content": prompt_}],
         )
         response_text = response.choices[0].message.content
 
