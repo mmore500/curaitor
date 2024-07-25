@@ -12,6 +12,8 @@ isort .
 black **/*.py **/*.ipynb
 
 
+git diff
+
 if [ "${SOURCE_HASH}" == "$( find -path ./cpp/third-party -prune -false -o -type f | sort | xargs cat | sha1sum )" ];
 then
   exit 0 # success
