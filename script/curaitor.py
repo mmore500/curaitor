@@ -23,9 +23,7 @@ text_output_directory = os.path.join(outputDirectory, "text_files")
 llm_type = st.selectbox("Select the model type:", ("GPT-3.5", "Ollama-Llama3"))
 
 # Process cleaned text files to get embeddings and tokens
-key_file_path = (
-    "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"  # Replace with the actual path to your OpenAI key file
-)
+key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"  # Replace with the actual path to your OpenAI key file
 
 # Display uploaded files
 if uploaded_files:
