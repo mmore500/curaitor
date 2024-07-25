@@ -1,0 +1,81 @@
+Paper1:
+{
+    "Absorber Layer": "CoMoP2 @Mxene@CNTs-3",
+    "PCE": "10.64 %",
+    "Voc": "0.701 V",
+    "Isc": "25.428 mA cm−2",
+    "FF": "59.7 %"
+}
+
+Pape2:
+{
+    "Absorber Layer": "n-TOPCon",
+    "PCE": "24.15%",
+    "Voc": "N/A",
+    "Isc": "N/A",
+    "FF": "83.30%"
+}
+paper3:
+{
+    "Absorber Layer": "Cesium Lead Bromide (CsPbBr3)",
+    "PCE": "7.48%",
+    "Voc": "N/A",
+    "Isc": "N/A",
+    "FF": "N/A",
+}
+paper4:
+{
+    "Absorber Layer": "Hybrid Perovskite with p-graphene and n-cSi",
+    "PCE": "17.90%",
+    "Voc": "687.9 mV",
+    "Isc": "30.87 mA/cm2",
+    "FF": "84.31%"
+}
+paper5:
+{
+    "Absorber Layer": "3TPYMB",
+    "PCE": "18.8%",
+    "Voc": "1.07 V",
+    "Isc": "22.7 mA/cm2",
+    "FF": "77%"
+}
+paper6:
+{
+    "Absorber Layer": "S-MAPbI3",
+    "PCE": "18.46%",
+    "Voc": "0.99 V",
+    "Isc": "24.60 mA/cm2",
+    "FF": "76.00%",
+}
+paper7:
+{
+    "Absorber Layer": "Perovskite",
+    "PCE": "16.4%",
+    "Voc": "N/A",
+    "Isc": "N/A",
+    "FF": "N/A",
+}
+paper8:
+{
+    "Absorber Layer": "PTB7:PC71BM",
+    "PCE": "9.036%",
+    "Voc": "0.760 V",
+    "Isc": "17.030 mA/cm2",
+    "FF": "69.83%",
+}
+paper9:
+{
+    "Absorber Layer": "Formamidinium Lead Iodide (FAPbI3)",
+    "PCE": "20.55%",
+    "Voc": "1.093 V",
+    "Isc": "24.16 mA cm−2",
+    "FF": "77.78%",
+}
+paper10:
+{
+    "Absorber Layer": "Cellulose acetate-derived ternary-doped hierarchically porous carbons blended perovskite",
+    "PCE": "13.81%",
+    "Voc": "0.906 V",
+    "Isc": "23.518 mA/cm2",
+    "FF": "64.77%",
+}

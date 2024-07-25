@@ -1,0 +1,12 @@
+sphinx>=5.0
+exhale
+sphinx-rtd-theme
+coverxygen
+breathe
+myst-parser
+sphinxemoji
+pillow
+mock
+commonmark
+recommonmark
+jinja2<3.1

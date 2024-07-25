@@ -12,11 +12,19 @@ watermark
 ruff
 
 # dependencies
+langchain
+langchain-community
+langchain-core
 numpy<2
+ollama
 openai
+osfclient
 pandas
 pdfminer
 pypdf
+pyyaml
 tabula
 tiktoken
+transformers
 tqdm
+sphinx_rtd_theme

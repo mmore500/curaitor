@@ -1,0 +1,364 @@
+Contents lists available at ScienceDirect 
+Superlattices and Microstructures 
+Investigating the impact of layer properties on the performance of 
+p-graphene/CH3NH3PbI3/n-cSi solar cell using 
+numerical modelling 
+Gagandeep a, Mukhtiyar Singh b, Ramesh Kumar a,*, Vinamrita Singh c 
+A R T I C L E  I N F O    
+Keywords: 
+AFORS-HET software 
+Perovskite solar cell 
+Graphene 
+Silicon 
+Power conversion efficiency 
+A B S T R A C T    
+The  use  of  multilayer  p-graphene  as  hole  transporting  layer  has  been  successfully  shown  to 
+improve the performance of perovskite solar cell. The structure of p-graphene/CH3NH3PbI3/n-cSi 
+is designed and simulated in AFORS-HET software. We optimized the parameters of single layer p- 
+graphene and obtained power conversion efficiency (PCE) of 12.21% under an illumination of AM 
+1.5G. With an increase in the number of p-graphene layers, the PCE falls down to 10.01%. The 
+optimization of active layer parameters increases the PCE up to 12.27%. Further optimization of 
+n-cSi parameters lead to the highest PCE of 16.75%. A significant effect of the operating tem-
+perature on the solar cell performance is observed. The effect of textured front surface on the solar 
+cell performance is also studied and a PCE of 17.90% is obtained for textured surface as compared 
+to 16.75% for planar surface. Our studies indicated that p-graphene may act as an efficient hole 
+transporting layer in perovskite solar cell.   
+The organic-inorganic hybrid perovskite solar cells (PSCs) have received great attention over the recent years because of its 
+tuneable band gap and high absorption coefficient that produce large PCE [1–5]. A typical structure of PSC consists of the perovskite 
+layer sandwiched between an electron transporting layer (ETL) and a hole transporting layer (HTL) along with front and back contacts. 
+The ETL materials are used to extract and transport the electrons from the perovskite layer to the corresponding electrode. TiO2 is a 
+widely used ETL material for PSCs. However, TiO2 material has some disadvantages such as intrinsic low mobility and production of 
+deep traps by ultraviolet light, which results in charge accumulation, recombination in this layer and numerous current-voltage 
+hysteresis [6–10]. The holes generated in perovskite layer are extracted and transported by the HTL materials which are broadly 
+classified into two types i.e. one is organic HTL and the other is inorganic HTL. These HTL materials are selected based on their HOMO 
+level, optical properties along with its doping ability. The organic HTL 2, 20, 7, 7’ - tetrakis (N, N-DI-P-methoxypheny-amine)- 9,9’ - 
+spirobifluorene (spiro-MeOTAD) is used for achieving large PCE [11]. The poly (3,4- ethylenedioxythiophene): polystyrene sulfonate 
+(PEDOT: PSS) has also been employed as HTL in PSCs [12]. In contrast to the more expensive organic HTL materials, the inorganic HTL 
+materials such as transition metal oxides NiOx [13,14], CuOx [15,16] and CrOx [17,18] also established widespread interest. 
+* Corresponding author. 
+E-mail address: rameshkumar.bibiyan@gmail.com (R. Kumar).  
+Received 22 April 2019; Received in revised form 24 February 2020; Accepted 25 February 2020   
+SuperlatticesandMicrostructures140(2020)106468Availableonline2March20200749-6036/©2020ElsevierLtd.Allrightsreserved.
+Gagandeep et al.                                                                                                                                                                                                      
+Fig. 
+Recently, it has been observed that graphene with its exceptional properties have positive impact on the development of PSCs. The 
+low-cost graphene with its high carrier mobility (2 � 105 cm2/V⋅s) [19], large optical transparency [20], large thermal conductivity 
+[21], and high melting point [22] can be employed either as HTL or ETL, or both, at the electrodes in PSCs. Watanabe et al. [23] studied 
+the PSC by introducing the graphene as HTL in place of spiro-OMeTAD and obtained an efficiency of 7.1% with Jsc of 21.3 mA/cm2. 
+They also compared the two PSC structures, i.e., FTO/TiO2/CH3NH3PbI3/graphene/Au and FTO/TiO2/CH3NH3PbI3/spiro-OMe-
+TAD/Au. They found that the PSC structure based on graphene as HTL is more stable as compared to spiro-OMeTAD based PSC. The 
+authors also suggested that the PSC performance may be improved by changing the work function of graphene and proposed doping as 
+an approach to modify the work function of the graphene. Cao et al. [24] introduced functionalized nano-graphene (perthiolated-
+trisulfur-annulated hexa-peri-hexabenzocoronene,TSHBC) as HTL in PSC which accelerated the hole transportation rate. The authors 
+obtained an efficiency of 12.81% with the device structure of FTO/TiO2/CH3NH3PbI3/TSHBC/Au. They also suggested that graphene 
+has better stability as compared to spiro-OMeTAD and the device fabrication can be finished with 45% humidity in air, while this 
+condition is not suitable for spiro-OMeTAD. The hole-transportation can be improved by introducing extra graphene into TSHBC and 
+the PSC reached an efficiency of 14%. Yan et al. [25] reported that the hole extraction rate for multilayer and single layer graphene is 
+5.1 and 3.7 ns(cid:0) 1, respectively and obtained an efficiency of 11.5% with multilayer graphene. According to the findings of the authors, a 
+Schottky barrier is formed at the perovskite/graphene interface and an increase in the hole transportation and extraction rate is 
+achieved by decreasing the recombination rate as well as blocking the electrons. 
+Moreover, graphene has been used as an additive in ZnO and TiO2 based ETLs, and showed an increase in efficiency [26,27]. Wang 
+et al. [27] further compared different PSC structures with TiO2 ETL, graphene only ETL, without ETL and high temperature sintered 
+TiO2  ETL. They found that the highest efficiency was achieved for the cell with TiO2  þ graphene as an ETL, but nonetheless, 
+graphene-based PSC showed better results when compared to the cell without an ETL. This demonstrates that graphene is a suitable 
+ETL for PSCs, and the PCE and life time of solar cell devices could thus be increased using graphene as a buffer layer. 
+The PSCs using p-Si as an inorganic HTL have been previously modelled [28], and it has been further indicated that p-Si has good 
+chemical stability, low cost and higher hole mobility [29]. Yan et al. [30] also studied a low-cost Si-nanowire/perovskite hybrid solar 
+cell and obtained a PCE of 13.3%.Therefore, PSCs with n-cSi (crystalline silicon) layer may also be modelled to investigate its role as an 
+efficient ETL. 
+Having the above observations in mind, the PSCs performance can be upgraded by inserting the perovskite layer in between the 
+graphene and Si layers. In the present work, we designed the following configuration p-graphene/CH3NH3PbI3/n-cSi for hybrid solar 
+cell using AFORS-HET (Automat for Simulation of Heterostructures) software [31–33]. We optimized each layer and obtained the 
+parameters for highest efficiency. The impact of operating temperature and textured front surface on the performance of the solar cell 
+is also examined. Our findings indicate that p-graphene and n-cSi can act as an efficient HTL and ETL, respectively, in PSC and 
+promising hybrid solar cells may be achieved with superior performance. 
+To realize the idea related to the usage of graphene as HTL material, we used a theoretical approach to study hybrid PSCs with 
+silicon layer. We designed a p-i-n based structure as p-graphene/CH3NH3PbI3/n-cSi, with ITO (indium tin oxide) and Ag (silver) as the 
+front and back contacts in AFORS-HET software. AFORS-HET uses the one-dimensional semiconductor equations related to Shockley 
+Reed Hall statistics solver and Lambert-Beer law for optical parameters of different photovoltaic devices. The complete PSC config-
+uration is ITO (80 nm)/p-graphene (0.334–6.68 nm)/CH3NH3PbI3 (50–1000 nm)/n-cSi (50–300 μm)/Ag (0.001 cm) as shown in 
+Fig. 1. Here, the light enters through the graphene layer and generates electron-hole pairs in the active layer. The generated electrons/ 
+holes are collected and transferred by n-cSi and p-graphene to the respective electrodes. We optimized various parameters such as layer 
+thickness, electron affinity (χ), energy band gap (Eg), dielectric constant (dk), doping concentrations (ND/NA), effective conduction/ 
+SuperlatticesandMicrostructures140(2020)1064682
+Gagandeep et al.                                                                                                                                                                                                      
+Fig. 2. PSC performance with the p-graphene parameters (a) NA (cm(cid:0) 3), (b) NC/NV (cm(cid:0) 3), (c) dielectric constant (dk), (d) electron affinity (χ) (eV), 
+(e) energy band gap Eg (eV) and (f) thickness, where the value of perovskite and n-cSi parameters used were: NC/NV ¼ 2.5 � 1020 cm(cid:0) 3 and 3 � 1019 
+cm(cid:0) 3, ND ¼ 2 � 1014 cm(cid:0) 3 and 1 � 1016 cm(cid:0) 3, Eg ¼ 1.5 eV and 1.12 eV, χ ¼ 3.9 eV and 4.05 eV, dk ¼ 30 and 11.9, and thickness ¼ 50 nm and 100 
+μm, respectively. 
+valence band density (NC/NV) to observe the effect on the PCE (η), open circuit voltage (Voc), fill factor (FF) and current density (Jsc) of 
+PSC. The simulation parameters used in the software are taken from different experimental and theoretical reports [34–40]. 
+To increase the efficiency of solar cells, the front contact surface can be made textured. This textured surface reduces light 
+reflection; assists in light trapping and consequently may increase the overall device efficiency due to increase in current. In this work, 
+both non-textured and textured front contacts have been applied to model the solar cell performance. 
+SuperlatticesandMicrostructures140(2020)1064683
+Gagandeep et al.                                                                                                                                                                                                      
+Table 1 
+Summary of the optimized parameters used in simulation.  
+Optimized parameters 
+Thickness(cm) 
+dk 
+NA(cm(cid:0) 3) 
+ND(cm(cid:0) 3) 
+NC(cm(cid:0) 3) 
+NV(cm(cid:0) 3) 
+μe (cm2V(cid:0) 1s(cid:0) 1) 
+μh (cm2V(cid:0) 1s(cid:0) 1) 
+χ (eV) 
+HTL(p-graphene) 
+3.34 � 10(cid:0) 8 
+1 � 1018 
+– 
+3 � 1018 
+3 � 1018 
+1 � 105 
+5.0 
+0.5 
+Eg(eV) 
+Absorber layer(CH3NH3PbI3) 
+5 � 10(cid:0) 6 
+6.5 
+1 � 1013 
+1 � 1013 
+2.5 � 1020 
+2.5 � 1020 
+3.9 
+1.5 
+ETL(n-cSi) 
+0.03 
+11.9 
+– 
+1 � 1017 
+3 � 1019 
+3 � 1019 
+4.4 
+1.12  
+3. Results and discussions 
+3.
+The graphene can be made p-type material by doping with trivalent atoms like boron with the help of different techniques such as 
+thermal annealing, ball milling, liquid, solid and gaseous phase chemical doping, and in-situ doping during chemical vapour depo-
+sition (CVD) [41,42]. The heteroatom doping onto a graphene sheet can influence the chemical, physical, electronic and photonic 
+properties of the material. The solar cell parameter optimization was started by varying the parameters of p-graphene layer first, and 
+taking some initial values of the perovskite and n-cSi layers. The values of perovskite layer parameters were fixed at NA ¼ 3 � 1014 
+cm(cid:0) 3, NC/NV ¼ 2.5 � 1020 cm(cid:0) 3, Eg ¼ 1.5 eV, χ ¼ 3.9 eV, dk ¼ 30 and thickness ¼ 50 nm. The n-cSi parameters used were ND ¼ 1 �
+1016 cm(cid:0) 3, NC/NV ¼ 3 � 1019 cm(cid:0) 3, Eg ¼ 1.12 eV, χ ¼ 4.05 eV, dk ¼ 11.9 and thickness ¼ 100 μm. The p-graphene layer parameters 
+kept at constant values were NC/NV ¼ 3 � 1018 cm(cid:0) 3, Eg ¼ 0.5 eV, χ ¼ 5.0 eV, dk ¼ 11 and thickness 0.334 nm. We varied the acceptor 
+concentration (NA) of the p-graphene layer from 1 � 1014 to 1 � 1018 cm(cid:0) 3 and observed its effect on PSC parameters. The variation of 
+solar cell parameters with NA is mentioned in Fig. 2(a). From the figure, it is observed that as NA increases from 1 � 1014 to 1 �
+1018cm(cid:0) 3, the Jsc varies from 24.72 mA/cm2 to 24.90 mA/cm2,Voc remains constant, PCE changes from 12.11% to 12.21%, and FF 
+varies from 82.46% to 82.50%. As we increase the acceptor concentration in graphene sheet, the graphene work function is lowered, 
+and the conductivity rises. This leads to an increase in Jsc, PCE and FF, but the Voc does not change. Next, the parameters NC and NV are 
+changed from 3 � 1018 to 3 � 1021 cm(cid:0) 3 for the monolayer graphene and the simulated results are given in Fig. 2(b). Again, the Voc 
+remained constant, but Jsc reduced from 24.90 mA/cm2 to 24.77 mA/cm2, FF slightly changes from 82.50% to 81.49% and the overall 
+efficiency also changed from 12.21% to 12.14% with increase in NC/NV value. The minority charge carrier density decreases as NC/NV 
+is increased because of trapping of free carrier charges and small life time of photo induced carriers. The Voc reduces from 594.50 mV to 
+594.40 mV beyond ~5 � 1020 cm(cid:0) 3 as such high values of NC/NV reduces the barrier height and the built-in voltage [43]. Thus, 
+reducing NC/NV below 1019 cm(cid:0) 3 gives high overall PCE. In both the cases of varying NA and NC/NV, it is found that significant changes 
+in the solar cell parameters are not observed in the range under study. This implies that the acceptor concentration and the band 
+densities do not affect the charge transport to a great extent in this case. 
+The dielectric constant (dk) of p-graphene layer was varied keeping other parameters constant as given in Fig. 2(c). The dk value for 
+single layer graphene is reported in between 4 and 11 [44]. The maximum value of all the solar cell parameters is obtained at dk ¼ 11 
+and the maximum values of Voc, Jsc, FF and PCE are 594.50 mV, 24.90 mA/cm2, 82.50% and 12.21% respectively. The electron affinity 
+values of p-graphene vary in the range 4.7–5 eV. The observations presented in Fig. 2(d) reveal that the PCE of the simulated cell is 
+increased from 12.03% to 12.21%, being maximum at 5 eV, because on increasing the electron affinity, the barrier height is increased 
+which impedes the flow of electrons towards ITO leading to lesser recombination and results in rising Jsc from 24.56 mA/cm2to 24.90 
+mA/cm2. Thus, high electron affinity is useful for increasing the device efficiency. This is also in agreement with other reports where 
+high electron affinity materials are shown to be preferable for HTL [45]. The change in the overall efficiency is low with change in 
+electron affinity because even with the starting value of χ ¼ 4.7, the barrier height between the HTL/perovskite interface is appropriate 
+for hole extraction. 
+Some studies [34,43] showed that graphene has a band gap that varies from 0 to 0.25 eV, whereas, Nevis et al. [35] have reported 
+that graphene has a band gap of 0.5 eV. In view of these studies, we varied the energy gap of graphene from 0 to 0.5 eV as depicted in 
+Fig. 2(e). The PCE increases from 11.11% to 12.21%, Jsc changes from 24.18 mA/cm2 to 24.90 mA/cm2 and Voc rises from 564.70 mV 
+to 594.50 mV with increase in the energy band gap of graphene. The band gap of graphene affects the built-in potential which may 
+have caused the observed increase in Voc. Only a small change in Jsc is observed since it is governed by the production of photocurrent 
+in the active layer and not the band gap of the HTL. Moreover, a greater barrier at the interface between HTL and perovskite layer 
+sufficiently separates the electron hole pair aiding in an increase in current. Consequently, the FF and PCE increases primarily due to 
+increase in Voc, but tends to saturate fast at high band gap. 
+The impact of number of graphene layers on solar cell performance is also investigated. The number of graphene layers directly 
+influences the sheet resistance as well as the optical transparency. The sheet resistance and optical transparency is reduced with in-
+crease in the graphene layers. To prove this concept, the number of graphene layers is varied up to 20 layers. The highest efficiency 
+12.21% is obtained for single layer graphene having thickness of 0.334 nm. As we increase the number of graphene layers the 
+SuperlatticesandMicrostructures140(2020)1064684
+Gagandeep et al.                                                                                                                                                                                                      
+Fig. 
+efficiency decreases to 10.01%, while FF varies from 82.50% to 82.33%. The Voc and Jsc also decrease from 594.50 mV to 589.60 mV 
+and 24.90 mA/cm2to 20.63 mA/cm2, respectively, with the number of layers or increase in thickness of graphene layer. The parameter 
+variations are shown in Fig. 2(f). The decrease in performance may be attributed to lesser light reaching the active layer lowering the 
+photocurrent. The monolayer graphene shows an optical transparency of 97.7% which is further reduced with increase in graphene 
+layers [46]. An addition of each layer reduces the transparency by 2.3%. 
+After optimization of graphene parameters, we were able to achieve the best-suited properties of graphene layer that can be 
+employed as a HTL in PSC. The optimized parameters are tabulated in Table 1. The current density-voltage (J-V) characteristics and the 
+quantum efficiency (QE) variation versus wavelength for optimized p-graphene layer are plotted in Fig. 3(a) and (b) respectively. The 
+figures depict the J-V characteristics and QE of the cell using optimized value of p-graphene parameter only and with the initial values 
+mentioned above for perovskite and n-cSi layers. For the simulated structure, quantum efficiency has been calculated in the range of 
+300–1200 nm under the illumination condition of 1 � 1016 cm(cid:0) 2s(cid:0) 1 monochromatic intensity and 10 nm spectral widths. Here the 
+external quantum efficiency (EQE) and internal quantum efficiency (IQE and IQE1) of the optimized cell have been given in Fig. 3(b). 
+The EQE gives the ratio of the charge carriers collected by the solar cell to the total number of incident photons by the external source, 
+regardless of whether the photons are absorbed, reflected or transmitted. On the other hand, the IQE considers only the photons 
+absorbed by the solar cell but does not consider whether these absorbed photons contribute to the current or not. Thirdly, IQE1 further 
+corrects the IQE by subtracting those photons which may be absorbed by the layers other than the active layer, i.e., the contact layers, 
+and thereby, not contributing to the current. Due to this, the EQE is always less than the IQE and IQE1 as observed in Fig. 3(b) as well. 
+The IQE and EQE of the cell increase and reach a maximum value, and thereafter decrease with wavelength [39]. It may be 
+interpreted from Fig. 3(b) that the IQE1 becomes almost unity in the wavelength range of 300–700 nm indicating that the photons 
+absorbed by the perovskite layer contributes sufficiently to the output current. The IQE decreases for the whole wavelength range and 
+is approximately 80% in the 400–800 nm range, implying significant absorption by the layers other than the perovskite layer. Further 
+reduction in the quantum efficiency is found in EQE, suggesting a loss of incident photons. Thus, this points towards the need of device 
+engineering so that improvement in the absorption of incident photons can be achieved by reducing the reflection losses. 
+3.
+After optimizing the p-graphene layer parameters, we optimized the perovskite layer parameters by using the values of p-graphene 
+parameters as mentioned in Table 1 and keeping the n-cSi parameter values as given in section 3.1. The properties of the perovskite 
+layer have been modified in order to obtain the largest PCE for this configuration. The dielectric constant (dk) of the active layer 
+depicts the nature of Columbian forces among the electron-hole pairs and other charges in the material. The behaviour of solar cell 
+characteristics with dk is shown in Fig. 4(a). From the figure it can be seen that the PCE of the device varies from 12.27% to 12.21% 
+with dk varying from 6.5 to 30 [47,48]. The FF of the device remains constant with value 82.51%, for dk 6.5–25, and after this FF falls 
+up to the value 82.50% for dk from 25 to 30. The open circuit voltage (Voc) of the device remains constant with value 594.50 mV and Jsc 
+varies from 25.01 mA/cm2 to 24.90 mA/cm2 under the dk variation from 6.5 to 30. The optimized value of dk ¼ 6.5 is taken for further 
+calculations. 
+After optimizing the dk, we varied the NC/NV within the range of 2.5 � 1018 to 2.5 � 1020 cm(cid:0) 3. As we increase NC/NV the minority 
+charge carrier density decreases. Consequently, Voc was constant at value 594.70 mV, fill factor varied from 82.27% to 82.49% and Jsc 
+varied from 24.99 mA/cm2 to 25.01 mA/cm2 while the efficiency changed slightly from 12.23% to 12.27% (Fig. 4(b)). Further, the NA/ 
+ND is changed in the range 1 � 1013 to 1 � 1017 cm(cid:0) 3, and the simulated values in Fig. 4(c) illustrate that the defect states exist in the 
+perovskite layer resulting a noticeable change in Jsc and efficiency value change from 12.27% to 12.01%. 
+The thickness of the absorbing layer plays a very important role in the working of the device. Keeping the optimized values of 
+above-mentioned parameters for the absorbing layer, we varied the thickness of the active layer in the range 50–1000 nm [39]. With 
+SuperlatticesandMicrostructures140(2020)1064685
+Gagandeep et al.                                                                                                                                                                                                      
+Fig. 4. PSC performance with perovskite parameters optimization (a) dk, (b) NC/NV (cm(cid:0) 3), (c) NA/ND (cm(cid:0) 3), (d) thickness (nm) and (e) mobility 
+(μe/μh) (cm2/Vs) where p-graphene and n-cSi parameters used were: ND ¼ 0 and 1 � 1016 cm(cid:0) 3, NC/NV ¼ 3 � 1018 and 3 � 1019 cm(cid:0) 3, Eg ¼ 0.5 eV 
+and 1.12 eV, χ ¼ 5 and 4.05 eV, dk ¼ 11 and 11.9, and thickness ¼ 0.334 nm and 100 μm, respectively. 
+the increase in absorber thickness, the absorption of light in the layer also increases. The variation in PCE, FF, Jsc and Voc with absorber 
+layer thickness is shown in Fig. 4(d). The PCE and Jsc  decreases from 12.27% to 9.11% and 25.01 mA/cm2  to 18.57 mA/cm2 
+respectively with thickness because a thicker layer may result into increased recombination and lower charge collection efficiency. 
+Hence, using an optimum thickness would ensure a maximum current output from the device. The value of active layer thickness is 
+taken around 50 nm in this case. After optimizing the thickness of the active layer, we varied the charge carrier mobility (μe/μh) in the 
+range of 10(cid:0) 3 cm2/V.s to 50 cm2/V.s [49] and noted its effect on the performance of the cell. From Fig. 4(e) it is observed that all the 
+SuperlatticesandMicrostructures140(2020)1064686
+Gagandeep et al.                                                                                                                                                                                                      
+Fig. 
+Fig. 6. PSC performance with the variation in n-cSi parameters, (a) ND (cm(cid:0) 3), (b) NC/NV (cm(cid:0) 3), (c) χ (eV) and (d) thickness of n-cSi layer (μm) by 
+considering the parameters of p-graphene and perovskite layers mentioned in Table 1. 
+parameters i.e., Jsc, FF and efficiency increase significantly up to 10 cm2/V.s from the initial 13 mA/cm2 to 25.01 mA/cm2, 18.79%– 
+82.48% and 1.68%–12.27% respectively, except Voc with mobility and become almost constant up to 50 cm2/V.s. This may be due to 
+the decrease in recombination of charge carriers as a result of increase in mobility. The optimized parameters for the perovskite layer 
+are summarized in Table 1. Thus, it may be stated that the thickness and mobility values of the perovskite layer dominantly affect the 
+performance of the solar cell. On the other hand, the parameters like dielectric constant, NC/NV, NA/ND only slightly improve the 
+performance of the solar cell. This may be because at the initial value of the perovskite thickness taken as 50 nm, the charge transport is 
+SuperlatticesandMicrostructures140(2020)1064687
+Gagandeep et al.                                                                                                                                                                                                      
+Fig. 
+Fig. 
+adequate due to the long diffusion length of the perovskite material and the suitable built-in voltage at the HTL/perovskite interfaces, 
+saturating the efficiency of the solar cell without much change in the parameter range under study. The solar cell J-V characteristics as 
+well as quantum efficiency variation with wavelength for optimized parameters are plotted in Fig. 5(a) and (b). The behaviour of the 
+cell is shown for the optimized value of perovskite layer and p-graphene parameters mentioned in Table 1, while the parameters for 
+n-cSi mentioned in section 3.1 were used. 
+3.
+For obtaining the best possible structure, layer parameters were optimized by considering the parameters of p-graphene and 
+perovskite layers mentioned in Table 1. As, the donor concentration (ND) in n-cSi is increased from 1 � 1014 to 1 � 1017 cm(cid:0) 3, the work 
+function of the ETL is increased, which results to an increase in Voc. Thus, the values of the performance parameters of the device 
+increased with increase in ND and the results are shown in Fig. 6(a). Keeping ND ¼ 1 � 1017 cm(cid:0) 3, the value of NC/NV was changed from 
+of 3 � 1019 to 3 � 1021 cm(cid:0) 3 and the variation in the device performance is depicted in Fig. 6(b). From the graph it is seen that the Voc 
+significantly reduces from 655.70 mV to 419 mV, while Jsc decreased slightly from 26.63 mA/cm2 to 26.53 mA/cm2 with the variation 
+in NC/NV. The efficiency is reduced to 6.89%. Then taking the values of NC/NV ¼ 3 � 1019 cm(cid:0) 3 and ND ¼ 1 � 1017 cm(cid:0) 3, we varied the 
+electron affinity (χ) from 3.8 eV to 4.4 eV. In this range Voc was found to change from 676.80 mV to 655.70 mV but Jsc decreased, FF 
+and PCE of the cell increased initially and then remained constant as can be seen from Fig. 6(c). At χ ¼ 4.2 eV, the highest value of PCE 
+was attained and have a value 14.62%. Next, the thickness of the n-cSi layer was varied from 50 μm to 300 μm and the changes are 
+depicted in Fig. 6(d). The highest PCE is found to be 16.75% at a thickness of 300 μm. The simulation parameters are mentioned in 
+Table 1. The J-V characteristics and the QE for optimized thickness of n-cSi are plotted in Fig. 7(a and b) and confirm the PCE of 
+16.75% for this configuration. 
+SuperlatticesandMicrostructures140(2020)1064688
+Gagandeep et al.                                                                                                                                                                                                      
+Fig. 
+3.
+The different layer parameters in heterojunction solar cell have been optimized to obtain the best possible efficiency of the device. 
+To further understand the working of the device, the influence of operating temperature needs to be analysed. In the present study, we 
+vary the temperature from 300 K to 550 K. The temperature change is taken as an external parameter in the simulation. As the 
+temperature increases across the device, the energy band gap of the layer and carrier mobility across the layer interface is affected. The 
+carrier recombination increases with the rise in temperature. The degradation in the values of performance parameters has also been 
+previously attributed to the deformation and stress enhancement in device under the influence of temperature. These effects cause poor 
+interconnectivity between the layers and create more interfacial defects. A high recombination rate prevails resulting into an increase 
+in the series resistance and reduction in carrier diffusion length [50]. This is confirmed by our modelling results as depicted in Fig. 8. 
+The highest PCE is obtained at 300 K and has a value of 16.75%. 
+3.
+The working of a device is also influenced by the nature of front contact surface i.e. whether the front contact is plane or textured. 
+When the light falls on the front contact having textured surface with pyramidal topology, its angle of incidence with reference to the 
+inclined surfaces of the pyramids is changed. The front textured surface not only reduces the reflection, but also in effect increases the 
+optical path length as well as the optical thickness of the absorber. We simulated the PSC structure with and without textured front 
+surface. The variations in solar cell parameters with the angle of inclination of the pyramidal texture, hence forth referred to as the 
+angle of texture, are presented in Fig. 9. The PCE with textured surface is 17.90% as compared to 16.75% without textured surface. 
+Here, we varied the angle of texture from 0� to 80�. The value of Jsc is increased from 28.97 mA/cm2 to 30.87 mA/cm2. This variation 
+in Jsc is related to the optical confinement of the incident light due to multiple reflections; the short circuit current density being 
+proportional to incident light. The value of Voc increases from 686.3 mV to 687.9 mV with the angle of texture varying from 0� to 80�. 
+The FF of the device also varies from 84.22% to 84.31%. This behaviour is due to the increased optical confinement with increase in the 
+angle of textured surface. 
+The PCE of 17.90% for textured front surface is in good agreement with the other graphene based experimental studies [51] and 
+also enhanced as compared to other Si/perovskite hybrid solar cell [30]. 
+In the present study, we used p-graphene and n-cSi as a hole transporting material and electron transporting material respectively 
+in the perovskite solar cell and simulated the structure using AFORS-HET software. We noticed the effect of different layers on the 
+working of the device. The power conversion efficiency 16.75% is obtained for optimized structure. We studied the effect of operating 
+temperature as well as textured surface of front contact on the device performance. The device parameters decrease with the rise in 
+temperature. The efficiency for textured front surface is 17.90% as compared to 16.75% for plane front surface. This theoretical study 
+shows that p-graphene and n-cSi can be used as an efficient HTL and ETL respectively in hybrid perovskite solar cell. 
+Authors Statement 
+All the authors equally contributed for the problem, mention in the manuscript. 
+SuperlatticesandMicrostructures140(2020)1064689
+Gagandeep et al.                                                                                                                                                                                                      
+Declaration of competing interest 
+The authors declared that they don’t have any conflict of interest. 
+Acknowledgement 
+grant received through START-UP GRANT (No. F.30–364/2017 (BSR), Dated December 15, 2017). The authors are also thankful to Dr. 
+Appendix A. Supplementary data 
+10.1039/C4EE00942H. 
+References 
+[3] N.G. Park, M. Gratzel, T. Miyasaka, K. Zhu, K. Emery, Towards stable and commercially Available perovskite solar cells, Nat, Energy 1 (2016) 16152. 
+jz4020162. 
+[5] Z. Xing, et al., Photovoltaic performance and stability of fullerene/cerium oxide double electron transport layer superior to single one in p-i-n perovskite solar 
+[6] H.-S. Kim, I. Mora-Sero, V. Gonzalez-Pedro, F. Fabregat-Santiago, E.J. Juarez-Perez, N.-G. Park, J. Bisquert, Mechanism of carrier accumulation in perovskite 
+[7] H.J. Snaith, A. Abate, J.M. Ball, G.E. Eperon, T. Leijtens, N.K. Noel, S.D. Stranks, J, T.-W. Wang, K. Wojciechowski, W. Zhang, Anomalous hysteresis in 
+[8] T. Leijtens, G.E. Eperon, S. Pathak, A. Abate, M.M. Lee, H.J. Snaith, Overcoming ultraviolet light instability of sensitized TiO₂ with meso-super structured 
+[9] S. Ito, S. Tanaka, K. Manabe, H. Nishino, Effects of surface blocking layer of Sb2S3 on nanocrystalline TiO2 for CH3NH3PbI3 perovskite solar cells, J. Phys. Chem. 
+[10] H.-S. Kim, I.-H. Jang, N. Ahn, M. Choi, A. Guerrero, J. Bisquert, N.-G. Park, Control of I-V hysteresis in CH3NH3PbI3 perovskite solar cell, J. Phys. Chem. Lett. 6 
+org/10.1038/s41560-017-0067-y. 
+[12] W. Chen, L. Xu, X. Feng, J. Jie, Z. He, Metal acetylacetonate series inInterface Engineering for full low- temperature- processed, high –performance, and Stable 
+[13] W. Nie, et al., Critical role of interface and crystallinity on the performance and photo stability of perovskite solar cell on nickel oxide, Adv. Mater. 30 (2018) 
+10.1126/science.aad1015. 
+[15] B.A. Nejand, V. Ahmadi, S. Gharibzadeh, H.R. Shahverdi, Cuprous oxide as a potential low-cost hole-transport material for stable perovskite solar cells, 
+10.1002/smll.201501330. 
+[17] P. Qin, Q. He, G. Yang, X. Yu, L. Xiong, G. Fang, Metal ions diffusion at heterojunction chromium oxide/CH3NH3PbI3 Interface on the stability of perovskite solar 
+[18] P.L. Qin, H.W. Lei, X.L. Xheng, Q. Liu, H. Tao, G. Yang, W.J. Ke, L.B. Xiong, M.C. Qin, X.Z. Zhao, et al., Copper-doped chromium oxide hole transporting layer for 
+admi.201500799. 
+[19] K.I. Bolotin, K.J. Sikes, Z. Jiang, M. Klima, G. Fudenberg, J. Hone, P. Kim, H.L. Stormer, Ultrahigh electron mobility in suspended graphene, Solid State 
+[21] A.A. Balandin, S. Ghosh, W. Bao, I. Calizo, D. Teweldebrhan, F. Miao, C.N. Lau, Superior thermal conductivity of single-layer graphene, Nano Lett. 8 (2008) 
+[22] E. Ganz, A.B. Ganz, L. Yang, M. Dornfeld, The initial stages of melting of graphene between 4000 K and 6000k, Phys. Chem. Chem. Phys. 19 (2017) 3756–3762, 
+[23] S. Watanabe, et al., Development of perovskite solar cell using graphene as a hole transport layer and a blocking layer, in: 7th World Conference on Photovoltaic 
+[24] et Cao, et al., Well-defined thiolated nanographene as hole- transporting material for efficient and stable perovskite solar cell, J. Am. Chem. Soc. 137 (2015) 
+[25] K. Yan, et al., High-performance graphene-based hole conductor-free perovskite solar cells: Schottky junction enhanced hole extraction and electron blocking, 
+[26] P.S. Chandrasekhar, Graphene/ZnO nanocomposite as an electron transport layer for perovskite solar cells; the effect of graphene concentration on photovoltaic 
+[27] J.T. Wang, et al., Low temperature processed electron collection layers of graphene/TiO2 nanocomposites in thin film perovskite solar cell, Nano Lett. 14 (2014) 
+[28] X. Rong, et al., Impact of metal electrode work function of CH3NH3PbI3/p-Si planar heterojunction perovskite solar cells, Sol. Energy 158 (2017) 424–431, 
+[29] A. Madan et. al., Electrical and Optical properties of amorphous Si:F:H alloy, Am. J. Physiol. Lung Cell Mol. Physiol. 278 (200) 259-277. 
+SuperlatticesandMicrostructures140(2020)10646810
+Gagandeep et al.                                                                                                                                                                                                      
+[31] R. Stangl, M. Kriegel, M. Schmidt, AFORS-HET, version 2.2, a numerical computer program for simulation of heterojunction solar cells and measurements, in: 
+[32] R. Stangl, J. Haschke, C. Leendertz, Numerical Simulation of Solar Cells and Solar Cell Characterization Methods: the Open-Source on Demand Program AFORS- 
+[33] R. Varache, C. Leendertz, M.E. Gueunier-Farret, J. Haschke, D. Mu~noz, L. Korte, Investigation of selective junctions using a newly developed tunnel current 
+Proceedin of the WCPEC-4, Fourth World Conference on Photovoltaic Energy Conversion (Hawaii, USA), 2006, pp. 1350–1353. 
+solmat.2015.05.014. 
+10.1063/1.4927545. 
+PhysRevLett.115.1368022. 
+RevModPhys.83.407. 
+1556-276X-7-3022. 
+[36] F. Giannazzo, S. Sonde, V. Raineri, Electronic Properties of Graphene Probed at the Nanoscale, Physics and Applications of Graphene Experiments, 2011, 
+[39] S.M. Iftiquar, J.S. Kim, J. Yi, Investigation of highly efficient methyl ammonium lead halide perovskite solar cell with non-textured front surface, Optik 148 
+[40] D. Liu, M.K. Gangishetty, T.L. Kelly, Effect of CH3NH3PbI3 thickness on device efficiency in planar heterojunction perovskite solar cells, J. Mater. Chem. 2 
+[42] S. Das and J. Drucker, Nucleation and growth of single layer graphene on Electrodeposited Cu by cold wall chemical vapour deposition, Nanotechnology 
+[43] K. Patel, P.K. Tyagi, P- type multilayer graphene as a highly efficient transparent conducting electrode in silicon heterojunction solar cells, Carbon 116 (2017) 
+[46] R.R. Nair, P. Blake, A.N. Grigorenko, K.S. Novoselov, T.J. Booth, T. Stauber, N M, R. Peres, A.K. Geim, Fine structure constant defines visual transparency of 
+[47] M. Hirasawa, T. Ishihara, T. Goto, K. Uchida, N. Miura, Magneto absorption of the lowest exciton in perovskite-type compound (CH3NH3)PbI3, Physica B 201 
+[49] B. Maynard, et al., Electron and hole drift mobility measurements on methylammonium lead iodide perovskite solar cells, Appl. Phys. Lett. 108 (2016), 173505, 
+[50] S. Sajid, A.M. Elseman, J. Ji, S. Dou, D. Wei, H. Huang, P. Cui, W. Xi, L. Chu, Y. Li, B. Jiang, M. Li, Computational study of ternary devices: low cost, and high 
+doi.org/10.1021/nn4012253. 
+doi.org/10.1002/aenm.201903487. 
+10.1039/C3EE42282H. 
+cssc.
+SuperlatticesandMicrostructures140(2020)10646811
