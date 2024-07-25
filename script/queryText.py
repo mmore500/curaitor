@@ -73,7 +73,8 @@ def get_query_embedding(query_text, key_file_path, llm):
         # This should call an embedding API or use a locally hosted model
         response = client.embeddings.create(
             # input=query_text, model="text-embedding-3-large"
-            input=query_text, model="text-embedding-ada-002"
+            input=query_text,
+            model="text-embedding-ada-002",
         )
         return response.data[0].embedding
 
@@ -135,7 +136,8 @@ def query_llm(query_text, prompt, key_file_path, llm):
         # Generate a response from GPT-4 based on the formulated prompt
         response = client.chat.completions.create(
             # model="gpt-4", messages=[{"role": "system", "content": prompt_}]
-            model="gpt-3.5-turbo-0125", messages=[{"role": "system", "content": prompt_}]
+            model="gpt-3.5-turbo-0125",
+            messages=[{"role": "system", "content": prompt_}],
         )
         response_text = response.choices[0].message.content
 

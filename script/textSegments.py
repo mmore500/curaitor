@@ -27,12 +27,14 @@ tqdm.pandas()
 llama3_local = ""
 # key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
 
+
 # Retrieve OpenAI Key
 def read_key(key_file_path):
     # key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
     with open(key_file_path, "r") as file:
         key = file.read()
     return key
+
 
 def process_files(txt_directory, output_text_directory, key_file_path, llm):
     # Ensure the output directory for the text and embeddings exists
@@ -116,7 +118,8 @@ def add_embedding(df, client, llm):
             try:
                 response = client.embeddings.create(
                     # input=text, model="text-embedding-3-large"
-                    input=text, model="text-embedding-ada-002"
+                    input=text,
+                    model="text-embedding-ada-002",
                 )
                 return response.data[0].embedding
             except Exception as e:
