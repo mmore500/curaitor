@@ -1,33 +1,24 @@
 import os
 import subprocess
 
-# Define the output folder
+# Define output folder as current script directory
 output_folder = os.path.dirname(__file__)
-project_id = (
-    "4udrf"  # Replace with your actual project ID; need to set the token
-)
+
+# OSF project details
+project_id = "4udrf"  # Replace with actual project ID
 username = "lizhenzhupearl@gmail.com"
 
-# Construct the command with the output folder
+# Construct OSF clone command
 command = f"osf -p {project_id} -u {username} clone {output_folder}"
 
-
-# Running the command
+# Execute command and capture output
 process = subprocess.Popen(
-    command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+   command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
 )
-
-# Capture the output and errors
 stdout, stderr = process.communicate()
 
-# Decode the output and errors (assuming they are in bytes)
-stdout = stdout.decode("utf-8")
-stderr = stderr.decode("utf-8")
-
-# Print the output and errors
-print("Output:")
-print(stdout)
+# Decode and print output
+print("Output:", stdout.decode("utf-8"))
 
 if stderr:
-    print("Errors:")
-    print(stderr)
+   print("Errors:", stderr.decode("utf-8"))

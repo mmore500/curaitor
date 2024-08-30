@@ -22,8 +22,8 @@ from pdfminer.pdfparser import PDFParser
 from tqdm import tqdm
 
 
-def clean_pdf_text(text):
-    # Define patterns to identify the Abstract and References sections
+def clean_pdf_text(text: str) -> str:
+    """Clean PDF text by removing specific sections and unwanted content."""
     abstract_pattern = r"ABSTRACT:.*?(?=\n[A-Z]{2,}[ \n])"
     headings_pattern = r"^\b(METHODS|MATERIALS AND METHODS|INTRODUCTION|BACKGROUND|RESULTS|DISCUSSION|CONCLUSIONS|INVITED REVIEW)\b(?=\n)"
     references_pattern = r"REFERENCES\n.*"
@@ -85,8 +85,8 @@ def clean_pdf_text(text):
     return clean_text
 
 
-def read_pdf(pdf_path):
-    # Read the PDF and extract its text
+def read_pdf(pdf_path: str) -> str:
+    """Read and extract text from a PDF file."""
 
     # Open the PDF file in binary mode
     with open(pdf_path, "rb") as file:
@@ -141,14 +141,14 @@ def read_pdf(pdf_path):
 #     return valid_tables
 
 
-def write_cleaned_text(cleaned_text, output_path):
-    # Write the cleaned text to an output file
+def write_cleaned_text(cleaned_text: str, output_path: str):
+    """Write cleaned text to an output file."""
     with open(output_path, "w", encoding="utf-8") as file:
         file.write(cleaned_text)
 
 
-def process_pdf(input_pdf_path, output_directory):
-    # Read the PDF
+def process_pdf(input_pdf_path: str, output_directory: str):
+    """Process a single PDF file."""
     text = read_pdf(input_pdf_path)
 
     # Construct output path
@@ -176,8 +176,8 @@ def process_pdf(input_pdf_path, output_directory):
     print(f"Cleaned text has been written to file: {output_path}")
 
 
-def process_all_pdfs(pdfs_directory, output_directory):
-    # Ensure the output directory exists, create it if not
+def process_all_pdfs(pdfs_directory: str, output_directory: str):
+    """Process all PDF files in a directory."""
     if not os.path.exists(output_directory):
         os.makedirs(output_directory, exist_ok=True)
 
@@ -191,8 +191,8 @@ def process_all_pdfs(pdfs_directory, output_directory):
         process_pdf(input_pdf_path, output_directory)
 
 
-def clean_text_file(file_path):
-    # Define the pattern for lines to remove
+def clean_text_file(file_path: str):
+    """Clean a single text file by removing unwanted lines and patterns."""
     unwanted_lines_pattern = re.compile(
         r"^.+?(published|doi|\bpublication\b|\barticle\b|\bcorrespondence\b|\bDept\. \b|E-mail|Downloaded|\bVol\.\b|www\.|Copyright|http|journals|INVITED REVIEW|Department|University|Univ\.).*$",
         re.MULTILINE | re.IGNORECASE,
@@ -225,8 +225,8 @@ def clean_text_file(file_path):
         file.write(cleaned_text)
 
 
-def process_text_files(directory):
-    # Iterate through all text files in the directory
+def process_text_files(directory: str):
+    """Process all text files in a directory."""
     for filename in os.listdir(directory):
         if filename.endswith(".txt"):
             file_path = os.path.join(directory, filename)
