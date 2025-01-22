@@ -6,6 +6,8 @@
 
 Schmidt OxRSE 2024 Project
 
+Retrieval-Augmented Generation (RAG) for LLMs
+
 -   Free software: MIT license
 -   Documentation: [Read the Docs](https://curaitor.readthedocs.io/en/latest/)
 
@@ -69,6 +71,11 @@ This will start the Streamlit server and open the user interface in your default
 
 ![Streamlit UI Screenshot](curaitor.png)
 
+## Curaitor architecture
+
+RAG-LLMs architecture used in this repo.
+
+![Curator RAG-LLMs](Curaitor_architecture.png)
 
 ## Contribution Guidelines
 
