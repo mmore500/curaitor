@@ -40,8 +40,8 @@ def find_most_relevant_text(embeddings, query_embedding, top_k=5):
     # return np.argmax(similarities)
 
 
-# Assuming 'texts' and 'embeddings' are loaded from files or a database
 def load_texts_and_embeddings(text_filename, embedding_filename):
+    """Load texts and embeddings from files."""
     texts = np.load(
         text_filename, allow_pickle=True
     )  # Load texts if saved as a NumPy array
@@ -50,6 +50,7 @@ def load_texts_and_embeddings(text_filename, embedding_filename):
 
 
 def read_key(key_file_path):
+    """Read API key from file."""
     # key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
     with open(key_file_path, "r") as file:
         key = file.read()
@@ -63,8 +64,8 @@ def read_key(key_file_path):
 # client = OpenAI(api_key=key)
 
 
-# Assume you have a function to generate or fetch your query embedding
 def get_query_embedding(query_text, key_file_path, llm):
+    """Get embedding for query text based on specified LLM."""
     if llm.startswith("GPT"):
         # key_file_path = ""
         key = read_key(key_file_path)
@@ -114,7 +115,7 @@ def get_query_embedding(query_text, key_file_path, llm):
 
 
 def query_llm(query_text, prompt, key_file_path, llm):
-    # Load data
+    """Query LLM with given text and prompt."""
     text = glob.glob("*texts.npy")[0]
     embed = glob.glob("*embeddings.npy")[0]
     texts, embeddings = load_texts_and_embeddings(text, embed)
@@ -152,7 +153,7 @@ def query_llm(query_text, prompt, key_file_path, llm):
         chatbot = ChatOllama(model="llama3", temperature=0)
         chat_prompt = ChatPromptTemplate.from_template(prompt_)
         chain = chat_prompt | chatbot | StrOutputParser()
-        full_output = chain.invoke({"Context": {relevant_text}})
+        full_output = chain.invoke({"Context": relevant_text})
         response_text = full_output
 
     # Debug: Print the raw response text

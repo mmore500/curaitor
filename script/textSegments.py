@@ -1,18 +1,17 @@
 """
-File name: textSegments.py
+File: textSegments.py
 Author: Stephanie Khuu
 Date created: 2024-04-16
 Date last modified: 2024-05-24
 Python Version: 3.11.4
 
 Description:
-This script processes existing cleaned text files and gets the number of tokens, as well as creates embeddings.
-Embeddings, text and page information are then saved to .npy files.
+Process cleaned text files to get token counts and create embeddings.
+Save embeddings, text and page information to .npy files.
 """
 
 from datetime import datetime
 import os
-
 from langchain_community.embeddings import OllamaEmbeddings
 import numpy as np
 from openai import OpenAI
@@ -27,54 +26,48 @@ tqdm.pandas()
 llama3_local = ""
 # key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
 
-
-# Retrieve OpenAI Key
-def read_key(key_file_path):
+def read_key(key_file_path: str) -> str:
+    """Read OpenAI API key from file."""
     # key_file_path = "/Users/riteshk/Library/CloudStorage/Box-Box/Research-postdoc/oxRSE-project/API_KEY"
     with open(key_file_path, "r") as file:
         key = file.read()
     return key
 
-
-def process_files(txt_directory, output_text_directory, key_file_path, llm):
-    # Ensure the output directory for the text and embeddings exists
+def process_files(txt_directory: str, output_text_directory: str, key_file_path: str, llm: str):
+    """Process text files and generate embeddings."""
     if not os.path.exists(output_text_directory):
         os.makedirs(output_text_directory)
 
-    client = None  # Initialize client to None
+    client = None
     # if llm == "GPT*":
     if llm.startswith("GPT"):
-        # Configure OpenAI API client
         client = OpenAI(api_key=read_key(key_file_path))
 
-    all_data = []  # Store data for all files
+    all_data = []
     file_list = [f for f in os.listdir(txt_directory) if f.endswith(".txt")]
     for filename in tqdm(file_list, desc="Processing files"):
         file_path = os.path.join(txt_directory, filename)
         data = get_txt_tokens(file_path)
         all_data.extend(data)
 
-    # Convert collected data into a DataFrame
     df = pd.DataFrame(all_data)
     print("Adding embeddings...")
-    # if client is not None:  # Check if client is not None before using it
+    # if client is not None:
     df_with_embeddings = add_embedding(df, client, llm)
     print("Saving data...")
     current_datetime = str(datetime.now().strftime("%Y-%m-%d %H-%M-%S"))
     embeddings_file_name = current_datetime + "embeddings.npy"
     save_embeddings_to_npy(df_with_embeddings, embeddings_file_name)
-    # Save processed DataFrame to CSV
 
-    # else:  # Check if client is not None before using it
+    # else:
     #     df_with_embeddings = add_embedding(df, client, llm)
     #     print("Saving data...")
     #     current_datetime = str(datetime.now().strftime("%Y-%m-%d %H-%M-%S"))
     #     embeddings_file_name = current_datetime + "embeddings.npy"
     #     save_embeddings_to_npy(df_with_embeddings, embeddings_file_name)
-    #     # Save processed DataFrame to CSV
 
-
-def get_txt_tokens(file_path):
+def get_txt_tokens(file_path: str) -> list:
+    """Extract tokens from text file."""
     data = []
     with open(file_path, "r", encoding="utf-8") as txt_content:
         text = txt_content.read()
@@ -82,38 +75,32 @@ def get_txt_tokens(file_path):
         text_join = " ".join(words)
         text_len = len(text_join)
         num_text_parts = 15
-        div_len = max(1, text_len // num_text_parts)  # Avoid division by zero
-        text_parts = [
-            text_join[i * div_len : (i + 1) * div_len]
-            for i in range(num_text_parts)
-        ]
+        div_len = max(1, text_len // num_text_parts)
+        text_parts = [text_join[i*div_len:(i+1)*div_len] for i in range(num_text_parts)]
         for i, text_part in enumerate(text_parts):
-            data.append(
-                {
-                    "file name": os.path.basename(file_path),
-                    "page number": 1,
-                    "page section": i + 1,
-                    "content": text_part,
-                    "tokens": count_tokens(text_part),
-                }
-            )
+            data.append({
+                "file name": os.path.basename(file_path),
+                "page number": 1,
+                "page section": i + 1,
+                "content": text_part,
+                "tokens": count_tokens(text_part),
+            })
     return data
 
-
-def count_tokens(text):
+def count_tokens(text: str) -> int:
+    """Count tokens in text using tiktoken."""
     encoding = tiktoken.get_encoding("cl100k_base")
     num_tokens = len(encoding.encode(text))
     return num_tokens
 
-
-def add_embedding(df, client, llm):
+def add_embedding(df: pd.DataFrame, client: OpenAI, llm: str) -> pd.DataFrame:
+    """Add embeddings to dataframe based on LLM type."""
     if "embedding" in df.columns:
         print("The dataframe already has embeddings. Please double check.")
         return df
 
     # if llm == "GPT*":
-    elif llm.startswith("GPT"):
-        # Define a function to get embeddings
+    if llm.startswith("GPT"):
         def get_embedding_openai(text):
             try:
                 response = client.embeddings.create(
@@ -126,30 +113,18 @@ def add_embedding(df, client, llm):
                 print("Failed to retrieve embedding:", e)
                 return None
 
-        # Apply the function to the 'content' column
         df["embedding"] = df["content"].progress_apply(get_embedding_openai)
-        # return df
 
     # elif llm == "HF*":
     elif llm.startswith("HF"):
-        """Adds an 'embedding' column to a dataframe using Llama2/3"""
         full_model = AutoModel.from_pretrained(llama3_local)
         tokenizer = AutoTokenizer.from_pretrained(llama3_local)
-
-        # if 'embedding' in df.columns:
-        #     print('The dataframe already has embeddings. Please double check.')
-        #     return df
 
         embed_msgs = []
         for _, row in df.iterrows():
             context = row["content"]
             seq_id = tokenizer(context, return_tensors="pt")["input_ids"]
-            embedding = (
-                full_model(seq_id)["last_hidden_state"]
-                .mean(axis=[0, 1])
-                .detach()
-                .numpy()
-            )
+            embedding = full_model(seq_id)["last_hidden_state"].mean(axis=[0, 1]).detach().numpy()
             # inputs = tokenizer(context, return_tensors="pt")
             # outputs = model(**inputs)
             # context_emb = outputs.last_hidden_state[:, -1, :].detach().numpy()
@@ -158,7 +133,6 @@ def add_embedding(df, client, llm):
 
         df = df.copy()
         df.loc[:, "embedding"] = embed_msgs
-        # return df
 
     # elif llm == "Ollama*":
     elif llm.startswith("Ollama"):
@@ -174,41 +148,27 @@ def add_embedding(df, client, llm):
 
     return df
 
-
-def save_embeddings_to_npy(df, filename):
-    # Extract embeddings into a numpy array and save to a binary file
+def save_embeddings_to_npy(df: pd.DataFrame, filename: str):
+    """Save embeddings and related data to .npy files."""
     if "embedding" in df.columns:
-        embeddings = np.vstack(
-            df["embedding"].apply(lambda x: np.zeros(1024) if x is None else x)
-        )
+        embeddings = np.vstack(df["embedding"].apply(lambda x: np.zeros(1024) if x is None else x))
         np.save(filename, embeddings)
         # embeddings = np.vstack(df['embedding'].values)  # Stack embeddings which are in list format
     # np.save(filename, embeddings)
     if "content" in df.columns:
         content_data = np.vstack(df["content"].values)
-        # Save the "content" data to `texts.npy`
         current_datetime = str(datetime.now().strftime("%Y-%m-%d %H-%M-%S"))
         texts_file_name = current_datetime + "texts.npy"
         pages_file_name = current_datetime + "pages.npy"
         np.save(texts_file_name, content_data)
 
-    # Save other data into separate .npy files if needed
-    if {
-        "file name",
-        "page number",
-        "page section",
-        "content",
-        "tokens",
-    }.issubset(df.columns):
-        pages_data = df[
-            ["file name", "page number", "page section", "content", "tokens"]
-        ].to_numpy()
+    if {"file name", "page number", "page section", "content", "tokens"}.issubset(df.columns):
+        pages_data = df[["file name", "page number", "page section", "content", "tokens"]].to_numpy()
         np.save(pages_file_name, pages_data)
     else:
         print("incorrect column names")
 
     print("Data saved successfully.")
-
 
 # # List of PDF file names
 # # txt_directory = 'articles/review/output/textOutput'
